@@ -36,18 +36,7 @@ public class Application {
         }
 
         System.out.println();
-        System.out.println();System.out.println();System.out.println();
-        System.out.println();System.out.println();System.out.println();System.out.println();
         System.out.println();
-
-        System.out.println();System.out.println();System.out.println();System.out.println();
-
-
-
- // Pravq ti proba
-
-
-
-
+        System.out.println();
     }
 }
