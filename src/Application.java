@@ -20,7 +20,7 @@ public class Application {
         }
         */
 
-
+        // Hello world
         Hero darius = new Hero(500, 400, 100, 20, 400, 300);
         Hero morgana = new Hero(500, 400, 100, 20, 400, 300);
 
