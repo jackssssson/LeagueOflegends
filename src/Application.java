@@ -35,16 +35,6 @@ public class Application {
             System.out.println(morgana.getHealth());
         }
 
-        System.out.println();System.out.println();System.out.println();System.out.println();
-        System.out.println();
-        System.out.println();System.out.println();System.out.println();System.out.println();
-        System.out.println();
-        System.out.println();System.out.println();System.out.println();System.out.println();
-        System.out.println();
-        System.out.println();System.out.println();System.out.println();System.out.println();
-        System.out.println();
-
-
 
     }
 }
