@@ -37,8 +37,7 @@ public class Application {
 
         System.out.println();System.out.println();System.out.println();System.out.println();
         System.out.println();
-        System.out.println();System.out.println();
-        System.out.println();
+        
 
 
     }
