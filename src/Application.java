@@ -35,8 +35,6 @@ public class Application {
             System.out.println(morgana.getHealth());
         }
 
-        System.out.println("asdsda");
-        System.out.println("asdsadsda");
-        System.out.println("asasddsda");
+
     }
 }
