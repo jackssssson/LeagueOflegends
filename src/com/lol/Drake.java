@@ -8,7 +8,6 @@ public class Drake extends Creatures implements Movable {
     private static final int MAX_DRAKE_SPEED = 1000;
     private static final int MIN_DRAKE_SPEED = 0;
     private static final int BUFFED_DRAKE_SPEED = 10;
-    private boolean isBuffed;
     private int drakeHealth;
     private int speed;
 
@@ -40,14 +39,15 @@ public class Drake extends Creatures implements Movable {
 
 
     @Override
-    public int move() {
+    public int move(int heroSpeed) {
         int currentSpeedDrake = getSpeed();
 
-        if (getIsBuffed()){
+        if (currentSpeedDrake < heroSpeed){
             currentSpeedDrake += BUFFED_DRAKE_SPEED;
+            setSpeed(currentSpeedDrake);
         }
 
-        setBuffed(false);
+
         return currentSpeedDrake;
     }
 
@@ -75,11 +75,5 @@ public class Drake extends Creatures implements Movable {
         return this.speed;
     }
 
-    public boolean getIsBuffed() {
-        return isBuffed;
-    }
 
-    public void setBuffed(boolean buffed) {
-        isBuffed = buffed;
-    }
 }

@@ -134,7 +134,7 @@ public class Hero {
     }
 
     public void creepAttackHero() {
-        int creepSpeed = creep.move();
+        int creepSpeed = creep.move(getHeroSpeed());
 
         if (creepSpeed < heroSpeed) {
             System.out.println("Creep can`t attack because hero is not in range");
@@ -155,7 +155,7 @@ public class Hero {
     }
 
     public void drakeAttackHero() {
-        int drakeSpeed = drake.move();
+        int drakeSpeed = drake.move(getHeroSpeed());
 
         if (drakeSpeed < heroSpeed) {
             System.out.println("Drake can`t attack because hero is not in range");

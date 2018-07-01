@@ -1,5 +1,5 @@
 package com.lol;
 
 public interface Movable {
-    int move();
+    int move(int heroSpeed);
 }
