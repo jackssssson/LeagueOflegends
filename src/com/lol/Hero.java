@@ -17,6 +17,7 @@ public class Hero {
     // fields First
     private int health;
     private int mana;
+    private int armor;
     private int attackDamage;
     private int apDamage;
     private int gold;
@@ -25,21 +26,18 @@ public class Hero {
     private Creeps creep = new Creeps();
     private Drake drake = new Drake();
 
+
+    // Alex
+    private boolean isDead = false;
+
     //constructor First
-    public Hero(int health, int mana, int attackDamage, int apDamage, int gold, int heroSpeed) {
-        setHealth(health);
-        setMana(mana);
-        setAttackDamage(attackDamage);
-        setApDamage(apDamage);
-        setGold(gold);
-        setHeroSpeed(heroSpeed);
+    public Hero(){
     }
 
     //getters and setters First
     public int getHealth() {
         return health;
     }
-
     public void setHealth(int health) {
         if (health > MAX_HEALTH) {
             throw new RuntimeException("Invalid health");
@@ -51,13 +49,19 @@ public class Hero {
     public int getMana() {
         return mana;
     }
-
     public void setMana(int mana) {
         if (mana < MIN_MANA || mana > MAX_MANA) {
             throw new RuntimeException("Invalid mana");
         }
 
         this.mana = mana;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
     public int getAttackDamage() {
@@ -75,7 +79,6 @@ public class Hero {
     public int getApDamage() {
         return apDamage;
     }
-
     public void setApDamage(int apDamage) {
         if (apDamage < MIN_AP_DAMAGE || apDamage > MAX_AP_DAMAGE) {
             throw new RuntimeException("Invalid apDamage");
@@ -87,13 +90,19 @@ public class Hero {
     public int getGold() {
         return gold;
     }
-
     public void setGold(int gold) {
         if (gold < MIN_GOLD) {
             throw new RuntimeException("Invalid gold");
         }
 
         this.gold = gold;
+    }
+
+    public boolean isDead() {
+        return isDead;
+    }
+    public void setisDead(boolean dead){
+        isDead = dead;
     }
 
     public boolean getIsHeroDead() {

@@ -1,8 +1,13 @@
+import com.lol.Ahri;
 import com.lol.Hero;
 
 public class Application {
     public static void main(String[] args) {
-        Hero hero = new Hero(500, 400, 100, 20, 400, 300);
+
+        Hero hero = new Ahri();
+
+
+        //Hero hero = new Hero(500, 400, 100, 20, 400, 300);
 
 
         // hero.heroAttackNashor();
@@ -21,30 +26,21 @@ public class Application {
         */
 
         // Hello world
-        Hero darius = new Hero(500, 400, 100, 20, 400, 300);
-        Hero morgana = new Hero(500, 400, 100, 20, 400, 300);
-
-        for (int i = 0; i < 5; i++) {
-            morgana.setHealth(darius.heroAttackAnotherHero(darius, morgana));
-
-            if (morgana.getHealth() <= 0) {
-                System.out.println("Morgana is dead");
-                break;
-            }
-
-            System.out.println(morgana.getHealth());
-        }
-
-        System.out.println();
-        System.out.println();System.out.println();System.out.println();
-        System.out.println();System.out.println();System.out.println();System.out.println();
-        System.out.println();
-
-        System.out.println();System.out.println();System.out.println();System.out.println();
+//        Hero darius = new Hero(500, 400, 100, 20, 400, 300);
+//        Hero morgana = new Hero(500, 400, 100, 20, 400, 300);
+//
+//        for (int i = 0; i < 5; i++) {
+//            morgana.setHealth(darius.heroAttackAnotherHero(darius, morgana));
+//
+//            if (morgana.getHealth() <= 0) {
+//                System.out.println("Morgana is dead");
+//                break;
+//            }
+//
+//            System.out.println(morgana.getHealth());
+//        }
 
 
-
- // Pravq ti proba
 
 
 
