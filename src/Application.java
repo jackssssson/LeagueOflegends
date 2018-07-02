@@ -4,10 +4,35 @@ import com.lol.Jarvan;
 
 public class Application {
     public static void main(String[] args) {
-        Hero hero = new Ahri();
-        Hero hero2 = new Jarvan();
+        Hero Ahri = new Ahri();
+        Hero Jarvan = new Jarvan();
 
-        hero.NormalAttack();
+        Ahri.NormalAttack(Ahri,Jarvan);
+        Ahri.MagicAttack(Ahri, Jarvan);
+        Jarvan.UltimateAttack(Jarvan, Ahri);
+
+        // tests
+
+
+//        int CriticalChance = 99;
+//        int r = (int) (Math.random() * (100 - 1)) + 1;
+//
+//        if(r < CriticalChance){
+//            Jarvan.setHealth(49);
+//            Jarvan.setArmor(0);
+//
+//
+//        }
+
+
+
+
+
+
+
+
+
+
 
 
         //Hero hero = new Hero(500, 400, 100, 20, 400, 300);

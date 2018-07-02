@@ -14,7 +14,9 @@ public class Hero {
     private static final int MAX_SPEED = 1000;
     private static final int HERO_BUFFED_SPEED = 10;
 
+
     // fields First
+    private String name;
     private int health;
     private int mana;
     private int armor;
@@ -35,6 +37,14 @@ public class Hero {
     }
 
     //getters and setters First
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -67,7 +77,6 @@ public class Hero {
     public int getAttackDamage() {
         return attackDamage;
     }
-
     public void setAttackDamage(int attackDamage) {
         if (attackDamage < MIN_ATTACK_DAMAGE || attackDamage > MAX_ATTACK_DAMAGE) {
             throw new RuntimeException("Invalid attackDamage");
@@ -105,14 +114,9 @@ public class Hero {
         isDead = dead;
     }
 
-    public boolean getIsHeroDead() {
-        return isHeroDead();
-    }
-
     public int getHeroSpeed() {
         return heroSpeed;
     }
-
     public void setHeroSpeed(int heroSpeed) {
         if (heroSpeed < MIN_SPEED || heroSpeed > MAX_SPEED) {
             throw new RuntimeException("Invalid speed");
@@ -181,9 +185,9 @@ public class Hero {
         return defender.health;
     }
 
-    public void NormalAttack(){
-
-    }
+    public void NormalAttack(Hero attacker , Hero defender){}
+    public void MagicAttack(Hero attacker , Hero defender){}
+    public void UltimateAttack(Hero attacker, Hero defender){ }
 
 
     private boolean isHeroDead() {
