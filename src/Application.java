@@ -1,15 +1,23 @@
-import com.lol.Ahri;
-import com.lol.Hero;
-import com.lol.Jarvan;
+import com.lol.*;
 
 public class Application {
     public static void main(String[] args) {
         Hero Ahri = new Ahri();
         Hero Jarvan = new Jarvan();
-
         Ahri.NormalAttack(Ahri,Jarvan);
         Ahri.MagicAttack(Ahri, Jarvan);
         Jarvan.UltimateAttack(Jarvan, Ahri);
+
+
+        //test Rumi
+
+        System.out.println("Before byu Hunters Machete - Ahri AttackDamage:"+Ahri.getAttackDamage()+"  Ahri Gold:"+Ahri.getGold());
+
+        Items newitem = Items.HUNTERS_MACHETE;
+        Item.buyItem(Ahri, newitem);
+
+        System.out.println("After byu Hunters Machete - Ahri AttackDamage:"+Ahri.getAttackDamage()+"  Ahri Gold:"+Ahri.getGold());
+
 
         // tests
 
@@ -122,5 +130,8 @@ public class Application {
             System.out.println("Hero health is " + hero.getHealth());
         }
         */
+
     }
+
+
 }
