@@ -181,6 +181,11 @@ public class Hero {
         return defender.health;
     }
 
+    public void NormalAttack(){
+
+    }
+
+
     private boolean isHeroDead() {
         if (health <= 0) {
             return true;

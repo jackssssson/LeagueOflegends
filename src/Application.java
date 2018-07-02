@@ -1,10 +1,14 @@
 import com.lol.Ahri;
 import com.lol.Hero;
+import com.lol.Jarvan;
 
 public class Application {
     public static void main(String[] args) {
 
         Hero hero = new Ahri();
+        Hero hero2 = new Jarvan();
+
+        hero.NormalAttack();
 
 
         //Hero hero = new Hero(500, 400, 100, 20, 400, 300);
