@@ -8,7 +8,6 @@ public class Creeps extends Creatures implements Movable {
     private static final int MAX_CREEPS_SPEED = 300;
     private static final int MIN_CREEPS_SPEED = 0;
     private static final int BUFFED_CREEP_SPEED = 10;
-    private boolean isBuffed;
     private int creepsHealth;
     private int speed;
 
@@ -39,14 +38,15 @@ public class Creeps extends Creatures implements Movable {
 
 
     @Override
-    public int move() {
+    public int move(int heroSpeed) {
         int currentSpeedCreep = getSpeed();
 
-        if (getIsBuffed()){
+        if (currentSpeedCreep < heroSpeed){
             currentSpeedCreep += BUFFED_CREEP_SPEED;
+            setSpeed(currentSpeedCreep);
         }
 
-        setBuffed(false);
+
         return currentSpeedCreep;
     }
 
@@ -74,11 +74,5 @@ public class Creeps extends Creatures implements Movable {
         return this.speed;
     }
 
-    public boolean getIsBuffed() {
-        return isBuffed;
-    }
 
-    public void setBuffed(boolean buffed) {
-        isBuffed = buffed;
-    }
 }
