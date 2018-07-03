@@ -22,10 +22,12 @@ public class Application {
         System.out.println(Player3.getType());
         System.out.println();*/
 
+
         Hero zed = new Hero("zed");
         Nashor nashor = new Nashor();
         System.out.println(zed.getHealth());
         nashor.attackHeroes(zed);
         System.out.println(zed.getHealth());
+        System.out.println(zed.getMana());
     }
 }
