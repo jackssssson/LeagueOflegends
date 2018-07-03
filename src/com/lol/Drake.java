@@ -1,40 +1,50 @@
 package com.lol;
 
 public class Drake extends Creatures implements Movable {
-    private static final int DRAKE_GOLD_DEAD = 300;
+    private static final String NAME = "Drake";
     private static final int DRAKE_DAMAGE = 100;
+    private static final int DRAKE_ARMOR = 50;
     private static final int DRAKE_HEALTH = 5000;
-    private static final int MAX_DRAKE_HEALTH = 10000;
-    private static final int MAX_DRAKE_SPEED = 1000;
-    private static final int MIN_DRAKE_SPEED = 0;
+    private static final int DRAKE_SPEED = 250;
     private static final int BUFFED_DRAKE_SPEED = 10;
-    private int drakeHealth;
+    private static final int DRAKE_MIN_SPEED = 0;
+    private static final int DRAKE_MAX_SPEED = 500;
     private int speed;
 
     public Drake() {
-        this.drakeHealth = DRAKE_HEALTH;
-        setSpeed(speed);
+        setName(NAME);
+        setHealth(DRAKE_HEALTH);
+        setArmor(DRAKE_ARMOR);
+        setAttackDamage(DRAKE_DAMAGE);
+        setSpeed(DRAKE_SPEED);
+        setIsDead(false);
     }
 
     @Override
-    public int doDamage(int heroSpeed) {
-        if (getSpeed() < heroSpeed){
-            return 0;
+    public void attackHeroes(Hero hero) {
+        if (getIsDead()){
+            System.out.println("Hero is already dead!");
+            return;
         }
 
-        return DRAKE_DAMAGE;
-    }
+        int currentSpeedDrake = move(hero.getSpeed());
 
-    @Override
-    public int heroAttack(int damage) {
-        drakeHealth = getDrakeHealth() - damage;
-        setDrakeHealth(drakeHealth);
-
-        if (drakeHealth <= 0){
-            return DRAKE_GOLD_DEAD;
+        if (currentSpeedDrake < hero.getSpeed()){
+            System.out.println("Hero is out of range");
+            return;
         }
 
-        return 0;
+        int heroHealth = hero.getHealth();
+        heroHealth -= DRAKE_DAMAGE;
+
+        if (heroHealth <= 0) {
+            hero.setHealth(0);
+            setIsDead(true);
+            System.out.println("Hero is dead!");
+            return;
+        }
+
+        hero.setHealth(heroHealth);
     }
 
 
@@ -51,29 +61,16 @@ public class Drake extends Creatures implements Movable {
         return currentSpeedDrake;
     }
 
-    public void setSpeed(int speed) {
-        if (speed < MIN_DRAKE_SPEED || speed > MAX_DRAKE_SPEED) {
+    private int getSpeed() {
+        return this.speed;
+    }
+
+
+    private void setSpeed(int speed) {
+        if (speed < DRAKE_MIN_SPEED || speed > DRAKE_MAX_SPEED) {
             throw new RuntimeException("Invalid speed");
         }
 
         this.speed = speed;
     }
-
-    public int getDrakeHealth() {
-        return drakeHealth;
-    }
-
-    public void setDrakeHealth(int drakeHealth) {
-        if (drakeHealth > MAX_DRAKE_HEALTH) {
-            throw new RuntimeException("Invalid health");
-        }
-
-        this.drakeHealth = drakeHealth;
-    }
-
-    public int getSpeed() {
-        return this.speed;
-    }
-
-
 }

@@ -1,44 +1,37 @@
 package com.lol;
 
 public class Nashor extends Creatures {
-    private static final int NASHOR_GOLD_DEAD = 500;
+    private static final String NAME = "Nashor";
+    private static final int NASHOR_ARMOR = 300;
     private static final int NASHOR_DAMAGE = 200;
     private static final int NASHOR_HEALTH_AT_START = 10000;
-    private static final int MAX_NASHOR_HEALTH = 20000;
 
-    private int nashorHealth;
 
     public Nashor() {
-        this.nashorHealth = NASHOR_HEALTH_AT_START;
+        setName(NAME);
+        setHealth(NASHOR_HEALTH_AT_START);
+        setArmor(NASHOR_ARMOR);
+        setAttackDamage(NASHOR_DAMAGE);
+        setIsDead(false);
     }
 
     @Override
-    public int doDamage(int heroSpeed) {
-        return NASHOR_DAMAGE;
-    }
-
-    @Override
-    public int heroAttack(int damage) {
-        nashorHealth = getNashorHealth() - damage;
-        setNashorHealth(nashorHealth);
-
-        if (nashorHealth <= 0){
-            return NASHOR_GOLD_DEAD;
+    public void attackHeroes(Hero hero) {
+        if (getIsDead()){
+            System.out.println("Hero is already dead!");
+            return;
         }
 
-        return 0;
-    }
+        int heroHealth = hero.getHealth();
+        heroHealth -= NASHOR_DAMAGE;
 
-
-    public int getNashorHealth() {
-        return nashorHealth;
-    }
-
-    public void setNashorHealth(int nashorHealth) {
-        if (nashorHealth > MAX_NASHOR_HEALTH){
-            throw new RuntimeException("Invalid health");
+        if (heroHealth <= 0) {
+            hero.setHealth(0);
+            setIsDead(true);
+            System.out.println("Hero is dead!");
+            return;
         }
 
-        this.nashorHealth = nashorHealth;
+        hero.setHealth(heroHealth);
     }
 }
