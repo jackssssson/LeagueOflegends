@@ -1,51 +1,44 @@
-import com.lol.*;
+import com.lol.Hero;
 
 public class Application {
-    public static void main(String[] args) {
-
-        //Hero ahri = new Ahri();
-        //Drake drake = new Drake();
-        //Creeps creeps = new Creeps();
-        //Nashor nashor = new Nashor();
+    public static void main(String[] args)throws NoSuchFieldException,
+            IllegalAccessException {
 
 
-        //for (int i = 0; i < 10; i++){
-        //    drake.attackHeroes(ahri);
+        //Hero tests
+       /* Hero Player1 = new Hero("ahri");
+        System.out.println(Player1.toString());
+        System.out.println(Player1.getType());
+        System.out.println();
 
-        Hero Ahri = new Ahri();
-        Hero Jarvan = new Jarvan();
-        Ahri.normalAttack(Ahri,Jarvan);
-        Ahri.magicAttack(Ahri, Jarvan);
-        Jarvan.ultimateAttack(Jarvan, Ahri);
+        Hero Player2 = new Hero("Jarvan");
+        System.out.println(Player2.toString());
+        System.out.println(Player2.getType());
+        System.out.println();
+
+        Hero Player3 = new Hero("zed");
+        System.out.println(Player3.toString());
+        System.out.println(Player3.getType());
+        System.out.println();*/
 
 
-        //test Rumi
 
-        System.out.println("Before byu Hunters Machete - Ahri AttackDamage:"+Ahri.getAttackDamage()+"  Ahri Gold:"+Ahri.getGold());
 
-        Items newitem = Items.HUNTERS_MACHETE;
-        Item.buyItem(Ahri, newitem);
-
-        System.out.println("After byu Hunters Machete - Ahri AttackDamage:"+Ahri.getAttackDamage()+"  Ahri Gold:"+Ahri.getGold());
 
 
         // tests
 
 
-        //    System.out.println(ahri.getHealth());
-        //}
+//        int CriticalChance = 99;
+//        int r = (int) (Math.random() * (100 - 1)) + 1;
+//
+//        if(r < CriticalChance){
+//
+//
+//
+//        }
 
-        //for (int i = 0; i < 30; i++){
-        //    creeps.attackHeroes(ahri);
 
-        //    System.out.println(ahri.getHealth());
-        //}
-
-        //for (int i = 0; i < 3; i++){
-        //    nashor.attackHeroes(ahri);
-
-        //    System.out.println(ahri.getHealth());
-        //}
 
 
 
@@ -143,9 +136,5 @@ public class Application {
             System.out.println("Hero health is " + hero.getHealth());
         }
         */
-
-
     }
-
-
 }
