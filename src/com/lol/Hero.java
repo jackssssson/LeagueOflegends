@@ -2,6 +2,7 @@ package com.lol;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Hero extends Unit{
     //constants for validation only
@@ -16,13 +17,13 @@ public class Hero extends Unit{
     public String toString() {
         return  " name = " + getName() +
                 ", health = " + getHealth() +
-                ", mana = " + mana +
+                ", mana = " + getMana() +
                 ", armor = " + getArmor() +
                 ", attackDamage = " + getAttackDamage() +
                 ", apDamage = " + getApDamage() +
-                ", gold = " + gold +
-                ", heroSpeed = " + heroSpeed +
-                ", isDead = " + isDead +
+                ", gold = " + getGold() +
+                ", heroSpeed = " + getHeroSpeed() +
+                ", isDead = " + getIsDead() +
                 '}';
     }
 
@@ -30,6 +31,7 @@ public class Hero extends Unit{
     public Hero(String name) throws NoSuchFieldException,
             IllegalAccessException {
         setHeroStats(name.toUpperCase());
+
     }
 
     private int mana;
@@ -37,6 +39,13 @@ public class Hero extends Unit{
     private int heroSpeed;
     private boolean isDead = false;
     private String herotype;
+    private List<Items> listHeroItems = new ArrayList<>();
+
+    public List<Items> getListHeroItems() {return listHeroItems;}
+
+    public void setListHeroItems(List<Items> listHeroItems) {
+        this.listHeroItems = listHeroItems;
+    }
 
     public int getMana() {
         return mana;

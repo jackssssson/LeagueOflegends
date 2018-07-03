@@ -60,4 +60,17 @@ public class Consts {
     static final String PANTHEON_TYPE = "Bruiser";
 
 
+    //  Items
+
+    static final int WEAPONS = 1;
+    static final int SHIELDS = 2;
+
+    static final int HUNTERS_MACHETE_ADD = 15;
+    static final int HUNTERS_MACHETE_PRICE = 50 ;
+    static final char HUNTERS_MACHETE_TYPE = WEAPONS;
+
+    static final int AEGIS_OF_THE_LEGION_PRICE = 70;
+    static final int AEGIS_OF_THE_LEGION_ADD = 10 ;
+    static final char AEGIS_OF_THE_LEGION_TYPE = SHIELDS;
+
 }

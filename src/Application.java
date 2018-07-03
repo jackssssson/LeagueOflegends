@@ -1,5 +1,10 @@
 import com.lol.Hero;
+import com.lol.Item;
+import com.lol.Items;
 import com.lol.Nashor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) throws NoSuchFieldException,
@@ -29,5 +34,18 @@ public class Application {
         nashor.attackHeroes(zed);
         System.out.println(zed.getHealth());
         System.out.println(zed.getMana());
+
+        //test
+
+
+        System.out.println("Before byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
+        Item newItem = new Item();
+        newItem.buyItem(zed, Items.HUNTERS_MACHETE);
+        newItem.buyItem(zed, Items.AEGIS_OF_THE_LEGION);
+        System.out.println("After byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
+        System.out.println(zed.getListHeroItems());
+        //
+
+
     }
 }
