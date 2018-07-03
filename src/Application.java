@@ -1,15 +1,30 @@
-import com.lol.Ahri;
 import com.lol.Hero;
-import com.lol.Jarvan;
 
 public class Application {
-    public static void main(String[] args) {
-        Hero Ahri = new Ahri();
-        Hero Jarvan = new Jarvan();
+    public static void main(String[] args)throws NoSuchFieldException,
+            IllegalAccessException {
 
-        Ahri.NormalAttack(Ahri,Jarvan);
-        Ahri.MagicAttack(Ahri, Jarvan);
-        Jarvan.UltimateAttack(Jarvan, Ahri);
+
+        //Hero tests
+       /* Hero Player1 = new Hero("ahri");
+        System.out.println(Player1.toString());
+        System.out.println(Player1.getType());
+        System.out.println();
+
+        Hero Player2 = new Hero("Jarvan");
+        System.out.println(Player2.toString());
+        System.out.println(Player2.getType());
+        System.out.println();
+
+        Hero Player3 = new Hero("zed");
+        System.out.println(Player3.toString());
+        System.out.println(Player3.getType());
+        System.out.println();*/
+
+
+
+
+
 
         // tests
 
@@ -18,8 +33,7 @@ public class Application {
 //        int r = (int) (Math.random() * (100 - 1)) + 1;
 //
 //        if(r < CriticalChance){
-//            Jarvan.setHealth(49);
-//            Jarvan.setArmor(0);
+//
 //
 //
 //        }

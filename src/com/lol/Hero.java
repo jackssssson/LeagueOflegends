@@ -1,21 +1,46 @@
 package com.lol;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+
 public class Hero {
-    //constants for validation only First
+    //constants for validation only
     private static final int MIN_GOLD = 0;
     private static final int MIN_ATTACK_DAMAGE = 1;
     private static final int MAX_ATTACK_DAMAGE = 1000;
     private static final int MIN_AP_DAMAGE = 0;
-    private static final int MAX_AP_DAMAGE = 1500;
+    private static final int MAX_AP_DAMAGE = 1000;
     private static final int MAX_HEALTH = 10000;
-    private static final int MIN_MANA = 50;
+    private static final int MIN_MANA = 1;
     private static final int MAX_MANA = 4000;
     private static final int MIN_SPEED = 0;
     private static final int MAX_SPEED = 1000;
-    private static final int HERO_BUFFED_SPEED = 10;
+    private static final int GOLD_ON_KILL = 300;
 
+    Consts constants = new Consts();
 
-    // fields First
+    public Hero() {
+    }
+
+    @Override
+    public String toString() {
+        return  " name='" + name + '\'' +
+                ", health=" + health +
+                ", mana=" + mana +
+                ", armor=" + armor +
+                ", attackDamage=" + attackDamage +
+                ", apDamage=" + apDamage +
+                ", gold=" + gold +
+                ", heroSpeed=" + heroSpeed +
+                ", isDead=" + isDead +
+                '}';
+    }
+
+    public Hero(String name) throws NoSuchFieldException,
+            IllegalAccessException {
+        setHeroStats(name.toUpperCase());
+    }
+
     private String name;
     private int health;
     private int mana;
@@ -24,23 +49,13 @@ public class Hero {
     private int apDamage;
     private int gold;
     private int heroSpeed;
-    private Nashor nashor = new Nashor();
-    private Creeps creep = new Creeps();
-    private Drake drake = new Drake();
-
-
-    // Alex
     private boolean isDead = false;
-
-    //constructor First
-    public Hero(){
-    }
-
-    //getters and setters First
+    private String herotype;
 
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -48,6 +63,7 @@ public class Hero {
     public int getHealth() {
         return health;
     }
+
     public void setHealth(int health) {
         if (health > MAX_HEALTH) {
             throw new RuntimeException("Invalid health");
@@ -59,6 +75,7 @@ public class Hero {
     public int getMana() {
         return mana;
     }
+
     public void setMana(int mana) {
         if (mana < MIN_MANA || mana > MAX_MANA) {
             throw new RuntimeException("Invalid mana");
@@ -70,6 +87,7 @@ public class Hero {
     public int getArmor() {
         return armor;
     }
+
     public void setArmor(int armor) {
         this.armor = armor;
     }
@@ -77,6 +95,7 @@ public class Hero {
     public int getAttackDamage() {
         return attackDamage;
     }
+
     public void setAttackDamage(int attackDamage) {
         if (attackDamage < MIN_ATTACK_DAMAGE || attackDamage > MAX_ATTACK_DAMAGE) {
             throw new RuntimeException("Invalid attackDamage");
@@ -88,6 +107,7 @@ public class Hero {
     public int getApDamage() {
         return apDamage;
     }
+
     public void setApDamage(int apDamage) {
         if (apDamage < MIN_AP_DAMAGE || apDamage > MAX_AP_DAMAGE) {
             throw new RuntimeException("Invalid apDamage");
@@ -99,6 +119,7 @@ public class Hero {
     public int getGold() {
         return gold;
     }
+
     public void setGold(int gold) {
         if (gold < MIN_GOLD) {
             throw new RuntimeException("Invalid gold");
@@ -110,13 +131,15 @@ public class Hero {
     public boolean isDead() {
         return isDead;
     }
-    public void setisDead(boolean dead){
+
+    public void setIsDead(boolean dead) {
         isDead = dead;
     }
 
     public int getHeroSpeed() {
         return heroSpeed;
     }
+
     public void setHeroSpeed(int heroSpeed) {
         if (heroSpeed < MIN_SPEED || heroSpeed > MAX_SPEED) {
             throw new RuntimeException("Invalid speed");
@@ -125,76 +148,121 @@ public class Hero {
         this.heroSpeed = heroSpeed;
     }
 
-    //methods First
-
-    public void nashorAttackHero() {
-        health -= nashor.doDamage(getHeroSpeed());
-        setHealth(health);
+    public String getType() {
+        return herotype;
     }
 
-    public void heroAttackNashor() {
-        gold += nashor.heroAttack(attackDamage);
-        setGold(gold);
+    public void setType(String type) {
+        this.herotype = type;
     }
 
-    public void creepAttackHero() {
-        int creepSpeed = creep.move(getHeroSpeed());
 
-        if (creepSpeed < heroSpeed) {
-            System.out.println("Creep can`t attack because hero is not in range");
+    public void setHeroStats(String name) throws NoSuchFieldException,
+            IllegalAccessException {
+        setName(name.toUpperCase());
+        setHealth(Consts.class.getDeclaredField(name + "_HEALTH").getInt(constants));
+        setMana(Consts.class.getDeclaredField(name + "_MANA").getInt(constants));
+        setArmor(Consts.class.getDeclaredField(name + "_ARMOR").getInt(constants));
+        setGold(Consts.class.getDeclaredField(name + "_GOLD").getInt(constants));
+        setHeroSpeed(Consts.class.getDeclaredField(name + "_HERO_SPEED").getInt(constants));
+        setAttackDamage(Consts.class.getDeclaredField(name + "_ATTACK_DAMAGE").getInt(constants));
+        setApDamage(Consts.class.getDeclaredField(name + "_ABILITY_POWER").getInt(constants));
+        setIsDead(Consts.class.getDeclaredField(name + "_IS_DEAD").getBoolean(constants));
+        setType((String) Consts.class.getDeclaredField(name + "_TYPE").get(constants));
+
+
+    }
+
+    public void normalAttack(Hero attacker, Hero defender) {
+        int normalAttackDMG = attacker.getAttackDamage();
+        int defenderArmor = defender.getArmor();
+        int defenderHealth = defender.getHealth();
+
+        if(defenderArmor >= normalAttackDMG) {
+            defender.setArmor(defenderArmor - normalAttackDMG);
+            return;
+        }
+
+        if(defenderHealth <= normalAttackDMG){
+            defender.setHealth(0);
+            defender.setIsDead(true);
+            attacker.setGold(attacker.getGold()+GOLD_ON_KILL);
+            System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+            return;
+        }
+
+        defender.setHealth((defenderHealth+defenderArmor) - normalAttackDMG);
+        defender.setArmor(0);
+    }
+
+    public void magicAttack(Hero attacker, Hero defender) {
+        int attackerAP = attacker.getApDamage();
+        int attackerMana = attacker.getMana();
+        int defenderArmor = defender.getArmor();
+        int defenderHealth = defender.getHealth();
+        int magicAttackManaCost = 75;
+
+        if (attackerMana < magicAttackManaCost) {
+            System.out.println( "Not enough mana to cast "+attacker.getName()+"'s Magic Attack");
+
         } else {
-            health -= creep.doDamage(getHeroSpeed());
-            setHealth(health);
+
+            int magicAttackDMG = attackerAP + 45;
+            if (defenderArmor >= magicAttackDMG) {
+                defender.setArmor(defenderArmor - magicAttackDMG);
+                attacker.setMana(attackerMana - magicAttackManaCost);
+                return;
+            }
+            if (defenderHealth <= magicAttackDMG) {
+                attacker.setMana(attackerMana - magicAttackManaCost);
+                defender.setHealth(0);
+                defender.setIsDead(true);
+                attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
+                System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+                return;
+            }
+            attacker.setMana(attackerMana - magicAttackManaCost);
+            defender.setHealth((defenderHealth + defenderArmor) - magicAttackDMG);
+            defender.setArmor(0);
+
         }
     }
 
-    public void heroAttackCreep() {
-        setHeroSpeed(heroSpeed + HERO_BUFFED_SPEED);
-        if (heroSpeed < creep.getSpeed()) {
-            System.out.println("Hero can`t attack because creep is not in range");
+    public void ultimateAttack(Hero attacker, Hero defender) {
+        int attackerAP = attacker.getApDamage();
+        int attackerAD = attacker.getAttackDamage();
+        int attackerMana = attacker.getMana();
+        int defenderArmor = defender.getArmor();
+        int defenderHealth = defender.getHealth();
+        int ultimateManaCost = 120;
+
+
+        if (attackerMana < ultimateManaCost) {
+            System.out.println( "Not enough mana to cast "+attacker.getName()+"'s Ultimate");
+
         } else {
-            gold += creep.heroAttack(attackDamage);
-            setGold(gold);
-        }
-    }
 
-    public void drakeAttackHero() {
-        int drakeSpeed = drake.move(getHeroSpeed());
+            int UltimateDMG = attackerAP + attackerAD + 70;
+            if (defenderArmor >= UltimateDMG) {
+                defender.setArmor(defenderArmor - UltimateDMG);
+                attacker.setMana(attackerMana - ultimateManaCost);
+                return;
+            }
+            if (defenderHealth <= UltimateDMG) {
+                attacker.setMana(attackerMana - ultimateManaCost);
+                defender.setHealth(0);
+                defender.setIsDead(true);
+                attacker.setGold(attacker.getGold() + 300);
+                System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+                return;
+            }
 
-        if (drakeSpeed < heroSpeed) {
-            System.out.println("Drake can`t attack because hero is not in range");
-        } else {
-            health -= drake.doDamage(getHeroSpeed());
-            setHealth(health);
-        }
-    }
+            attacker.setMana(attackerMana - ultimateManaCost);
+            defender.setHealth((defenderHealth + defenderArmor) - UltimateDMG);
+            defender.setArmor(0);
 
-    public void heroAttackDrake() {
-        setHeroSpeed(heroSpeed + HERO_BUFFED_SPEED);
-        if (heroSpeed < drake.getSpeed()) {
-            System.out.println("Hero can`t attack because Drake is not in range");
-        } else {
-            gold += drake.heroAttack(attackDamage);
-            setGold(gold);
-        }
-    }
-
-    public int heroAttackAnotherHero(Hero attacker, Hero defender) {
-        defender.health -= attacker.attackDamage;
-
-        return defender.health;
-    }
-
-    public void NormalAttack(Hero attacker , Hero defender){}
-    public void MagicAttack(Hero attacker , Hero defender){}
-    public void UltimateAttack(Hero attacker, Hero defender){ }
-
-
-    private boolean isHeroDead() {
-        if (health <= 0) {
-            return true;
         }
 
-        return false;
     }
+
 }
