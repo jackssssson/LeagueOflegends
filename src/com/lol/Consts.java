@@ -34,6 +34,7 @@ public class Consts {
     static final int ZED_ATTACK_DAMAGE = 70;
     static final int ZED_ABILITY_POWER = 0;
     static final boolean ZED_IS_DEAD = false;
+    static final String ZED_TYPE = "Assasin";
 
     static final String LUCIAN_NAME = "Lucian";
     static final int LUCIAN_HEALTH = 450;
