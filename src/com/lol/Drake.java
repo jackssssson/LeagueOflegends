@@ -27,9 +27,9 @@ public class Drake extends Creatures implements Movable {
             return;
         }
 
-        int currentSpeedDrake = move(hero.getSpeed());
+        int currentSpeedDrake = move(hero.getHeroSpeed());
 
-        if (currentSpeedDrake < hero.getSpeed()){
+        if (currentSpeedDrake < hero.getHeroSpeed()){
             System.out.println("Hero is out of range");
             return;
         }

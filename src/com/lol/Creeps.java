@@ -27,9 +27,9 @@ public class Creeps extends Creatures implements Movable {
             return;
         }
 
-        int currentSpeedCreep = move(hero.getSpeed());
+        int currentSpeedCreep = move(hero.getHeroSpeed());
 
-        if (currentSpeedCreep < hero.getSpeed()){
+        if (currentSpeedCreep < hero.getHeroSpeed()){
             System.out.println("Hero is out of range");
             return;
         }
