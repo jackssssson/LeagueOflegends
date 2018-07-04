@@ -15,7 +15,7 @@ public class Unit {
     private static final int MIN_ABSORB_DAMAGE = 0;
     private static final int MAX_ABSORB_DAMAGE = 50;
 
-    //fields
+
     private String name;
     private int health;
     private int armor;
@@ -24,12 +24,12 @@ public class Unit {
     private boolean isDead;
     private int absorbDamage;
 
-    //getters and setters
+
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH){
             throw new RuntimeException("Invalid name");
         }
@@ -77,7 +77,7 @@ public class Unit {
         return apDamage;
     }
 
-    public void setApDamage(int apDamage) {
+    void setApDamage(int apDamage) {
         if (apDamage < MIN_AP_DAMAGE || apDamage > MAX_AP_DAMAGE){
             throw new RuntimeException("Invalid apDamage");
         }
@@ -85,7 +85,7 @@ public class Unit {
         this.apDamage = apDamage;
     }
 
-    public boolean getIsDead() {
+     boolean getIsDead() {
         return isDead;
     }
 
