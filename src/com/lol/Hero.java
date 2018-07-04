@@ -4,28 +4,12 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hero extends Unit{
+public class Hero extends Unit {
     //constants for validation only
     private static final int MIN_GOLD = 0;
     private static final int MIN_SPEED = 0;
     private static final int MAX_SPEED = 1000;
     private static final int GOLD_ON_KILL = 300;
-
-    Consts constants = new Consts();
-
-    @Override
-    public String toString() {
-        return  " name = " + getName() +
-                ", health = " + getHealth() +
-                ", mana = " + getMana() +
-                ", armor = " + getArmor() +
-                ", attackDamage = " + getAttackDamage() +
-                ", apDamage = " + getApDamage() +
-                ", gold = " + getGold() +
-                ", heroSpeed = " + getHeroSpeed() +
-                ", isDead = " + getIsDead() +
-                '}';
-    }
 
 
     public Hero(String name) throws NoSuchFieldException,
@@ -34,18 +18,13 @@ public class Hero extends Unit{
 
     }
 
+    Consts constants = new Consts();
     private int mana;
     private int gold;
     private int heroSpeed;
-    private boolean isDead = false;
     private String herotype;
     private List<Items> listHeroItems = new ArrayList<>();
 
-    public List<Items> getListHeroItems() {return listHeroItems;}
-
-    public void setListHeroItems(List<Items> listHeroItems) {
-        this.listHeroItems = listHeroItems;
-    }
 
     public int getMana() {
         return mana;
@@ -54,6 +33,7 @@ public class Hero extends Unit{
     public void setMana(int mana) {
         this.mana = mana;
     }
+
     public int getGold() {
         return gold;
     }
@@ -86,6 +66,14 @@ public class Hero extends Unit{
         this.herotype = type;
     }
 
+    public List<Items> getListHeroItems() {
+        return listHeroItems;
+    }
+
+    public void setListHeroItems(List<Items> listHeroItems) {
+        this.listHeroItems = listHeroItems;
+    }
+
 
     public void setHeroStats(String name) throws NoSuchFieldException,
             IllegalAccessException {
@@ -103,25 +91,39 @@ public class Hero extends Unit{
 
     }
 
+    @Override
+    public String toString() {
+        return " name = " + getName() +
+                ", health = " + getHealth() +
+                ", mana = " + getMana() +
+                ", armor = " + getArmor() +
+                ", attackDamage = " + getAttackDamage() +
+                ", apDamage = " + getApDamage() +
+                ", gold = " + getGold() +
+                ", heroSpeed = " + getHeroSpeed() +
+                ", isDead = " + getIsDead() +
+                '}';
+    }
+
     public void normalAttack(Hero attacker, Hero defender) {
         int normalAttackDmg = attacker.getAttackDamage();
         int defenderArmor = defender.getArmor();
         int defenderHealth = defender.getHealth();
 
-        if(defenderArmor >= normalAttackDmg) {
+        if (defenderArmor >= normalAttackDmg) {
             defender.setArmor(defenderArmor - normalAttackDmg);
             return;
         }
 
-        if(defenderHealth <= normalAttackDmg){
+        if (defenderHealth <= normalAttackDmg) {
             defender.setHealth(0);
             defender.setIsDead(true);
-            attacker.setGold(attacker.getGold()+GOLD_ON_KILL);
-            System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+            attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
+            System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
             return;
         }
 
-        defender.setHealth((defenderHealth+defenderArmor) - normalAttackDmg);
+        defender.setHealth((defenderHealth + defenderArmor) - normalAttackDmg);
         defender.setArmor(0);
     }
 
@@ -133,7 +135,7 @@ public class Hero extends Unit{
         int magicAttackManaCost = 75;
 
         if (attackerMana < magicAttackManaCost) {
-            System.out.println( "Not enough mana to cast "+attacker.getName()+"'s Magic Attack");
+            System.out.println("Not enough mana to cast " + attacker.getName() + "'s Magic Attack");
 
         } else {
 
@@ -148,7 +150,7 @@ public class Hero extends Unit{
                 defender.setHealth(0);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
-                System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+                System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
             attacker.setMana(attackerMana - magicAttackManaCost);
@@ -168,7 +170,7 @@ public class Hero extends Unit{
 
 
         if (attackerMana < ultimateManaCost) {
-            System.out.println( "Not enough mana to cast "+attacker.getName()+"'s Ultimate");
+            System.out.println("Not enough mana to cast " + attacker.getName() + "'s Ultimate");
 
         } else {
 
@@ -183,7 +185,7 @@ public class Hero extends Unit{
                 defender.setHealth(0);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + 300);
-                System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+                System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
 

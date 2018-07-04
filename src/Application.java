@@ -1,34 +1,24 @@
-import com.lol.Hero;
-import com.lol.Item;
-import com.lol.Items;
-import com.lol.Nashor;
+import com.lol.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Application {
     public static void main(String[] args) throws NoSuchFieldException,
             IllegalAccessException {
 
+        Scanner in = new Scanner(System.in);
 
-        //Hero tests
-       /* Hero Player1 = new Hero("ahri");
-        System.out.println(Player1.toString());
-        System.out.println(Player1.getType());
-        System.out.println();
+        String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
+        String[] HeroesList = Heroes.split(" ");
 
-        Hero Player2 = new Hero("Jarvan");
-        System.out.println(Player2.toString());
-        System.out.println(Player2.getType());
-        System.out.println();
-
-        Hero Player3 = new Hero("zed");
-        System.out.println(Player3.toString());
-        System.out.println(Player3.getType());
-        System.out.println();*/
+        System.out.println("Available Heros: " + Arrays.toString(HeroesList));
+        System.out.print("Choose your hero: ");
+        String ChosenHero = in.nextLine().toUpperCase();
 
 
-        Hero zed = new Hero("zed");
+        Hero zed = new Hero(ChosenHero);
         Nashor nashor = new Nashor();
         System.out.println(zed.getHealth());
         nashor.attackHeroes(zed);
@@ -37,14 +27,13 @@ public class Application {
 
         //test
 
-
-        System.out.println("Before byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
+        System.out.println("Before Item Purchase - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
         Item newItem = new Item();
         newItem.buyItem(zed, Items.HUNTERS_MACHETE);
         newItem.buyItem(zed, Items.AEGIS_OF_THE_LEGION);
-        System.out.println("After byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
-        System.out.println(zed.getListHeroItems());
-        //
+        System.out.println("After Item purchase - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
+        System.out.println("Zed items are: "+ zed.getListHeroItems());
+
 
 
     }

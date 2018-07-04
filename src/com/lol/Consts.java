@@ -1,7 +1,11 @@
 package com.lol;
 
+import java.util.ArrayList;
+
 public class Consts {
 
+
+    static String AHRI_NAME = "Ahri";
     static int AHRI_HEALTH = 520;
     static final int AHRI_MANA = 420;
     static final int AHRI_ARMOR = 50;
@@ -36,6 +40,7 @@ public class Consts {
     static final boolean ZED_IS_DEAD = false;
     static final String ZED_TYPE = "Assasin";
 
+
     static final String LUCIAN_NAME = "Lucian";
     static final int LUCIAN_HEALTH = 450;
     static final int LUCIAN_MANA = 310;
@@ -66,11 +71,11 @@ public class Consts {
     static final int SHIELDS = 2;
 
     static final int HUNTERS_MACHETE_ADD = 15;
-    static final int HUNTERS_MACHETE_PRICE = 50 ;
+    static final int HUNTERS_MACHETE_PRICE = 50;
     static final char HUNTERS_MACHETE_TYPE = WEAPONS;
 
     static final int AEGIS_OF_THE_LEGION_PRICE = 70;
-    static final int AEGIS_OF_THE_LEGION_ADD = 10 ;
+    static final int AEGIS_OF_THE_LEGION_ADD = 10;
     static final char AEGIS_OF_THE_LEGION_TYPE = SHIELDS;
 
 }
