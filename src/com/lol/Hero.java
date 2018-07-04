@@ -3,7 +3,7 @@ package com.lol;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public class Hero {
+public class Hero implements Movable{
     //constants for validation only
     private static final int MIN_GOLD = 0;
     private static final int MIN_ATTACK_DAMAGE = 1;
@@ -16,8 +16,9 @@ public class Hero {
     private static final int MIN_SPEED = 0;
     private static final int MAX_SPEED = 1000;
     private static final int GOLD_ON_KILL = 300;
+    private static final int BUFFED_SPEED = 12;
 
-    Consts constants = new Consts();
+    private Consts constants = new Consts();
 
     public Hero() {
     }
@@ -50,7 +51,7 @@ public class Hero {
     private int gold;
     private int heroSpeed;
     private boolean isDead = false;
-    private String herotype;
+    private String heroType;
 
     public String getName() {
         return name;
@@ -128,7 +129,7 @@ public class Hero {
         this.gold = gold;
     }
 
-    public boolean isDead() {
+    public boolean getIsDead() {
         return isDead;
     }
 
@@ -149,11 +150,11 @@ public class Hero {
     }
 
     public String getType() {
-        return herotype;
+        return heroType;
     }
 
     public void setType(String type) {
-        this.herotype = type;
+        this.heroType = type;
     }
 
 
@@ -264,5 +265,124 @@ public class Hero {
         }
 
     }
+
+    public void heroAttackDrake(Drake drake){
+        if (drake.getIsDead()){
+            System.out.println("Drake is already dead!");
+            return;
+        }
+
+        int currentSpeedHero = move(drake.getSpeed());
+
+        if (currentSpeedHero < drake.getSpeed()){
+            System.out.println("Drake is out of range");
+            return;
+        }
+
+        int drakeHealth = drake.getHealth();
+        int drakeArmor = drake.getArmor();
+        int absorbDamage = drakeArmor / drake.getAbsorbDamage();
+        drakeHealth -= getAttackDamage() - absorbDamage;
+
+        if (drakeHealth <= 0) {
+            drake.setHealth(0);
+            setIsDead(true);
+            System.out.println("Drake is dead!");
+            switch (drake.getName()){
+                case "CLOUD":setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());break;
+                case "INFERNAL":setAttackDamage(getAttackDamage() + drake.getDrakeBuff());break;
+                case "MOUNTAIN":setArmor(getArmor() + drake.getDrakeBuff());break;
+                case "OCEAN":setHealth(getHealth() + drake.getDrakeBuff());break;
+                case "ELDER":
+                    setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
+                    setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
+                    setArmor(getArmor() + drake.getDrakeBuff());
+                    setHealth(getHealth() + drake.getDrakeBuff());
+                    break;
+
+            }
+
+            return;
+        }
+
+        drake.setHealth(drakeHealth);
+    }
+
+    public void heroAttackNashor(Nashor nashor){
+        if (nashor.getIsDead()){
+            System.out.println("Nashor is already dead!");
+            return;
+        }
+
+        int nashorHealth = nashor.getHealth();
+        int nashorArmor = nashor.getArmor();
+        int absorbDamage = nashorArmor / nashor.getAbsorbDamage();
+        nashorHealth -= getAttackDamage() - absorbDamage;
+
+        if (nashorHealth <= 0) {
+            nashor.setHealth(0);
+            setIsDead(true);
+            System.out.println("Nashor is dead!");
+            setGold(getGold() + nashor.getNashorBuff());
+            return;
+        }
+
+        nashor.setHealth(nashorHealth);
+    }
+
+    public void heroAttackCreep(Creeps creep){
+        if (creep.getIsDead()){
+            System.out.println("Creep is already dead!");
+            return;
+        }
+
+        int currentSpeedHero = move(creep.getSpeed());
+
+        if (currentSpeedHero < creep.getSpeed()){
+            System.out.println("Creep is out of range");
+            return;
+        }
+
+        int creepHealth = creep.getHealth();
+        int creepArmor = creep.getArmor();
+        int absorbDamage = creepArmor / creep.getAbsorbDamage();
+        creepHealth -= getAttackDamage() - absorbDamage;
+
+        if (creepHealth <= 0) {
+            creep.setHealth(0);
+            setIsDead(true);
+            setGold(getGold() + creep.getCreepBuff());
+            System.out.println("Creep is dead!");
+            return;
+        }
+
+        creep.setHealth(creepHealth);
+    }
+
+    @Override
+    public int move(int drakeSpeed) {
+        int currentHeroSpeed = getHeroSpeed();
+
+        if (currentHeroSpeed < drakeSpeed){
+            currentHeroSpeed += BUFFED_SPEED;
+            setHeroSpeed(currentHeroSpeed);
+        }
+
+
+        return currentHeroSpeed;
+    }
+
+
+    //public Hero heroRevive(Hero hero) {
+   //    if (hero.getIsDead()) {
+   //        setIsDead(false);
+   //        hero = new Hero();
+   //        return hero;
+
+   //    } else {
+   //        System.out.println("Hero is alive!");
+   //        return hero;
+   //    }
+   //}
 
 }

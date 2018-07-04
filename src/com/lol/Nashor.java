@@ -5,13 +5,15 @@ public class Nashor extends Creatures {
     private static final int NASHOR_ARMOR = 300;
     private static final int NASHOR_DAMAGE = 200;
     private static final int NASHOR_HEALTH_AT_START = 10000;
-
+    private static final int NASHOR_BUFF = 300;
+    private static final int ABSORB_DAMAGE = 8;
 
     public Nashor() {
         setName(NAME);
         setHealth(NASHOR_HEALTH_AT_START);
         setArmor(NASHOR_ARMOR);
         setAttackDamage(NASHOR_DAMAGE);
+        setAbsorbDamage(ABSORB_DAMAGE);
         setIsDead(false);
     }
 
@@ -23,7 +25,9 @@ public class Nashor extends Creatures {
         }
 
         int heroHealth = hero.getHealth();
-        heroHealth -= NASHOR_DAMAGE;
+        int heroArmor = hero.getArmor();
+        int absorbDamage = heroArmor / getAbsorbDamage();
+        heroHealth -= NASHOR_DAMAGE - absorbDamage;
 
         if (heroHealth <= 0) {
             hero.setHealth(0);
@@ -33,5 +37,9 @@ public class Nashor extends Creatures {
         }
 
         hero.setHealth(heroHealth);
+    }
+
+    int getNashorBuff() {
+        return NASHOR_BUFF;
     }
 }

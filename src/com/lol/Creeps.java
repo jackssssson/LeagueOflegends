@@ -9,6 +9,8 @@ public class Creeps extends Creatures implements Movable {
     private static final int MAX_CREEPS_SPEED = 300;
     private static final int MIN_CREEPS_SPEED = 0;
     private static final int BUFFED_CREEP_SPEED = 20;
+    private static final int ABSORB_DAMAGE = 10;
+    private static final int CREEP_BUFF = 20;
     private int speed;
 
     public Creeps() {
@@ -17,6 +19,7 @@ public class Creeps extends Creatures implements Movable {
         setArmor(CREEPS_ARMOR);
         setAttackDamage(CREEPS_DAMAGE);
         setSpeed(CREEPS_SPEED);
+        setAbsorbDamage(ABSORB_DAMAGE);
         setIsDead(false);
     }
 
@@ -24,6 +27,7 @@ public class Creeps extends Creatures implements Movable {
     public void attackHeroes(Hero hero) {
         if (getIsDead()){
             System.out.println("Hero is already dead!");
+            System.out.println("You can revive him!");
             return;
         }
 
@@ -35,7 +39,9 @@ public class Creeps extends Creatures implements Movable {
         }
 
         int heroHealth = hero.getHealth();
-        heroHealth -= CREEPS_DAMAGE;
+        int heroArmor = hero.getArmor();
+        int absorbDamage = heroArmor / ABSORB_DAMAGE;
+        heroHealth -= CREEPS_DAMAGE - absorbDamage;
 
         if (heroHealth <= 0) {
             hero.setHealth(0);
@@ -47,6 +53,7 @@ public class Creeps extends Creatures implements Movable {
         hero.setHealth(heroHealth);
 
     }
+
 
     @Override
     public int move(int heroSpeed) {
@@ -69,7 +76,11 @@ public class Creeps extends Creatures implements Movable {
         this.speed = speed;
     }
 
-    private int getSpeed() {
+    int getSpeed() {
         return this.speed;
+    }
+
+    int getCreepBuff() {
+        return CREEP_BUFF;
     }
 }

@@ -7,11 +7,13 @@ public class Unit {
     private static final int MIN_AD_DAMAGE = 0;
     private static final int MAX_AD_DAMAGE = 1600;
     private static final int MIN_ARMOR = 0;
-    private static final int MAX_ARMOR= 700;
+    private static final int MAX_ARMOR = 700;
     private static final int MIN_HEALTH = 0;
     private static final int MAX_HEALTH = 10000;
     private static final int MIN_NAME_LENGTH = 2;
     private static final int MAX_NAME_LENGTH = 40;
+    private static final int MIN_ABSORB_DAMAGE = 0;
+    private static final int MAX_ABSORB_DAMAGE = 50;
 
     //fields
     private String name;
@@ -20,6 +22,7 @@ public class Unit {
     private int attackDamage;
     private int apDamage;
     private boolean isDead;
+    private int absorbDamage;
 
     //getters and setters
     public String getName() {
@@ -88,5 +91,17 @@ public class Unit {
 
     public void setIsDead(boolean dead) {
         isDead = dead;
+    }
+
+    public int getAbsorbDamage() {
+        return absorbDamage;
+    }
+
+    public void setAbsorbDamage(int absorbDamage) {
+        if (absorbDamage < MIN_ABSORB_DAMAGE || absorbDamage > MAX_ABSORB_DAMAGE) {
+            throw new RuntimeException("Invalid absorbDamage");
+        }
+
+        this.absorbDamage = absorbDamage;
     }
 }
