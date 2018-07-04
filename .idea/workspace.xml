@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e08f9831-f1d8-4a50-97ee-738582b83d8d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lol/Creeps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lol/Creeps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lol/Drake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lol/Drake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lol/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lol/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lol/Nashor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lol/Nashor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lol/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lol/Unit.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +17,8 @@
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            <state relative-caret-position="200">
+              <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,7 +159,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="610" />
@@ -293,12 +287,12 @@
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32965517" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.15820312" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.15820312" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info id="UI Designer" order="1" />
@@ -713,8 +707,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        <state relative-caret-position="200">
+          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
