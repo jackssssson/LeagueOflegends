@@ -2,23 +2,28 @@ package com.lol;
 
 public class ItemConsts {
 
-    static final int HUNTERS_MACHETE_ADD = 15;
-    static final int HUNTERS_MACHETE_PRICE = 50 ;
-    static final String HUNTERS_MACHETE_TYPE = "WEAPON";
+    public static final int HUNTERS_MACHETE_ADD_DAMAGE = 15;
+    public static final int HUNTERS_MACHETE_ADD_ARMOR = 0;
+    public static final int HUNTERS_MACHETE_ADD_MAGIC = 0;
+    public static final int HUNTERS_MACHETE_PRICE = 50 ;
 
-    static final int BILGWATER_CUTLASS_ADD = 18;
-    static final int BILGWATER_CUTLASS_PRICE = 90 ;
-    static final String BILGWATER_CUTLASS_TYPE = "WEAPON";
+    public static final int BILGWATER_CUTLASS_ADD_DAMAGE = 18;
+    public static final int BILGWATER_CUTLASS_ADD_ARMOR = 2;
+    public static final int BILGWATER_CUTLASS_ADD_MAGIC = 9;
+    public static final int BILGWATER_CUTLASS_PRICE = 90 ;
 
-    static final int AEGIS_OF_THE_LEGION_ADD = 13 ;
-    static final int AEGIS_OF_THE_LEGION_PRICE = 70;
-    static final String AEGIS_OF_THE_LEGION_TYPE = "SHIELD";
+    public static final int AEGIS_OF_THE_LEGION_ADD_DAMAGE = 2 ;
+    public static final int AEGIS_OF_THE_LEGION_ADD_ARMOR = 13 ;
+    public static final int AEGIS_OF_THE_LEGION_ADD_MAGIC = 0 ;
+    public static final int AEGIS_OF_THE_LEGION_PRICE = 70;
 
-    static final int DORANS_SHIELD_ADD = 10;
-    static final int DORANS_SHIELD_PRICE = 20;
-    static final String DORANS_SHIELD_TYPE = "SHIELD";
+    public static final int DORANS_SHIELD_ADD_DAMAGE = 1;
+    public static final int DORANS_SHIELD_ADD_ARMOR = 10;
+    public static final int DORANS_SHIELD_ADD_MAGIC = 3;
+    public static final int DORANS_SHIELD_PRICE = 20;
 
-    static final int ARCANE_SWEEPER_ADD = 7 ;
-    static final int ARCANE_SWEEPER_PRICE = 65;
-    static final String ARCANE_SWEEPER_TYPE = "TRINKET";
+    public static final int ARCANE_SWEEPER_ADD_DAMAGE = 8 ;
+    public static final int ARCANE_SWEEPER_ADD_ARMOR = 2 ;
+    public static final int ARCANE_SWEEPER_ADD_MAGIC = 11 ;
+    public static final int ARCANE_SWEEPER_PRICE = 65;
 }

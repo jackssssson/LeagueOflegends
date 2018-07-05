@@ -11,52 +11,41 @@ public class Item {
         if (hero.getGold() >= ItemConsts.class.getDeclaredField(itemPrise).getInt(constants)) {
 
             hero.getListHeroItems().add(item);
-
-            for (Items oldItem : hero.getEquippedItems()) {
-                if(( ItemConsts.class.getDeclaredField(oldItem + "_TYPE").get(constants)).equals(( ItemConsts.class.getDeclaredField(itemType).get(constants)))){
-                    unEquipItem(hero, oldItem);
-                }
+           /* if (hero.getEquippedItems().size() > 4) {
+                askToUnequip(oldItem);
+                unEquipItem(hero, oldItem);
             }
-
+*/
             equipItem(hero, item);
             hero.setGold(hero.getGold() - ItemConsts.class.getDeclaredField(itemPrise).getInt(constants));
         }
     }
 
-    public void equipItem(Hero hero, Items item)throws NoSuchFieldException, IllegalAccessException {
+    private void equipItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException {
 
-        String itemBenefit = item + "_ADD";
-        String itemType = item + "_TYPE";
-
+        String itemDamage = item + "_ADD_DAMAGE";
+        String itemArmor = item + "_ADD_ARMOR";
+        String itemMagic = item + "_ADD_MAGIC";
 
         if (hero.getListHeroItems().contains(item)) {
-
-            if (( ItemConsts.class.getDeclaredField(itemType).get(constants)).equals("WEAPON")) {
-                hero.setAttackDamage(hero.getAttackDamage() + ItemConsts.class.getDeclaredField(itemBenefit).getInt(constants));
-            }
-            if (( ItemConsts.class.getDeclaredField(itemType).get(constants)).equals("SHIELD")) {
-                hero.setArmor(hero.getArmor() + ItemConsts.class.getDeclaredField(itemBenefit).getInt(constants));
-            }
-
+            hero.setAttackDamage(hero.getAttackDamage() + ItemConsts.class.getDeclaredField(itemDamage).getInt(constants));
+            hero.setArmor(hero.getArmor() + ItemConsts.class.getDeclaredField(itemArmor).getInt(constants));
+            hero.setApDamage(hero.getApDamage() + ItemConsts.class.getDeclaredField(itemMagic).getInt(constants));
             hero.getEquippedItems().add(item);
         }
     }
 
-    public void unEquipItem(Hero hero, Items item)throws NoSuchFieldException, IllegalAccessException {
-        String itemBenefit = item + "_ADD";
-        String itemType = item + "_TYPE";
+    public void unEquipItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException {
+        String itemDamage = item + "_ADD_DAMAGE";
+        String itemArmor = item + "_ADD_ARMOR";
+        String itemMagic = item + "_ADD_MAGIC";
 
-        if(hero.getEquippedItems().contains(item)) {
-
-            if (( ItemConsts.class.getDeclaredField(itemType).get(constants)).equals("WEAPON")) {
-                hero.setAttackDamage(hero.getAttackDamage() - ItemConsts.class.getDeclaredField(itemBenefit).getInt(constants));
-            }
-            if (( ItemConsts.class.getDeclaredField(itemType).get(constants)).equals("SHIELD")) {
-                hero.setArmor(hero.getArmor() - ItemConsts.class.getDeclaredField(itemBenefit).getInt(constants));
-            }
-
+        if (hero.getEquippedItems().contains(item)) {
+            hero.setAttackDamage(hero.getAttackDamage() - ItemConsts.class.getDeclaredField(itemDamage).getInt(constants));
+            hero.setArmor(hero.getArmor() - ItemConsts.class.getDeclaredField(itemArmor).getInt(constants));
+            hero.setApDamage(hero.getApDamage() - Items.class.getDeclaredField(itemMagic).getInt(constants));
             hero.getEquippedItems().remove(item);
         }
-    }
 
+    }
 }
