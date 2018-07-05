@@ -119,13 +119,15 @@ public class Application {
 
        ////test
 
-       //System.out.println("Before Item Purchase - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
-       //Item newItem = new Item();
-       //newItem.buyItem(zed, Items.HUNTERS_MACHETE);
-       //newItem.buyItem(zed, Items.AEGIS_OF_THE_LEGION);
-       //System.out.println("After Item purchase - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
-       //System.out.println("Zed items are: "+ zed.getListHeroItems());
-
+        Hero zed = new Hero("zed");
+        System.out.println("Before byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
+        Item newItem = new Item();
+        newItem.buyItem(zed, Items.BILGWATER_CUTLASS);
+        newItem.buyItem(zed, Items.AEGIS_OF_THE_LEGION);
+        newItem.buyItem(zed, Items.DORANS_SHIELD);
+        System.out.println("After byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
+        System.out.println(zed.getEquippedItems());
+        System.out.println(zed.getListHeroItems());
 
 
     }

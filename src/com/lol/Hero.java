@@ -2,6 +2,8 @@ package com.lol;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Hero implements Movable{
     //constants for validation only
@@ -52,6 +54,21 @@ public class Hero implements Movable{
     private int heroSpeed;
     private boolean isDead = false;
     private String heroType;
+    private List<Items> listHeroItems = new ArrayList<>();
+    private List<Items> equippedItems = new LinkedList<>();
+
+    public List<Items> getListHeroItems() {return listHeroItems;}
+
+    public void setListHeroItems(List<Items> listHeroItems) {
+        this.listHeroItems = listHeroItems;
+    }
+
+    public List<Items> getEquippedItems() { return equippedItems; }
+
+    public void setEquippedItems(List<Items> equippedItems) {
+        this.equippedItems = equippedItems;
+    }
+
 
     public String getName() {
         return name;
