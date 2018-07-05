@@ -1,7 +1,3 @@
-import com.lol.Creeps;
-import com.lol.Drake;
-import com.lol.Hero;
-import com.lol.Nashor;
 import com.lol.*;
 
 import java.util.Arrays;
@@ -19,6 +15,7 @@ public class Application {
         System.out.println("Available Heros: " + Arrays.toString(HeroesList));
         System.out.print("Choose your hero: ");
         String ChosenHero = in.nextLine().toUpperCase();
+
 
 
         //heroAttackDrake
