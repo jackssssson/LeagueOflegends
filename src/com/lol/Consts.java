@@ -2,7 +2,6 @@ package com.lol;
 
 public class Consts {
 
-
     static String AHRI_NAME = "Ahri";
     static int AHRI_HEALTH = 520;
     static final int AHRI_MANA = 420;

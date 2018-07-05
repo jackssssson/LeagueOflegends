@@ -7,34 +7,30 @@ public class Application {
     public static void main(String[] args) throws NoSuchFieldException,
             IllegalAccessException {
 
-        Scanner in = new Scanner(System.in);
+       //Scanner in = new Scanner(System.in);
 
-        String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
-        String[] HeroesList = Heroes.split(" ");
+       //String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
+       //String[] HeroesList = Heroes.split(" ");
 
-        System.out.println("Available Heros: " + Arrays.toString(HeroesList));
-        System.out.print("Choose your hero: ");
-        String ChosenHero = in.nextLine().toUpperCase();
+       //System.out.println("Available Heros: " + Arrays.toString(HeroesList));
+       //System.out.print("Choose your hero: ");
+       //String ChosenHero = in.nextLine().toUpperCase();
 
 
-<<<<<<< HEAD
-=======
-        Hero zed = new Hero(ChosenHero);
-        zed.setIsDead(true);
-        System.out.println(zed.toString());
-        zed.heroRevive(zed);
-        System.out.println(zed.toString());
-
->>>>>>> bb1fa1a5fee93a05952a788641a6ac070873c986
+       //Hero zed = new Hero(ChosenHero);
+       //zed.setIsDead(true);
+       //System.out.println(zed.toString());
+       //zed.heroRevive(zed);
+       //System.out.println(zed.toString());
 
         //heroAttackDrake
-        /* Hero zed = new Hero("zed");
+        /*
+        Hero zed = new Hero("zed");
         Drake drake = new Drake("Mountain");
         System.out.println(zed.getHeroSpeed());
         System.out.println(zed.getAttackDamage());
         System.out.println(zed.getArmor());
-        Hero zed = new Hero(ChosenHero);
-        Nashor nashor = new Nashor();
+        //Hero zed = new Hero(ChosenHero);
         System.out.println(zed.getHealth());
 
         for (int i = 0; i < 250; i++){
@@ -49,10 +45,14 @@ public class Application {
         System.out.println(zed.getAttackDamage());
         System.out.println(zed.getArmor());
         System.out.println(zed.getHealth());
+        drake = (Drake) drake.creatureRespawn(drake);
+        System.out.println(drake.getName());
+        System.out.println(drake.getHealth());
         */
 
         //heroAttackNashor
-        /*Hero zed = new Hero("zed");
+        /*
+        Hero zed = new Hero("zed");
         Nashor nashor = new Nashor();
         System.out.println(zed.getGold());
 
@@ -65,10 +65,13 @@ public class Application {
         }
 
         System.out.println(zed.getGold());
+        nashor = (Nashor) nashor.creatureRespawn(nashor);
+        System.out.println(nashor.getHealth());
         */
 
         //heroAttackCreep
-        /* Hero zed = new Hero("zed");
+        /*
+        Hero zed = new Hero("zed");
         Creeps creep = new Creeps();
         System.out.println(zed.getGold());
 
@@ -81,20 +84,26 @@ public class Application {
         }
 
         System.out.println(zed.getGold());
+        creep = (Creeps) creep.creatureRespawn(creep);
+        System.out.println(creep.getHealth());
         */
 
         //creepAttackHero
-        /* Hero zed = new Hero("zed");
+        /*
+        Hero zed1 = new Hero("zed");
         Creeps creep = new Creeps();
 
         for (int i = 0; i < 250; i++){
-            creep.attackHeroes(zed);
-            if (zed.getHealth() <= 0){
+            creep.attackHeroes(zed1);
+            if (zed1.getHealth() <= 0){
                 break;
             }
-            System.out.println(zed.getHealth());
+            System.out.println(zed1.getHealth());
         }
         */
+        //heroRevive
+        //zed1.heroRevive(zed1);
+        //System.out.println(zed1.getHealth());
 
         //nashorAttackHero
         /* Hero zed = new Hero("zed");

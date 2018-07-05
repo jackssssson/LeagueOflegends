@@ -320,7 +320,7 @@ public class Hero implements Movable {
 
         if (drakeHealth <= 0) {
             drake.setHealth(0);
-            setIsDead(true);
+            drake.setIsDead(true);
             System.out.println("Drake is dead!");
             switch (drake.getName()) {
                 case "CLOUD":
@@ -363,7 +363,7 @@ public class Hero implements Movable {
 
         if (nashorHealth <= 0) {
             nashor.setHealth(0);
-            setIsDead(true);
+            nashor.setIsDead(true);
             System.out.println("Nashor is dead!");
             setGold(getGold() + nashor.getNashorBuff());
             return;
@@ -392,7 +392,7 @@ public class Hero implements Movable {
 
         if (creepHealth <= 0) {
             creep.setHealth(0);
-            setIsDead(true);
+            creep.setIsDead(true);
             setGold(getGold() + creep.getCreepBuff());
             System.out.println("Creep is dead!");
             return;
@@ -421,7 +421,6 @@ public class Hero implements Movable {
         if (hero.getIsDead()) {
             hero.setIsDead(false);
             hero.setHeroStats(heroName);
-
 
         } else {
             System.out.println("Hero is alive!");

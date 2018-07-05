@@ -51,7 +51,7 @@ public class Drake extends Creatures implements Movable {
 
         if (heroHealth <= 0) {
             hero.setHealth(0);
-            setIsDead(true);
+            hero.setIsDead(true);
             System.out.println("Hero is dead!");
             return;
         }
