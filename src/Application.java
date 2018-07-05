@@ -21,6 +21,13 @@ public class Application {
         String ChosenHero = in.nextLine().toUpperCase();
 
 
+        Hero zed = new Hero(ChosenHero);
+        zed.setIsDead(true);
+        System.out.println(zed.toString());
+        zed.heroRevive(zed);
+        System.out.println(zed.toString());
+
+
         //heroAttackDrake
         /* Hero zed = new Hero("zed");
         Drake drake = new Drake("Mountain");
@@ -115,19 +122,19 @@ public class Application {
             System.out.println(zed.getHealth());
         }
         */
-       //System.out.println(zed.getMana());
+        //System.out.println(zed.getMana());
 
-       ////test
+        ////test
 
-        Hero zed = new Hero("zed");
-        System.out.println("Before byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
-        Item newItem = new Item();
-        newItem.buyItem(zed, Items.BILGWATER_CUTLASS);
-        newItem.buyItem(zed, Items.AEGIS_OF_THE_LEGION);
-        newItem.buyItem(zed, Items.DORANS_SHIELD);
-        System.out.println("After byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
-        System.out.println(zed.getEquippedItems());
-        System.out.println(zed.getListHeroItems());
+//        Hero zed = new Hero("zed");
+//        System.out.println("Before byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
+//        Item newItem = new Item();
+//        newItem.buyItem(zed, Items.BILGWATER_CUTLASS);
+//        newItem.buyItem(zed, Items.AEGIS_OF_THE_LEGION);
+//        newItem.buyItem(zed, Items.DORANS_SHIELD);
+//        System.out.println("After byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
+//        System.out.println(zed.getEquippedItems());
+//        System.out.println(zed.getListHeroItems());
 
 
     }

@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Hero implements Movable{
+public class Hero implements Movable {
     //constants for validation only
     private static final int MIN_GOLD = 0;
-    private static final int MIN_ATTACK_DAMAGE = 1;
+    private static final int MIN_ATTACK_DAMAGE = 0;
     private static final int MAX_ATTACK_DAMAGE = 1000;
     private static final int MIN_AP_DAMAGE = 0;
     private static final int MAX_AP_DAMAGE = 1000;
     private static final int MAX_HEALTH = 10000;
-    private static final int MIN_MANA = 1;
+    private static final int MIN_MANA = 0;
     private static final int MAX_MANA = 4000;
     private static final int MIN_SPEED = 0;
     private static final int MAX_SPEED = 1000;
@@ -26,7 +26,7 @@ public class Hero implements Movable{
 
     @Override
     public String toString() {
-        return  " name='" + name + '\'' +
+        return " name='" + name + '\'' +
                 ", health=" + health +
                 ", mana=" + mana +
                 ", armor=" + armor +
@@ -56,13 +56,17 @@ public class Hero implements Movable{
     private List<Items> listHeroItems = new ArrayList<>();
     private List<Items> equippedItems = new LinkedList<>();
 
-    public List<Items> getListHeroItems() {return listHeroItems;}
+    public List<Items> getListHeroItems() {
+        return listHeroItems;
+    }
 
     public void setListHeroItems(List<Items> listHeroItems) {
         this.listHeroItems = listHeroItems;
     }
 
-    public List<Items> getEquippedItems() { return equippedItems; }
+    public List<Items> getEquippedItems() {
+        return equippedItems;
+    }
 
     public void setEquippedItems(List<Items> equippedItems) {
         this.equippedItems = equippedItems;
@@ -150,6 +154,20 @@ public class Hero implements Movable{
     }
 
     public void setIsDead(boolean dead) {
+        if (dead) {
+            setHealth(0);
+            setMana(0);
+            setArmor(0);
+            setGold(0);
+            setHeroSpeed(0);
+            setAttackDamage(0);
+            setApDamage(0);
+            setType("");
+            listHeroItems.clear();
+            equippedItems.clear();
+
+
+        }
         isDead = dead;
     }
 
@@ -191,24 +209,24 @@ public class Hero implements Movable{
     }
 
     public void normalAttack(Hero attacker, Hero defender) {
-        int normalAttackDMG = attacker.getAttackDamage();
+        int normalAttackDmg = attacker.getAttackDamage();
         int defenderArmor = defender.getArmor();
         int defenderHealth = defender.getHealth();
 
-        if(defenderArmor >= normalAttackDMG) {
-            defender.setArmor(defenderArmor - normalAttackDMG);
+        if (defenderArmor >= normalAttackDmg) {
+            defender.setArmor(defenderArmor - normalAttackDmg);
             return;
         }
 
-        if(defenderHealth <= normalAttackDMG){
+        if (defenderHealth <= normalAttackDmg) {
             defender.setHealth(0);
             defender.setIsDead(true);
-            attacker.setGold(attacker.getGold()+GOLD_ON_KILL);
-            System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+            attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
+            System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
             return;
         }
 
-        defender.setHealth((defenderHealth+defenderArmor) - normalAttackDMG);
+        defender.setHealth((defenderHealth + defenderArmor) - normalAttackDmg);
         defender.setArmor(0);
     }
 
@@ -220,26 +238,26 @@ public class Hero implements Movable{
         int magicAttackManaCost = 75;
 
         if (attackerMana < magicAttackManaCost) {
-            System.out.println( "Not enough mana to cast "+attacker.getName()+"'s Magic Attack");
+            System.out.println("Not enough mana to cast " + attacker.getName() + "'s Magic Attack");
 
         } else {
 
-            int magicAttackDMG = attackerAP + 45;
-            if (defenderArmor >= magicAttackDMG) {
-                defender.setArmor(defenderArmor - magicAttackDMG);
+            int magicAttackDmg = attackerAP + 45;
+            if (defenderArmor >= magicAttackDmg) {
+                defender.setArmor(defenderArmor - magicAttackDmg);
                 attacker.setMana(attackerMana - magicAttackManaCost);
                 return;
             }
-            if (defenderHealth <= magicAttackDMG) {
+            if (defenderHealth <= magicAttackDmg) {
                 attacker.setMana(attackerMana - magicAttackManaCost);
                 defender.setHealth(0);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
-                System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+                System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
             attacker.setMana(attackerMana - magicAttackManaCost);
-            defender.setHealth((defenderHealth + defenderArmor) - magicAttackDMG);
+            defender.setHealth((defenderHealth + defenderArmor) - magicAttackDmg);
             defender.setArmor(0);
 
         }
@@ -255,42 +273,42 @@ public class Hero implements Movable{
 
 
         if (attackerMana < ultimateManaCost) {
-            System.out.println( "Not enough mana to cast "+attacker.getName()+"'s Ultimate");
+            System.out.println("Not enough mana to cast " + attacker.getName() + "'s Ultimate");
 
         } else {
 
-            int UltimateDMG = attackerAP + attackerAD + 70;
-            if (defenderArmor >= UltimateDMG) {
-                defender.setArmor(defenderArmor - UltimateDMG);
+            int ultimateDmg = attackerAP + attackerAD + 70;
+            if (defenderArmor >= ultimateDmg) {
+                defender.setArmor(defenderArmor - ultimateDmg);
                 attacker.setMana(attackerMana - ultimateManaCost);
                 return;
             }
-            if (defenderHealth <= UltimateDMG) {
+            if (defenderHealth <= ultimateDmg) {
                 attacker.setMana(attackerMana - ultimateManaCost);
                 defender.setHealth(0);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + 300);
-                System.out.println(attacker.getName()+ " receives "+GOLD_ON_KILL+" gold for killing "+ defender.getName());
+                System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
 
             attacker.setMana(attackerMana - ultimateManaCost);
-            defender.setHealth((defenderHealth + defenderArmor) - UltimateDMG);
+            defender.setHealth((defenderHealth + defenderArmor) - ultimateDmg);
             defender.setArmor(0);
 
         }
 
     }
 
-    public void heroAttackDrake(Drake drake){
-        if (drake.getIsDead()){
+    public void heroAttackDrake(Drake drake) {
+        if (drake.getIsDead()) {
             System.out.println("Drake is already dead!");
             return;
         }
 
         int currentSpeedHero = move(drake.getSpeed());
 
-        if (currentSpeedHero < drake.getSpeed()){
+        if (currentSpeedHero < drake.getSpeed()) {
             System.out.println("Drake is out of range");
             return;
         }
@@ -304,11 +322,19 @@ public class Hero implements Movable{
             drake.setHealth(0);
             setIsDead(true);
             System.out.println("Drake is dead!");
-            switch (drake.getName()){
-                case "CLOUD":setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());break;
-                case "INFERNAL":setAttackDamage(getAttackDamage() + drake.getDrakeBuff());break;
-                case "MOUNTAIN":setArmor(getArmor() + drake.getDrakeBuff());break;
-                case "OCEAN":setHealth(getHealth() + drake.getDrakeBuff());break;
+            switch (drake.getName()) {
+                case "CLOUD":
+                    setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
+                    break;
+                case "INFERNAL":
+                    setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
+                    break;
+                case "MOUNTAIN":
+                    setArmor(getArmor() + drake.getDrakeBuff());
+                    break;
+                case "OCEAN":
+                    setHealth(getHealth() + drake.getDrakeBuff());
+                    break;
                 case "ELDER":
                     setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
                     setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
@@ -324,8 +350,8 @@ public class Hero implements Movable{
         drake.setHealth(drakeHealth);
     }
 
-    public void heroAttackNashor(Nashor nashor){
-        if (nashor.getIsDead()){
+    public void heroAttackNashor(Nashor nashor) {
+        if (nashor.getIsDead()) {
             System.out.println("Nashor is already dead!");
             return;
         }
@@ -346,15 +372,15 @@ public class Hero implements Movable{
         nashor.setHealth(nashorHealth);
     }
 
-    public void heroAttackCreep(Creeps creep){
-        if (creep.getIsDead()){
+    public void heroAttackCreep(Creeps creep) {
+        if (creep.getIsDead()) {
             System.out.println("Creep is already dead!");
             return;
         }
 
         int currentSpeedHero = move(creep.getSpeed());
 
-        if (currentSpeedHero < creep.getSpeed()){
+        if (currentSpeedHero < creep.getSpeed()) {
             System.out.println("Creep is out of range");
             return;
         }
@@ -379,7 +405,7 @@ public class Hero implements Movable{
     public int move(int drakeSpeed) {
         int currentHeroSpeed = getHeroSpeed();
 
-        if (currentHeroSpeed < drakeSpeed){
+        if (currentHeroSpeed < drakeSpeed) {
             currentHeroSpeed += BUFFED_SPEED;
             setHeroSpeed(currentHeroSpeed);
         }
@@ -389,16 +415,17 @@ public class Hero implements Movable{
     }
 
 
-    //public Hero heroRevive(Hero hero) {
-   //    if (hero.getIsDead()) {
-   //        setIsDead(false);
-   //        hero = new Hero();
-   //        return hero;
+    public void heroRevive(Hero hero) throws NoSuchFieldException,
+            IllegalAccessException {
+        String heroName = hero.getName();
+        if (hero.getIsDead()) {
+            hero.setIsDead(false);
+            hero.setHeroStats(heroName);
 
-   //    } else {
-   //        System.out.println("Hero is alive!");
-   //        return hero;
-   //    }
-   //}
+
+        } else {
+            System.out.println("Hero is alive!");
+        }
+    }
 
 }
