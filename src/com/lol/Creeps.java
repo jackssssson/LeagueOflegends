@@ -14,13 +14,8 @@ public class Creeps extends Creatures implements Movable {
     private int speed;
 
     public Creeps() {
-        setName(NAME);
-        setHealth(CREEPS_HEALTH);
-        setArmor(CREEPS_ARMOR);
-        setAttackDamage(CREEPS_DAMAGE);
+        super(NAME, CREEPS_HEALTH, CREEPS_ARMOR, CREEPS_DAMAGE, false, ABSORB_DAMAGE);
         setSpeed(CREEPS_SPEED);
-        setAbsorbDamage(ABSORB_DAMAGE);
-        setIsDead(false);
     }
 
     @Override

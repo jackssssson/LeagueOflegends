@@ -12,8 +12,10 @@ public class Drake extends Creatures implements Movable {
     private int buffedDrakeSpeed;
     private DrakeStats constants = new DrakeStats();
 
+
     public Drake(String name) throws NoSuchFieldException,
             IllegalAccessException{
+        super(name);
         setDrakeStats(name.toUpperCase());
     }
 

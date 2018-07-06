@@ -9,12 +9,7 @@ public class Nashor extends Creatures {
     private static final int ABSORB_DAMAGE = 8;
 
     public Nashor() {
-        setName(NAME);
-        setHealth(NASHOR_HEALTH_AT_START);
-        setArmor(NASHOR_ARMOR);
-        setAttackDamage(NASHOR_DAMAGE);
-        setAbsorbDamage(ABSORB_DAMAGE);
-        setIsDead(false);
+        super(NAME, NASHOR_HEALTH_AT_START, NASHOR_ARMOR, NASHOR_DAMAGE, false, ABSORB_DAMAGE);
     }
 
     @Override

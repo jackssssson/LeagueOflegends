@@ -25,7 +25,6 @@ public class Unit {
     private boolean isDead;
     private int absorbDamage;
 
-
     public String getName() {
         return name;
     }

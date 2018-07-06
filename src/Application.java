@@ -26,7 +26,7 @@ public class Application {
         //heroAttackDrake
         /*
         Hero zed = new Hero("zed");
-        Drake drake = new Drake("Mountain");
+        Creatures drake = new Drake("Mountain");
         System.out.println(zed.getHeroSpeed());
         System.out.println(zed.getAttackDamage());
         System.out.println(zed.getArmor());
@@ -34,7 +34,7 @@ public class Application {
         System.out.println(zed.getHealth());
 
         for (int i = 0; i < 250; i++){
-            zed.heroAttackDrake(drake);
+            zed.heroAttackDrake((Drake) drake);
             if (drake.getHealth() <= 0){
                 break;
             }
@@ -45,7 +45,7 @@ public class Application {
         System.out.println(zed.getAttackDamage());
         System.out.println(zed.getArmor());
         System.out.println(zed.getHealth());
-        drake = (Drake) drake.creatureRespawn(drake);
+        drake = drake.creatureRespawn(drake);
         System.out.println(drake.getName());
         System.out.println(drake.getHealth());
         */
@@ -53,11 +53,11 @@ public class Application {
         //heroAttackNashor
         /*
         Hero zed = new Hero("zed");
-        Nashor nashor = new Nashor();
+        Creatures nashor = new Nashor();
         System.out.println(zed.getGold());
 
         for (int i = 0; i < 1000; i++){
-            zed.heroAttackNashor(nashor);
+            zed.heroAttackNashor((Nashor) nashor);
             if (nashor.getHealth() <= 0){
                 break;
             }
@@ -65,18 +65,18 @@ public class Application {
         }
 
         System.out.println(zed.getGold());
-        nashor = (Nashor) nashor.creatureRespawn(nashor);
+        nashor = nashor.creatureRespawn(nashor);
         System.out.println(nashor.getHealth());
         */
 
         //heroAttackCreep
         /*
         Hero zed = new Hero("zed");
-        Creeps creep = new Creeps();
+        Creatures creep = new Creeps();
         System.out.println(zed.getGold());
 
         for (int i = 0; i < 1000; i++){
-            zed.heroAttackCreep(creep);
+            zed.heroAttackCreep((Creeps) creep);
             if (creep.getHealth() <= 0){
                 break;
             }
@@ -84,14 +84,14 @@ public class Application {
         }
 
         System.out.println(zed.getGold());
-        creep = (Creeps) creep.creatureRespawn(creep);
+        creep = creep.creatureRespawn(creep);
         System.out.println(creep.getHealth());
         */
 
         //creepAttackHero
         /*
         Hero zed1 = new Hero("zed");
-        Creeps creep = new Creeps();
+        Creatures creep = new Creeps();
 
         for (int i = 0; i < 250; i++){
             creep.attackHeroes(zed1);
@@ -101,13 +101,14 @@ public class Application {
             System.out.println(zed1.getHealth());
         }
         */
+
         //heroRevive
         //zed1.heroRevive(zed1);
         //System.out.println(zed1.getHealth());
 
         //nashorAttackHero
         /* Hero zed = new Hero("zed");
-        Nashor nashor = new Nashor();
+        Creatures nashor = new Nashor();
 
         for (int i = 0; i < 250; i++){
             nashor.attackHeroes(zed);
@@ -120,7 +121,7 @@ public class Application {
 
         //drakeAttackHero
         /* Hero zed = new Hero("zed");
-        Drake drake = new Drake("Mountain");
+        Creatures drake = new Drake("Mountain");
 
         for (int i = 0; i < 250; i++){
             drake.attackHeroes(zed);
