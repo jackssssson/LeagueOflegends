@@ -14,6 +14,7 @@ public class Unit {
     private static final int MAX_NAME_LENGTH = 40;
     private static final int MIN_ABSORB_DAMAGE = 0;
     private static final int MAX_ABSORB_DAMAGE = 50;
+    static final int CREATURE_STATS_DEAD = 0;
 
 
     private String name;

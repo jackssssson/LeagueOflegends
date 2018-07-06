@@ -29,8 +29,8 @@ public class Nashor extends Creatures {
         int absorbDamage = heroArmor / getAbsorbDamage();
         heroHealth -= NASHOR_DAMAGE - absorbDamage;
 
-        if (heroHealth <= 0) {
-            hero.setHealth(0);
+        if (heroHealth <= CREATURE_STATS_DEAD) {
+            hero.setHealth(CREATURE_STATS_DEAD);
             hero.setIsDead(true);
             System.out.println("Hero is dead!");
             return;

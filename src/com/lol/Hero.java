@@ -18,6 +18,7 @@ public class Hero implements Movable {
     private static final int MAX_SPEED = 1000;
     private static final int GOLD_ON_KILL = 300;
     private static final int BUFFED_SPEED = 12;
+    private static final int STATS_DEAD = 0;
 
     private Consts constants = new Consts();
 
@@ -155,13 +156,13 @@ public class Hero implements Movable {
 
     public void setIsDead(boolean dead) {
         if (dead) {
-            setHealth(0);
-            setMana(0);
-            setArmor(0);
-            setGold(0);
-            setHeroSpeed(0);
-            setAttackDamage(0);
-            setApDamage(0);
+            setHealth(STATS_DEAD);
+            setMana(STATS_DEAD);
+            setArmor(STATS_DEAD);
+            setGold(STATS_DEAD);
+            setHeroSpeed(STATS_DEAD);
+            setAttackDamage(STATS_DEAD);
+            setApDamage(STATS_DEAD);
             setType("");
             listHeroItems.clear();
             equippedItems.clear();
@@ -219,7 +220,7 @@ public class Hero implements Movable {
         }
 
         if (defenderHealth <= normalAttackDmg) {
-            defender.setHealth(0);
+            defender.setHealth(STATS_DEAD);
             defender.setIsDead(true);
             attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
             System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
@@ -227,7 +228,7 @@ public class Hero implements Movable {
         }
 
         defender.setHealth((defenderHealth + defenderArmor) - normalAttackDmg);
-        defender.setArmor(0);
+        defender.setArmor(STATS_DEAD);
     }
 
     public void magicAttack(Hero attacker, Hero defender) {
@@ -250,7 +251,7 @@ public class Hero implements Movable {
             }
             if (defenderHealth <= magicAttackDmg) {
                 attacker.setMana(attackerMana - magicAttackManaCost);
-                defender.setHealth(0);
+                defender.setHealth(STATS_DEAD);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
                 System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
@@ -285,7 +286,7 @@ public class Hero implements Movable {
             }
             if (defenderHealth <= ultimateDmg) {
                 attacker.setMana(attackerMana - ultimateManaCost);
-                defender.setHealth(0);
+                defender.setHealth(STATS_DEAD);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + 300);
                 System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
@@ -361,8 +362,8 @@ public class Hero implements Movable {
         int absorbDamage = nashorArmor / nashor.getAbsorbDamage();
         nashorHealth -= getAttackDamage() - absorbDamage;
 
-        if (nashorHealth <= 0) {
-            nashor.setHealth(0);
+        if (nashorHealth <= STATS_DEAD) {
+            nashor.setHealth(STATS_DEAD);
             nashor.setIsDead(true);
             System.out.println("Nashor is dead!");
             setGold(getGold() + nashor.getNashorBuff());
@@ -390,8 +391,8 @@ public class Hero implements Movable {
         int absorbDamage = creepArmor / creep.getAbsorbDamage();
         creepHealth -= getAttackDamage() - absorbDamage;
 
-        if (creepHealth <= 0) {
-            creep.setHealth(0);
+        if (creepHealth <= STATS_DEAD) {
+            creep.setHealth(STATS_DEAD);
             creep.setIsDead(true);
             setGold(getGold() + creep.getCreepBuff());
             System.out.println("Creep is dead!");

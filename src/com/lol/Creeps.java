@@ -43,8 +43,8 @@ public class Creeps extends Creatures implements Movable {
         int absorbDamage = heroArmor / ABSORB_DAMAGE;
         heroHealth -= CREEPS_DAMAGE - absorbDamage;
 
-        if (heroHealth <= 0) {
-            hero.setHealth(0);
+        if (heroHealth <= CREATURE_STATS_DEAD) {
+            hero.setHealth(CREATURE_STATS_DEAD);
             hero.setIsDead(true);
             System.out.println("Hero is dead!");
             return;
