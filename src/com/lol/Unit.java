@@ -2,8 +2,6 @@ package com.lol;
 
 public class Unit {
     //const
-    private static final int MIN_AP_DAMAGE = 0;
-    private static final int MAX_AP_DAMAGE = 1500;
     private static final int MIN_AD_DAMAGE = 0;
     private static final int MAX_AD_DAMAGE = 1600;
     private static final int MIN_ARMOR = 0;
@@ -16,12 +14,10 @@ public class Unit {
     private static final int MAX_ABSORB_DAMAGE = 50;
     static final int CREATURE_STATS_DEAD = 0;
 
-
     private String name;
     private int health;
     private int armor;
     private int attackDamage;
-    private int apDamage;
     private boolean isDead;
     private int absorbDamage;
 
@@ -73,18 +69,6 @@ public class Unit {
         this.attackDamage = attackDamage;
     }
 
-    public int getApDamage() {
-        return apDamage;
-    }
-
-    void setApDamage(int apDamage) {
-        if (apDamage < MIN_AP_DAMAGE || apDamage > MAX_AP_DAMAGE){
-            throw new RuntimeException("Invalid apDamage");
-        }
-
-        this.apDamage = apDamage;
-    }
-
      boolean getIsDead() {
         return isDead;
     }
@@ -104,4 +88,6 @@ public class Unit {
 
         this.absorbDamage = absorbDamage;
     }
+
+
 }

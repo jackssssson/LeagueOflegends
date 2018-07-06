@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Hero implements Movable {
+public class Hero extends Unit implements Movable {
     //constants for validation only
     private static final int MIN_GOLD = 0;
-    private static final int MIN_ATTACK_DAMAGE = 0;
-    private static final int MAX_ATTACK_DAMAGE = 1000;
     private static final int MIN_AP_DAMAGE = 0;
     private static final int MAX_AP_DAMAGE = 1000;
-    private static final int MAX_HEALTH = 10000;
     private static final int MIN_MANA = 0;
     private static final int MAX_MANA = 4000;
     private static final int MIN_SPEED = 0;
@@ -22,16 +19,13 @@ public class Hero implements Movable {
 
     private Consts constants = new Consts();
 
-    public Hero() {
-    }
-
     @Override
     public String toString() {
-        return " name='" + name + '\'' +
-                ", health=" + health +
+        return " name='" + getName() + '\'' +
+                ", health=" + getHealth() +
                 ", mana=" + mana +
-                ", armor=" + armor +
-                ", attackDamage=" + attackDamage +
+                ", armor=" + getArmor() +
+                ", attackDamage=" + getAttackDamage() +
                 ", apDamage=" + apDamage +
                 ", gold=" + gold +
                 ", heroSpeed=" + heroSpeed +
@@ -44,11 +38,7 @@ public class Hero implements Movable {
         setHeroStats(name.toUpperCase());
     }
 
-    private String name;
-    private int health;
     private int mana;
-    private int armor;
-    private int attackDamage;
     private int apDamage;
     private int gold;
     private int heroSpeed;
@@ -73,27 +63,6 @@ public class Hero implements Movable {
         this.equippedItems = equippedItems;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        if (health > MAX_HEALTH) {
-            throw new RuntimeException("Invalid health");
-        }
-
-        this.health = health;
-    }
-
     public int getMana() {
         return mana;
     }
@@ -104,26 +73,6 @@ public class Hero implements Movable {
         }
 
         this.mana = mana;
-    }
-
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    public void setAttackDamage(int attackDamage) {
-        if (attackDamage < MIN_ATTACK_DAMAGE || attackDamage > MAX_ATTACK_DAMAGE) {
-            throw new RuntimeException("Invalid attackDamage");
-        }
-
-        this.attackDamage = attackDamage;
     }
 
     public int getApDamage() {
