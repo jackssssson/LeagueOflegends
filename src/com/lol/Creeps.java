@@ -13,13 +13,13 @@ public class Creeps extends Creatures implements Movable {
     private static final int CREEP_BUFF = 20;
     private int speed;
 
-    public Creeps() {
+    public Creeps() throws InvalidStatsException {
         super(NAME, CREEPS_HEALTH, CREEPS_ARMOR, CREEPS_DAMAGE, false, ABSORB_DAMAGE);
         setSpeed(CREEPS_SPEED);
     }
 
     @Override
-    public void attackHeroes(Hero hero) {
+    public void attackHeroes(Hero hero) throws InvalidStatsException {
         if (getIsDead()){
             System.out.println("Hero is already dead!");
             System.out.println("You can revive him!");
@@ -51,7 +51,7 @@ public class Creeps extends Creatures implements Movable {
 
 
     @Override
-    public int move(int heroSpeed) {
+    public int move(int heroSpeed) throws InvalidStatsException {
         int currentSpeedCreep = getSpeed();
 
         if (currentSpeedCreep < heroSpeed) {
@@ -63,9 +63,9 @@ public class Creeps extends Creatures implements Movable {
         return currentSpeedCreep;
     }
 
-    private void setSpeed(int speed) {
+    private void setSpeed(int speed) throws InvalidStatsException {
         if (speed < MIN_CREEPS_SPEED || speed > MAX_CREEPS_SPEED) {
-            throw new RuntimeException("Invalid speed");
+            throw new InvalidStatsException("Invalid speed");
         }
 
         this.speed = speed;

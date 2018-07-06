@@ -1,13 +1,14 @@
 package com.lol;
 
 public abstract class Creatures extends Unit {
-    public abstract void attackHeroes(Hero hero);
+    public abstract void attackHeroes(Hero hero) throws InvalidStatsException;
 
-    public Creatures(String name){
+    public Creatures(String name) throws InvalidStatsException {
         setName(name);
     }
 
-    public Creatures(String name, int health, int armor, int attackDamage, boolean isDead, int absorbDamage) {
+    public Creatures(String name, int health, int armor, int attackDamage, boolean isDead, int absorbDamage)
+            throws InvalidStatsException {
         setName(name);
         setHealth(health);
         setArmor(armor);
@@ -17,7 +18,7 @@ public abstract class Creatures extends Unit {
     }
 
     public Creatures creatureRespawn(Creatures creature) throws NoSuchFieldException,
-            IllegalAccessException {
+            IllegalAccessException, InvalidStatsException {
         if (creature.getIsDead()) {
             if (creature instanceof Creeps) {
                 return new Creeps();

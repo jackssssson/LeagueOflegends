@@ -25,9 +25,9 @@ public class Unit {
         return name;
     }
 
-    void setName(String name) {
+    void setName(String name) throws InvalidStatsException {
         if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH){
-            throw new RuntimeException("Invalid name");
+            throw new InvalidStatsException("Invalid name");
         }
 
         this.name = name;
@@ -37,9 +37,9 @@ public class Unit {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(int health) throws InvalidStatsException {
         if (health < MIN_HEALTH || health > MAX_HEALTH){
-            throw new RuntimeException("Invalid health");
+            throw new InvalidStatsException("Invalid health");
         }
 
         this.health = health;
@@ -49,9 +49,9 @@ public class Unit {
         return armor;
     }
 
-    public void setArmor(int armor) {
+    public void setArmor(int armor) throws InvalidStatsException {
         if (armor < MIN_ARMOR || armor > MAX_ARMOR){
-            throw new RuntimeException("Invalid armor");
+            throw new InvalidStatsException("Invalid armor");
         }
 
         this.armor = armor;
@@ -61,9 +61,9 @@ public class Unit {
         return attackDamage;
     }
 
-    public void setAttackDamage(int attackDamage) {
+    public void setAttackDamage(int attackDamage) throws InvalidStatsException {
         if (attackDamage < MIN_AD_DAMAGE || attackDamage > MAX_AD_DAMAGE){
-            throw new RuntimeException("Invalid attackDamage");
+            throw new InvalidStatsException("Invalid attackDamage");
         }
 
         this.attackDamage = attackDamage;
@@ -73,7 +73,7 @@ public class Unit {
         return isDead;
     }
 
-    public void setIsDead(boolean dead) {
+    public void setIsDead(boolean dead) throws InvalidStatsException {
         isDead = dead;
     }
 
@@ -81,9 +81,9 @@ public class Unit {
         return absorbDamage;
     }
 
-    public void setAbsorbDamage(int absorbDamage) {
+    public void setAbsorbDamage(int absorbDamage) throws InvalidStatsException {
         if (absorbDamage < MIN_ABSORB_DAMAGE || absorbDamage > MAX_ABSORB_DAMAGE) {
-            throw new RuntimeException("Invalid absorbDamage");
+            throw new InvalidStatsException("Invalid absorbDamage");
         }
 
         this.absorbDamage = absorbDamage;

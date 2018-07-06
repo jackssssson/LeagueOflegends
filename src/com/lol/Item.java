@@ -4,7 +4,7 @@ public class Item {
 
     private ItemConsts constants = new ItemConsts();
 
-    public void buyItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException {
+    public void buyItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
         String itemPrise = item + "_PRICE";
         String itemType = item + "_TYPE";
 
@@ -21,7 +21,7 @@ public class Item {
         }
     }
 
-    private void equipItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException {
+    private void equipItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
 
         String itemDamage = item + "_ADD_DAMAGE";
         String itemArmor = item + "_ADD_ARMOR";
@@ -35,7 +35,7 @@ public class Item {
         }
     }
 
-    public void unEquipItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException {
+    public void unEquipItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
         String itemDamage = item + "_ADD_DAMAGE";
         String itemArmor = item + "_ADD_ARMOR";
         String itemMagic = item + "_ADD_MAGIC";

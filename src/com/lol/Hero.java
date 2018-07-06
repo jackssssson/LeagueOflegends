@@ -16,6 +16,10 @@ public class Hero extends Unit implements Movable {
     private static final int GOLD_ON_KILL = 300;
     private static final int BUFFED_SPEED = 12;
     private static final int STATS_DEAD = 0;
+    private static final int MAGIC_ATTACK_MANA_COST = 75;
+    private static final int ADDITION_AP_DAMAGE = 45;
+    private static final int ULTIMATE_MANA_COST = 120;
+    private static final int ADDITION_ULTIMATE_DAMAGE = 45;
 
     private Consts constants = new Consts();
 
@@ -34,7 +38,7 @@ public class Hero extends Unit implements Movable {
     }
 
     public Hero(String name) throws NoSuchFieldException,
-            IllegalAccessException {
+            IllegalAccessException, InvalidStatsException {
         setHeroStats(name.toUpperCase());
     }
 
@@ -67,9 +71,9 @@ public class Hero extends Unit implements Movable {
         return mana;
     }
 
-    public void setMana(int mana) {
+    public void setMana(int mana) throws InvalidStatsException {
         if (mana < MIN_MANA || mana > MAX_MANA) {
-            throw new RuntimeException("Invalid mana");
+            throw new InvalidStatsException("Invalid mana");
         }
 
         this.mana = mana;
@@ -79,9 +83,9 @@ public class Hero extends Unit implements Movable {
         return apDamage;
     }
 
-    public void setApDamage(int apDamage) {
+    public void setApDamage(int apDamage) throws InvalidStatsException {
         if (apDamage < MIN_AP_DAMAGE || apDamage > MAX_AP_DAMAGE) {
-            throw new RuntimeException("Invalid apDamage");
+            throw new InvalidStatsException("Invalid apDamage");
         }
 
         this.apDamage = apDamage;
@@ -91,9 +95,9 @@ public class Hero extends Unit implements Movable {
         return gold;
     }
 
-    public void setGold(int gold) {
+    public void setGold(int gold) throws InvalidStatsException {
         if (gold < MIN_GOLD) {
-            throw new RuntimeException("Invalid gold");
+            throw new InvalidStatsException("Invalid gold");
         }
 
         this.gold = gold;
@@ -103,7 +107,7 @@ public class Hero extends Unit implements Movable {
         return isDead;
     }
 
-    public void setIsDead(boolean dead) {
+    public void setIsDead(boolean dead) throws InvalidStatsException {
         if (dead) {
             setHealth(STATS_DEAD);
             setMana(STATS_DEAD);
@@ -115,8 +119,6 @@ public class Hero extends Unit implements Movable {
             setType("");
             listHeroItems.clear();
             equippedItems.clear();
-
-
         }
         isDead = dead;
     }
@@ -125,9 +127,9 @@ public class Hero extends Unit implements Movable {
         return heroSpeed;
     }
 
-    public void setHeroSpeed(int heroSpeed) {
+    public void setHeroSpeed(int heroSpeed) throws InvalidStatsException {
         if (heroSpeed < MIN_SPEED || heroSpeed > MAX_SPEED) {
-            throw new RuntimeException("Invalid speed");
+            throw new InvalidStatsException("Invalid speed");
         }
 
         this.heroSpeed = heroSpeed;
@@ -143,7 +145,7 @@ public class Hero extends Unit implements Movable {
 
 
     public void setHeroStats(String name) throws NoSuchFieldException,
-            IllegalAccessException {
+            IllegalAccessException, InvalidStatsException {
         setName(name.toUpperCase());
         setHealth(Consts.class.getDeclaredField(name + "_HEALTH").getInt(constants));
         setMana(Consts.class.getDeclaredField(name + "_MANA").getInt(constants));
@@ -158,7 +160,7 @@ public class Hero extends Unit implements Movable {
 
     }
 
-    public void normalAttack(Hero attacker, Hero defender) {
+    public void normalAttack(Hero attacker, Hero defender) throws InvalidStatsException {
         int normalAttackDmg = attacker.getAttackDamage();
         int defenderArmor = defender.getArmor();
         int defenderHealth = defender.getHealth();
@@ -180,19 +182,19 @@ public class Hero extends Unit implements Movable {
         defender.setArmor(STATS_DEAD);
     }
 
-    public void magicAttack(Hero attacker, Hero defender) {
+    public void magicAttack(Hero attacker, Hero defender) throws InvalidStatsException {
         int attackerAP = attacker.getApDamage();
         int attackerMana = attacker.getMana();
         int defenderArmor = defender.getArmor();
         int defenderHealth = defender.getHealth();
-        int magicAttackManaCost = 75;
+        int magicAttackManaCost = MAGIC_ATTACK_MANA_COST;
 
         if (attackerMana < magicAttackManaCost) {
             System.out.println("Not enough mana to cast " + attacker.getName() + "'s Magic Attack");
 
         } else {
 
-            int magicAttackDmg = attackerAP + 45;
+            int magicAttackDmg = attackerAP + ADDITION_AP_DAMAGE;
             if (defenderArmor >= magicAttackDmg) {
                 defender.setArmor(defenderArmor - magicAttackDmg);
                 attacker.setMana(attackerMana - magicAttackManaCost);
@@ -208,18 +210,18 @@ public class Hero extends Unit implements Movable {
             }
             attacker.setMana(attackerMana - magicAttackManaCost);
             defender.setHealth((defenderHealth + defenderArmor) - magicAttackDmg);
-            defender.setArmor(0);
+            defender.setArmor(STATS_DEAD);
 
         }
     }
 
-    public void ultimateAttack(Hero attacker, Hero defender) {
+    public void ultimateAttack(Hero attacker, Hero defender) throws InvalidStatsException {
         int attackerAP = attacker.getApDamage();
         int attackerAD = attacker.getAttackDamage();
         int attackerMana = attacker.getMana();
         int defenderArmor = defender.getArmor();
         int defenderHealth = defender.getHealth();
-        int ultimateManaCost = 120;
+        int ultimateManaCost = ULTIMATE_MANA_COST;
 
 
         if (attackerMana < ultimateManaCost) {
@@ -227,7 +229,7 @@ public class Hero extends Unit implements Movable {
 
         } else {
 
-            int ultimateDmg = attackerAP + attackerAD + 70;
+            int ultimateDmg = attackerAP + attackerAD + ADDITION_ULTIMATE_DAMAGE;
             if (defenderArmor >= ultimateDmg) {
                 defender.setArmor(defenderArmor - ultimateDmg);
                 attacker.setMana(attackerMana - ultimateManaCost);
@@ -237,20 +239,20 @@ public class Hero extends Unit implements Movable {
                 attacker.setMana(attackerMana - ultimateManaCost);
                 defender.setHealth(STATS_DEAD);
                 defender.setIsDead(true);
-                attacker.setGold(attacker.getGold() + 300);
+                attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
                 System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
 
             attacker.setMana(attackerMana - ultimateManaCost);
             defender.setHealth((defenderHealth + defenderArmor) - ultimateDmg);
-            defender.setArmor(0);
+            defender.setArmor(STATS_DEAD);
 
         }
 
     }
 
-    public void heroAttackDrake(Drake drake) {
+    public void heroAttackDrake(Drake drake) throws InvalidStatsException {
         if (drake.getIsDead()) {
             System.out.println("Drake is already dead!");
             return;
@@ -268,8 +270,8 @@ public class Hero extends Unit implements Movable {
         int absorbDamage = drakeArmor / drake.getAbsorbDamage();
         drakeHealth -= getAttackDamage() - absorbDamage;
 
-        if (drakeHealth <= 0) {
-            drake.setHealth(0);
+        if (drakeHealth <= STATS_DEAD) {
+            drake.setHealth(STATS_DEAD);
             drake.setIsDead(true);
             System.out.println("Drake is dead!");
             switch (drake.getName()) {
@@ -300,7 +302,7 @@ public class Hero extends Unit implements Movable {
         drake.setHealth(drakeHealth);
     }
 
-    public void heroAttackNashor(Nashor nashor) {
+    public void heroAttackNashor(Nashor nashor) throws InvalidStatsException {
         if (nashor.getIsDead()) {
             System.out.println("Nashor is already dead!");
             return;
@@ -322,7 +324,7 @@ public class Hero extends Unit implements Movable {
         nashor.setHealth(nashorHealth);
     }
 
-    public void heroAttackCreep(Creeps creep) {
+    public void heroAttackCreep(Creeps creep) throws InvalidStatsException {
         if (creep.getIsDead()) {
             System.out.println("Creep is already dead!");
             return;
@@ -352,7 +354,7 @@ public class Hero extends Unit implements Movable {
     }
 
     @Override
-    public int move(int drakeSpeed) {
+    public int move(int drakeSpeed) throws InvalidStatsException {
         int currentHeroSpeed = getHeroSpeed();
 
         if (currentHeroSpeed < drakeSpeed) {
@@ -366,7 +368,7 @@ public class Hero extends Unit implements Movable {
 
 
     public void heroRevive(Hero hero) throws NoSuchFieldException,
-            IllegalAccessException {
+            IllegalAccessException, InvalidStatsException {
         String heroName = hero.getName();
         if (hero.getIsDead()) {
             hero.setIsDead(false);

@@ -14,13 +14,13 @@ public class Drake extends Creatures implements Movable {
 
 
     public Drake(String name) throws NoSuchFieldException,
-            IllegalAccessException{
+            IllegalAccessException, InvalidStatsException {
         super(name);
         setDrakeStats(name.toUpperCase());
     }
 
     private void setDrakeStats(String name) throws NoSuchFieldException,
-            IllegalAccessException {
+            IllegalAccessException, InvalidStatsException {
         setName(name.toUpperCase());
         setAttackDamage(DrakeStats.class.getDeclaredField(name + "_DAMAGE").getInt(constants));
         setArmor(DrakeStats.class.getDeclaredField(name + "_ARMOR").getInt(constants));
@@ -33,7 +33,7 @@ public class Drake extends Creatures implements Movable {
     }
 
     @Override
-    public void attackHeroes(Hero hero) {
+    public void attackHeroes(Hero hero) throws InvalidStatsException {
         if (hero.getIsDead()){
             System.out.println("Hero is already dead!");
             return;
@@ -103,9 +103,9 @@ public class Drake extends Creatures implements Movable {
         return drakeBuff;
     }
 
-    private void setDrakeBuff(int drakeBuff) {
+    private void setDrakeBuff(int drakeBuff) throws InvalidStatsException {
         if (drakeBuff < DRAKE_MIN_BUFF_HERO || drakeBuff > DRAKE_MAX_BUFF_HERO) {
-            throw new RuntimeException("Invalid drakeBuff");
+            throw new InvalidStatsException("Invalid drakeBuff");
         }
 
         this.drakeBuff = drakeBuff;

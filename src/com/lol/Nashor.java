@@ -8,12 +8,12 @@ public class Nashor extends Creatures {
     private static final int NASHOR_BUFF = 300;
     private static final int ABSORB_DAMAGE = 8;
 
-    public Nashor() {
+    public Nashor() throws InvalidStatsException {
         super(NAME, NASHOR_HEALTH_AT_START, NASHOR_ARMOR, NASHOR_DAMAGE, false, ABSORB_DAMAGE);
     }
 
     @Override
-    public void attackHeroes(Hero hero) {
+    public void attackHeroes(Hero hero) throws InvalidStatsException {
         if (getIsDead()){
             System.out.println("Hero is already dead!");
             return;
