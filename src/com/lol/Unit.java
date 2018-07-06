@@ -69,7 +69,7 @@ public class Unit {
         this.attackDamage = attackDamage;
     }
 
-     boolean getIsDead() {
+    boolean getIsDead() {
         return isDead;
     }
 
