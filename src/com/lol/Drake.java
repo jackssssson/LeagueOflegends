@@ -35,14 +35,14 @@ public class Drake extends Creatures implements Movable {
     @Override
     public void attackHeroes(Hero hero) throws InvalidStatsException {
         if (hero.getIsDead()){
-            System.out.println("Hero is already dead!");
+            System.out.println(hero.getName() + " is already dead!");
             return;
         }
 
         int currentSpeedDrake = move(hero.getHeroSpeed());
 
         if (currentSpeedDrake < hero.getHeroSpeed()){
-            System.out.println("Hero is out of range");
+            System.out.println(hero.getName() + " is out of range");
             return;
         }
 
@@ -54,7 +54,7 @@ public class Drake extends Creatures implements Movable {
         if (heroHealth <= CREATURE_STATS_DEAD) {
             hero.setHealth(CREATURE_STATS_DEAD);
             hero.setIsDead(true);
-            System.out.println("Hero is dead!");
+            System.out.println(hero.getName() + " is dead!");
             return;
         }
 

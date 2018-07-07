@@ -21,7 +21,7 @@ public class Creeps extends Creatures implements Movable {
     @Override
     public void attackHeroes(Hero hero) throws InvalidStatsException {
         if (getIsDead()){
-            System.out.println("Hero is already dead!");
+            System.out.println(hero.getName() + " is already dead!");
             System.out.println("You can revive him!");
             return;
         }
@@ -29,7 +29,7 @@ public class Creeps extends Creatures implements Movable {
         int currentSpeedCreep = move(hero.getHeroSpeed());
 
         if (currentSpeedCreep < hero.getHeroSpeed()){
-            System.out.println("Hero is out of range");
+            System.out.println(hero.getName() + " is out of range");
             return;
         }
 
@@ -41,7 +41,7 @@ public class Creeps extends Creatures implements Movable {
         if (heroHealth <= CREATURE_STATS_DEAD) {
             hero.setHealth(CREATURE_STATS_DEAD);
             hero.setIsDead(true);
-            System.out.println("Hero is dead!");
+            System.out.println(hero.getName() + " is dead!");
             return;
         }
 

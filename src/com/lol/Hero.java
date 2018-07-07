@@ -25,7 +25,7 @@ public class Hero extends Unit implements Movable {
 
     @Override
     public String toString() {
-        return " name='" + getName() + '\'' +
+        return  "name = '" + getName() + '\'' +
                 ", health=" + getHealth() +
                 ", mana=" + mana +
                 ", armor=" + getArmor() +
@@ -33,8 +33,8 @@ public class Hero extends Unit implements Movable {
                 ", apDamage=" + apDamage +
                 ", gold=" + gold +
                 ", heroSpeed=" + heroSpeed +
-                ", isDead=" + isDead +
-                '}';
+                ", isDead=" + isDead;
+
     }
 
     public Hero(String name) throws NoSuchFieldException,
