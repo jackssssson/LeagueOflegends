@@ -48,7 +48,6 @@ public class Hero extends Unit implements Movable {
     private int gold;
     private int heroSpeed;
     private boolean isDead = false;
-    private String heroType;
     private List<Items> listHeroItems = new ArrayList<>();
     private List<Items> equippedItems = new LinkedList<>();
 
@@ -56,23 +55,16 @@ public class Hero extends Unit implements Movable {
         return listHeroItems;
     }
 
-    public void setListHeroItems(List<Items> listHeroItems) {
-        this.listHeroItems = listHeroItems;
-    }
-
     public List<Items> getEquippedItems() {
         return equippedItems;
     }
 
-    public void setEquippedItems(List<Items> equippedItems) {
-        this.equippedItems = equippedItems;
-    }
 
-    public int getMana() {
+    private int getMana() {
         return mana;
     }
 
-    public void setMana(int mana) throws InvalidStatsException {
+    private void setMana(int mana) throws InvalidStatsException {
         if (mana < MIN_MANA || mana > MAX_MANA) {
             throw new InvalidStatsException("Invalid mana");
         }
@@ -80,11 +72,11 @@ public class Hero extends Unit implements Movable {
         this.mana = mana;
     }
 
-    public int getApDamage() {
+    int getApDamage() {
         return apDamage;
     }
 
-    public void setApDamage(int apDamage) throws InvalidStatsException {
+    void setApDamage(int apDamage) throws InvalidStatsException {
         if (apDamage < MIN_AP_DAMAGE || apDamage > MAX_AP_DAMAGE) {
             throw new InvalidStatsException("Invalid apDamage");
         }
@@ -96,7 +88,7 @@ public class Hero extends Unit implements Movable {
         return gold;
     }
 
-    public void setGold(int gold) throws InvalidStatsException {
+    void setGold(int gold) throws InvalidStatsException {
         if (gold < MIN_GOLD) {
             throw new InvalidStatsException("Invalid gold");
         }
@@ -117,7 +109,6 @@ public class Hero extends Unit implements Movable {
             setHeroSpeed(STATS_DEAD);
             setAttackDamage(STATS_DEAD);
             setApDamage(STATS_DEAD);
-            setType("");
             listHeroItems.clear();
             equippedItems.clear();
         }
@@ -128,7 +119,7 @@ public class Hero extends Unit implements Movable {
         return heroSpeed;
     }
 
-    public void setHeroSpeed(int heroSpeed) throws InvalidStatsException {
+    private void setHeroSpeed(int heroSpeed) throws InvalidStatsException {
         if (heroSpeed < MIN_SPEED || heroSpeed > MAX_SPEED) {
             throw new InvalidStatsException("Invalid speed");
         }
@@ -136,16 +127,12 @@ public class Hero extends Unit implements Movable {
         this.heroSpeed = heroSpeed;
     }
 
-    public String getType() {
-        return heroType;
-    }
-
-    public void setType(String type) {
-        this.heroType = type;
-    }
 
 
-    public void setHeroStats(String name) throws NoSuchFieldException,
+
+
+
+    private void setHeroStats(String name) throws NoSuchFieldException,
             IllegalAccessException, InvalidStatsException {
         setName(name.toUpperCase());
         setHealth(Consts.class.getDeclaredField(name + "_HEALTH").getInt(constants));
@@ -156,7 +143,6 @@ public class Hero extends Unit implements Movable {
         setAttackDamage(Consts.class.getDeclaredField(name + "_ATTACK_DAMAGE").getInt(constants));
         setApDamage(Consts.class.getDeclaredField(name + "_ABILITY_POWER").getInt(constants));
         setIsDead(Consts.class.getDeclaredField(name + "_IS_DEAD").getBoolean(constants));
-        setType((String) Consts.class.getDeclaredField(name + "_TYPE").get(constants));
 
 
     }

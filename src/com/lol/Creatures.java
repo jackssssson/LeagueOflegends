@@ -3,11 +3,11 @@ package com.lol;
 public abstract class Creatures extends Unit {
     public abstract void attackHeroes(Hero hero) throws InvalidStatsException;
 
-    public Creatures(String name) throws InvalidStatsException {
+    Creatures(String name) throws InvalidStatsException {
         setName(name);
     }
 
-    public Creatures(String name, int health, int armor, int attackDamage, boolean isDead, int absorbDamage)
+    Creatures(String name, int health, int armor, int attackDamage, boolean isDead, int absorbDamage)
             throws InvalidStatsException {
         setName(name);
         setHealth(health);

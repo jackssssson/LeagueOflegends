@@ -37,7 +37,7 @@ public class Unit {
         return health;
     }
 
-    public void setHealth(int health) throws InvalidStatsException {
+    void setHealth(int health) throws InvalidStatsException {
         if (health < MIN_HEALTH || health > MAX_HEALTH){
             throw new InvalidStatsException("Invalid health");
         }
@@ -49,7 +49,7 @@ public class Unit {
         return armor;
     }
 
-    public void setArmor(int armor) throws InvalidStatsException {
+    void setArmor(int armor) throws InvalidStatsException {
         if (armor < MIN_ARMOR || armor > MAX_ARMOR){
             throw new InvalidStatsException("Invalid armor");
         }
@@ -61,7 +61,7 @@ public class Unit {
         return attackDamage;
     }
 
-    public void setAttackDamage(int attackDamage) throws InvalidStatsException {
+    void setAttackDamage(int attackDamage) throws InvalidStatsException {
         if (attackDamage < MIN_AD_DAMAGE || attackDamage > MAX_AD_DAMAGE){
             throw new InvalidStatsException("Invalid attackDamage");
         }
@@ -77,11 +77,11 @@ public class Unit {
         isDead = dead;
     }
 
-    public int getAbsorbDamage() {
+    int getAbsorbDamage() {
         return absorbDamage;
     }
 
-    public void setAbsorbDamage(int absorbDamage) throws InvalidStatsException {
+    void setAbsorbDamage(int absorbDamage) throws InvalidStatsException {
         if (absorbDamage < MIN_ABSORB_DAMAGE || absorbDamage > MAX_ABSORB_DAMAGE) {
             throw new InvalidStatsException("Invalid absorbDamage");
         }

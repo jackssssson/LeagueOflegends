@@ -17,7 +17,7 @@ public class Application {
         String ChosenHero = in.nextLine().toUpperCase();
 
         Hero hero = new Hero(ChosenHero);
-        /*
+
         Creatures creep = new Creeps();
         Creatures drake = new Drake("Mountain");
         Creatures nashor = new Nashor();
@@ -207,7 +207,7 @@ public class Application {
         System.out.println("-------------------------------------");
 
         for (int i = 0; i < 250; i++){
-            hero.magicAttack(hero, enemyHeroUltimateAttack);
+            hero.ultimateAttack(hero, enemyHeroUltimateAttack);
             if (enemyHeroUltimateAttack.getIsDead()){
                 System.out.println("-------------------------------------");
                 break;
@@ -215,21 +215,18 @@ public class Application {
             System.out.printf("%s health after %s attack him with ultimate attack is %s\n",
                     enemyHeroUltimateAttack.getName(),  hero.getName(), enemyHeroUltimateAttack.getHealth());
         }
-        */
 
 
         //items
 
-
         Item newItem = new Item();
-       // Hero hero = new Hero("zed");
         newItem.listItem();
         System.out.print("Choose items to buy (when you are ready press enter): ");
         String[] chosenItems = in.nextLine().toUpperCase().split(" ");
         String oldItem = "";
 
         //buy and equip new items
-
+        System.out.println(hero.toString());
         for (String item : chosenItems) {
             for(Items items: Items.values()){
                 if(item.equals(items.toString())) {          //verification of the selected item are exists in enum
@@ -237,14 +234,13 @@ public class Application {
                 }
             }
         }
-        System.out.println(hero.toString());
-        newItem.buyItem(hero, Items.BILGWATER_CUTLASS, "" );
-        System.out.println(hero.getListHeroItems());
-        System.out.println(hero.getEquippedItems());
-        System.out.println(hero.toString());
-        Item item = new Item(Items.HUNTERS_MACHETE);
-        System.out.println(item);
 
-
+      System.out.println(hero.toString());
+      newItem.buyItem(hero, Items.BILGWATER_CUTLASS, "" );
+      System.out.println(hero.getListHeroItems());
+      System.out.println(hero.getEquippedItems());
+      System.out.println(hero.toString());
+      Item item = new Item(Items.HUNTERS_MACHETE);
+      System.out.println(item);
     }
 }
