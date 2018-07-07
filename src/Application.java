@@ -218,36 +218,33 @@ public class Application {
         */
 
 
-
-
-
-
-
-
-
-
-
         //items
-        /*
-        ItemConsts constants = new ItemConsts();
+
+
         Item newItem = new Item();
+       // Hero hero = new Hero("zed");
         newItem.listItem();
         System.out.print("Choose items to buy (when you are ready press enter): ");
         String[] chosenItems = in.nextLine().toUpperCase().split(" ");
+        String oldItem = "";
 
         //buy and equip new items
 
         for (String item : chosenItems) {
-            for (Items items : Items.values()) {
-                if (item.equals(items.toString())) {          //verification of the selected item are exists in enum
-                    newItem.buyItem(hero, items);
+            for(Items items: Items.values()){
+                if(item.equals(items.toString())) {          //verification of the selected item are exists in enum
+                    newItem.buyItem(hero, items, oldItem);
                 }
             }
         }
+        System.out.println(hero.toString());
+        newItem.buyItem(hero, Items.BILGWATER_CUTLASS, "" );
         System.out.println(hero.getListHeroItems());
         System.out.println(hero.getEquippedItems());
-        System.out.println(hero.getAttackDamage() + " " + hero.getArmor() + " " + hero.getApDamage() + " " + hero.getGold());
-        */
+        System.out.println(hero.toString());
+        Item item = new Item(Items.HUNTERS_MACHETE);
+        System.out.println(item);
+
 
     }
 }

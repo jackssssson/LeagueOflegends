@@ -2,6 +2,8 @@ package com.lol;
 
 public class ItemConsts {
 
+    public static final int MAX_EQUIPPED_ITEMS = 4;
+
     public static final int HUNTERS_MACHETE_ADD_DAMAGE = 15;
     public static final int HUNTERS_MACHETE_ADD_ARMOR = 0;
     public static final int HUNTERS_MACHETE_ADD_MAGIC = 0;
