@@ -20,6 +20,7 @@ public class Hero extends Unit implements Movable {
     private static final int ADDITION_AP_DAMAGE = 45;
     private static final int ULTIMATE_MANA_COST = 120;
     private static final int ADDITION_ULTIMATE_DAMAGE = 45;
+    private static final int BUFF_MANA = 20;
 
     private Consts constants = new Consts();
 
@@ -191,6 +192,7 @@ public class Hero extends Unit implements Movable {
 
         if (attackerMana < magicAttackManaCost) {
             System.out.println("Not enough mana to cast " + attacker.getName() + "'s Magic Attack");
+            attacker.setMana(getMana() + BUFF_MANA);
 
         } else {
 
@@ -226,7 +228,7 @@ public class Hero extends Unit implements Movable {
 
         if (attackerMana < ultimateManaCost) {
             System.out.println("Not enough mana to cast " + attacker.getName() + "'s Ultimate");
-
+            attacker.setMana(getMana() + BUFF_MANA);
         } else {
 
             int ultimateDmg = attackerAP + attackerAD + ADDITION_ULTIMATE_DAMAGE;

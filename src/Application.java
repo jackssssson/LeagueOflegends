@@ -5,146 +5,249 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) throws NoSuchFieldException,
-            IllegalAccessException {
+            IllegalAccessException, InvalidStatsException {
 
-       //Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-       //String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
-       //String[] HeroesList = Heroes.split(" ");
+        String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
+        String[] HeroesList = Heroes.split(" ");
 
-       //System.out.println("Available Heros: " + Arrays.toString(HeroesList));
-       //System.out.print("Choose your hero: ");
-       //String ChosenHero = in.nextLine().toUpperCase();
+        System.out.println("Available Heroes: " + Arrays.toString(HeroesList));
+        System.out.print("Choose your hero: ");
+        String ChosenHero = in.nextLine().toUpperCase();
 
-
-       //Hero zed = new Hero(ChosenHero);
-       //zed.setIsDead(true);
-       //System.out.println(zed.toString());
-       //zed.heroRevive(zed);
-       //System.out.println(zed.toString());
+        Hero hero = new Hero(ChosenHero);
+        /*
+        Creatures creep = new Creeps();
+        Creatures drake = new Drake("Mountain");
+        Creatures nashor = new Nashor();
 
         //heroAttackDrake
-        /*
-        Hero zed = new Hero("zed");
-        Creatures drake = new Drake("Mountain");
-        System.out.println(zed.getHeroSpeed());
-        System.out.println(zed.getAttackDamage());
-        System.out.println(zed.getArmor());
-        //Hero zed = new Hero(ChosenHero);
-        System.out.println(zed.getHealth());
+
+        System.out.println(hero.getName() + " speed before attack drake " + hero.getHeroSpeed());
+        System.out.println(hero.getName() + " attackDamage before attack drake " + hero.getAttackDamage());
+        System.out.println(hero.getName() + " armor before attack drake " + hero.getArmor());
+        System.out.println(hero.getName() + " health before attack drake " + hero.getHealth());
+        System.out.println("-------------------------------------");
 
         for (int i = 0; i < 250; i++){
-            zed.heroAttackDrake((Drake) drake);
+            hero.heroAttackDrake((Drake) drake);
             if (drake.getHealth() <= 0){
+                System.out.println("-------------------------------------");
                 break;
             }
-            System.out.println(drake.getHealth());
+            System.out.println(drake.getName() + " health is " + drake.getHealth());
         }
 
-        System.out.println(zed.getHeroSpeed());
-        System.out.println(zed.getAttackDamage());
-        System.out.println(zed.getArmor());
-        System.out.println(zed.getHealth());
+        System.out.println(hero.getName() + " speed after attack drake " + hero.getHeroSpeed());
+        System.out.println(hero.getName() + " attackDamage after attack drake " + hero.getAttackDamage());
+        System.out.println(hero.getName() + " armor after attack drake " + hero.getArmor());
+        System.out.println(hero.getName() + " health after attack drake " + hero.getHealth());
+        System.out.println("-------------------------------------");
+
+        //respawn drake
         drake = drake.creatureRespawn(drake);
-        System.out.println(drake.getName());
-        System.out.println(drake.getHealth());
-        */
+        System.out.println(drake.getName() + " is respawn");
+        System.out.println("-------------------------------------");
+
 
         //heroAttackNashor
-        /*
-        Hero zed = new Hero("zed");
-        Creatures nashor = new Nashor();
-        System.out.println(zed.getGold());
+
+        System.out.println(hero.getName() + " gold before attack Nashor is " + hero.getGold());
+        System.out.println("-------------------------------------");
 
         for (int i = 0; i < 1000; i++){
-            zed.heroAttackNashor((Nashor) nashor);
+            hero.heroAttackNashor((Nashor) nashor);
             if (nashor.getHealth() <= 0){
+                System.out.println("-------------------------------------");
                 break;
             }
-            System.out.println(nashor.getHealth());
+            System.out.println(nashor.getName() + " health is " + nashor.getHealth());
         }
 
-        System.out.println(zed.getGold());
+        System.out.println(hero.getName() + " gold after attack Nashor is " + hero.getGold());
+        System.out.println("-------------------------------------");
+
+        //respawn nashor
         nashor = nashor.creatureRespawn(nashor);
-        System.out.println(nashor.getHealth());
-        */
+        System.out.println(nashor.getName() + " is respawn");
+        System.out.println("-------------------------------------");
+
 
         //heroAttackCreep
-        /*
-        Hero zed = new Hero("zed");
-        Creatures creep = new Creeps();
-        System.out.println(zed.getGold());
+
+        System.out.println(hero.getName() + " gold before attack creep is " + hero.getGold());
+        System.out.println("-------------------------------------");
 
         for (int i = 0; i < 1000; i++){
-            zed.heroAttackCreep((Creeps) creep);
+            hero.heroAttackCreep((Creeps) creep);
             if (creep.getHealth() <= 0){
+                System.out.println("-------------------------------------");
                 break;
             }
-            System.out.println(creep.getHealth());
+            System.out.println(creep.getName() + " health is " + creep.getHealth());
         }
 
-        System.out.println(zed.getGold());
+        System.out.println(hero.getName() + " gold after attack creep is " + hero.getGold());
+        System.out.println("-------------------------------------");
+
+        //respawn creep
+
         creep = creep.creatureRespawn(creep);
-        System.out.println(creep.getHealth());
-        */
+        System.out.println(creep.getName() + " is respawn");
+        System.out.println("-------------------------------------");
+
 
         //creepAttackHero
-        /*
-        Hero zed1 = new Hero("zed");
-        Creatures creep = new Creeps();
+
+        System.out.println(hero.getName() + " health before creep attack him " + hero.getHealth());
+        System.out.println("-------------------------------------");
 
         for (int i = 0; i < 250; i++){
-            creep.attackHeroes(zed1);
-            if (zed1.getHealth() <= 0){
+            creep.attackHeroes(hero);
+            if (hero.getHealth() <= 0){
+                System.out.println("-------------------------------------");
                 break;
             }
-            System.out.println(zed1.getHealth());
+            System.out.println(hero.getName() + " health after creep attack him " + hero.getHealth());
         }
-        */
+
 
         //heroRevive
-        //zed1.heroRevive(zed1);
-        //System.out.println(zed1.getHealth());
+
+        hero.heroRevive(hero);
+        System.out.println(hero.getName() + " is revive");
+        System.out.println("-------------------------------------");
+
 
         //nashorAttackHero
-        /* Hero zed = new Hero("zed");
-        Creatures nashor = new Nashor();
+
+        System.out.println(hero.getName() + " health before nashor attack him " + hero.getHealth());
+        System.out.println("-------------------------------------");
 
         for (int i = 0; i < 250; i++){
-            nashor.attackHeroes(zed);
-            if (zed.getHealth() <= 0){
+            nashor.attackHeroes(hero);
+            if (hero.getHealth() <= 0){
+                System.out.println("-------------------------------------");
                 break;
             }
-            System.out.println(zed.getHealth());
+            System.out.println(hero.getName() + " health after nashor attack him " + hero.getHealth());
         }
-        */
+
+        //heroRevive
+
+        hero.heroRevive(hero);
+        System.out.println(hero.getName() + " is revive");
+        System.out.println("-------------------------------------");
+
 
         //drakeAttackHero
-        /* Hero zed = new Hero("zed");
-        Creatures drake = new Drake("Mountain");
+
+        System.out.println(hero.getName() + " health before drake attack him " + hero.getHealth());
+        System.out.println("-------------------------------------");
 
         for (int i = 0; i < 250; i++){
-            drake.attackHeroes(zed);
-            if (zed.getHealth() <= 0){
+            drake.attackHeroes(hero);
+            if (hero.getHealth() <= 0){
+                System.out.println("-------------------------------------");
                 break;
             }
-            System.out.println(zed.getHealth());
+            System.out.println(hero.getName() + " health after drake attack him " + hero.getHealth());
+        }
+
+
+        //heroRevive
+
+        hero.heroRevive(hero);
+        System.out.println(hero.getName() + " is revive");
+        System.out.println("-------------------------------------");
+
+
+
+        //normalAttack
+
+        System.out.println("Available Heroes: " + Arrays.toString(HeroesList));
+        System.out.print("Choose your hero: ");
+        Hero enemyHeroNormalAttack = new Hero(in.nextLine().toUpperCase());
+        System.out.println("-------------------------------------");
+
+        for (int i = 0; i < 250; i++){
+            hero.normalAttack(hero, enemyHeroNormalAttack);
+            if (enemyHeroNormalAttack.getIsDead()){
+                System.out.println("-------------------------------------");
+                break;
+            }
+            System.out.printf("%s health after %s attack him with normal attack is %s\n",
+                    enemyHeroNormalAttack.getName(),  hero.getName(), enemyHeroNormalAttack.getHealth());
+        }
+
+
+        //magicAttack
+
+        System.out.println("Available Heroes: " + Arrays.toString(HeroesList));
+        System.out.print("Choose your hero: ");
+        Hero enemyHeroMagicAttack = new Hero(in.nextLine().toUpperCase());
+        System.out.println("-------------------------------------");
+
+        for (int i = 0; i < 250; i++){
+            hero.magicAttack(hero, enemyHeroMagicAttack);
+            if (enemyHeroMagicAttack.getIsDead()){
+                System.out.println("-------------------------------------");
+                break;
+            }
+            System.out.printf("%s health after %s attack him with magic attack is %s\n",
+                    enemyHeroMagicAttack.getName(),  hero.getName(), enemyHeroMagicAttack.getHealth());
+        }
+
+
+        //ultimateAttack
+        System.out.println("Available Heroes: " + Arrays.toString(HeroesList));
+        System.out.print("Choose your hero: ");
+        Hero enemyHeroUltimateAttack = new Hero(in.nextLine().toUpperCase());
+        System.out.println("-------------------------------------");
+
+        for (int i = 0; i < 250; i++){
+            hero.magicAttack(hero, enemyHeroUltimateAttack);
+            if (enemyHeroUltimateAttack.getIsDead()){
+                System.out.println("-------------------------------------");
+                break;
+            }
+            System.out.printf("%s health after %s attack him with ultimate attack is %s\n",
+                    enemyHeroUltimateAttack.getName(),  hero.getName(), enemyHeroUltimateAttack.getHealth());
         }
         */
-        //System.out.println(zed.getMana());
 
-        ////test
 
-//        Hero zed = new Hero("zed");
-//        System.out.println("Before byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  and zed Gold:"+zed.getGold());
-//        Item newItem = new Item();
-//        newItem.buyItem(zed, Items.BILGWATER_CUTLASS);
-//        newItem.buyItem(zed, Items.AEGIS_OF_THE_LEGION);
-//        newItem.buyItem(zed, Items.DORANS_SHIELD);
-//        System.out.println("After byu Items - zed AttackDamage:"+zed.getAttackDamage()+", zed armor:"+zed.getArmor()+"  zed Gold:"+zed.getGold());
-//        System.out.println(zed.getEquippedItems());
-//        System.out.println(zed.getListHeroItems());
 
+
+
+
+
+
+
+
+
+        //items
+        /*
+        ItemConsts constants = new ItemConsts();
+        Item newItem = new Item();
+        newItem.listItem();
+        System.out.print("Choose items to buy (when you are ready press enter): ");
+        String[] chosenItems = in.nextLine().toUpperCase().split(" ");
+
+        //buy and equip new items
+
+        for (String item : chosenItems) {
+            for (Items items : Items.values()) {
+                if (item.equals(items.toString())) {          //verification of the selected item are exists in enum
+                    newItem.buyItem(hero, items);
+                }
+            }
+        }
+        System.out.println(hero.getListHeroItems());
+        System.out.println(hero.getEquippedItems());
+        System.out.println(hero.getAttackDamage() + " " + hero.getArmor() + " " + hero.getApDamage() + " " + hero.getGold());
+        */
 
     }
 }
