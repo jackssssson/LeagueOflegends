@@ -23,6 +23,7 @@ public class Item {
     private int price;
 
     public Item()  {
+
     }
 
     public Item(Items name) throws NoSuchFieldException, IllegalAccessException{
@@ -30,7 +31,7 @@ public class Item {
         setStats(name);
     }
 
-    public String buyItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
+    public void buyItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
         String itemPrise = item + "_PRICE";
         String oldItem;
         Scanner in = new Scanner(System.in);
@@ -46,7 +47,6 @@ public class Item {
             }
             hero.setGold(hero.getGold() - ItemConsts.class.getDeclaredField(itemPrise).getInt(constants));
         }
-        return "";
     }
 
     private void equipItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
@@ -97,15 +97,6 @@ public class Item {
         setAddArmor(ItemConsts.class.getDeclaredField(item + "_ADD_ARMOR").getInt(constants));
         setAddMagic(ItemConsts.class.getDeclaredField(item + "_ADD_MAGIC").getInt(constants));
         setPrice(ItemConsts.class.getDeclaredField(item + "_PRICE").getInt(constants));
-    }
-
-    public Items stringToItems(String name){
-        for (Items items : Items.values()) {
-            if (name.equals(items.toString())) {
-                return items;
-            }
-        }
-        return null;
     }
 
     private int getAddDamage() {

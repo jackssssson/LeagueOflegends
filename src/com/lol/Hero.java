@@ -72,7 +72,7 @@ public class Hero extends Unit implements Movable {
         this.mana = mana;
     }
 
-    int getApDamage() {
+    public int getApDamage() {
         return apDamage;
     }
 

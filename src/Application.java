@@ -231,7 +231,6 @@ public class Application {
 
         //buy and equip new items
 
-        String oldItem = "";
         for (String item : chosenItems) {
             for (Items items : Items.values()) {
                 if (item.equals(items.toString())) {
