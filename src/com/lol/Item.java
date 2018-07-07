@@ -48,4 +48,18 @@ public class Item {
         }
 
     }
+
+    public void listItem() throws NoSuchFieldException, IllegalAccessException {
+        System.out.println("Available Items: ");
+
+        for (Items item: Items.values()) {
+            System.out.print(item.toString()+"\t");
+            if(item.toString().length()<17){ System.out.print("\t"); }
+            System.out.print("\tAdd damage:" + (ItemConsts.class.getDeclaredField(item + "_ADD_DAMAGE").getInt(constants)));
+            System.out.print("\tAdd magic:" + (ItemConsts.class.getDeclaredField(item + "_ADD_MAGIC").getInt(constants)));
+            System.out.print("\t\tAdd armor:" + (ItemConsts.class.getDeclaredField(item + "_ADD_ARMOR").getInt(constants)));
+            System.out.print("\t\tPrice:" + (ItemConsts.class.getDeclaredField(item + "_PRICE").getInt(constants)));
+            System.out.println();
+        }
+    }
 }

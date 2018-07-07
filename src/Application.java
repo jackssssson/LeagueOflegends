@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) throws NoSuchFieldException,
-            IllegalAccessException {
+            IllegalAccessException, InvalidStatsException {
 
-       //Scanner in = new Scanner(System.in);
+       Scanner in = new Scanner(System.in);
 
-       //String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
-       //String[] HeroesList = Heroes.split(" ");
-
-       //System.out.println("Available Heros: " + Arrays.toString(HeroesList));
-       //System.out.print("Choose your hero: ");
-       //String ChosenHero = in.nextLine().toUpperCase();
+//       String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
+//       String[] HeroesList = Heroes.split(" ");
+//
+//       System.out.println("Available Heros: " + Arrays.toString(HeroesList));
+//       System.out.print("Choose your hero: ");
+//       String ChosenHero = in.nextLine().toUpperCase();
 
 
        //Hero zed = new Hero(ChosenHero);
@@ -145,6 +145,28 @@ public class Application {
 //        System.out.println(zed.getEquippedItems());
 //        System.out.println(zed.getListHeroItems());
 
+
+        //items
+
+        ItemConsts constants = new ItemConsts();
+        Item newItem = new Item();
+        Hero hero = new Hero("zed");
+        newItem.listItem();
+        System.out.print("Choose items to buy (when you are ready press enter): ");
+        String[] chosenItems = in.nextLine().toUpperCase().split(" ");
+
+        //buy and equip new items
+
+        for (String item : chosenItems) {
+            for(Items items: Items.values()){
+                if(item.equals(items.toString())) {          //verification of the selected item are exists in enum
+                    newItem.buyItem(hero, items);
+                }
+            }
+        }
+        System.out.println(hero.getListHeroItems());
+        System.out.println(hero.getEquippedItems());
+        System.out.println(hero.getAttackDamage()+" "+hero.getArmor()+" "+hero.getApDamage()+" "+hero.getGold());
 
     }
 }
