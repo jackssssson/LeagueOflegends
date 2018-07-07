@@ -6,7 +6,7 @@ public class Item {
 
     private ItemConsts constants = new ItemConsts();
 
-    @Override
+    //@Override
     public String toString() {
         return getName()+
                 ", \taddDamage=" + getAddDamage() +
@@ -24,13 +24,15 @@ public class Item {
 
     public Item()  {
     }
+
     public Item(Items name) throws NoSuchFieldException, IllegalAccessException{
         setName(name);
         setStats(name);
     }
 
-    public String buyItem(Hero hero, Items item, String oldItem) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
+    public String buyItem(Hero hero, Items item) throws NoSuchFieldException, IllegalAccessException, InvalidStatsException {
         String itemPrise = item + "_PRICE";
+        String oldItem;
         Scanner in = new Scanner(System.in);
         if (hero.getGold() > ItemConsts.class.getDeclaredField(itemPrise).getInt(constants)) {
             hero.getListHeroItems().add(item);
@@ -38,7 +40,8 @@ public class Item {
             if (hero.getEquippedItems().size() > ItemConsts.MAX_EQUIPPED_ITEMS) {
                 System.out.println("You have equipped too much item, which one you want to unequipp from next list:");
                 System.out.println(hero.getEquippedItems());
-                oldItem = in.nextLine();
+                oldItem = in.nextLine().toUpperCase();
+                System.out.println();
                 unEquipItem(hero, Items.valueOf(oldItem));
             }
             hero.setGold(hero.getGold() - ItemConsts.class.getDeclaredField(itemPrise).getInt(constants));
@@ -75,7 +78,7 @@ public class Item {
 
     public void listItem() throws NoSuchFieldException, IllegalAccessException {
         System.out.println("Available Items: ");
-
+        System.out.println("-------------------------------------");
         for (Items item : Items.values()) {
             System.out.print(item.toString() + "\t");
             if (item.toString().length() < 17) {
@@ -89,11 +92,20 @@ public class Item {
         }
     }
 
-    public void setStats(Items item) throws NoSuchFieldException, IllegalAccessException {
+    private void setStats(Items item) throws NoSuchFieldException, IllegalAccessException {
         setAddDamage(ItemConsts.class.getDeclaredField(item + "_ADD_DAMAGE").getInt(constants));
         setAddArmor(ItemConsts.class.getDeclaredField(item + "_ADD_ARMOR").getInt(constants));
         setAddMagic(ItemConsts.class.getDeclaredField(item + "_ADD_MAGIC").getInt(constants));
         setPrice(ItemConsts.class.getDeclaredField(item + "_PRICE").getInt(constants));
+    }
+
+    public Items stringToItems(String name){
+        for (Items items : Items.values()) {
+            if (name.equals(items.toString())) {
+                return items;
+            }
+        }
+        return null;
     }
 
     private int getAddDamage() {
@@ -128,11 +140,11 @@ public class Item {
         this.price = price;
     }
 
-    public Items getName() {
+    private Items getName() {
         return name;
     }
 
-    public void setName(Items name) {
+    private void setName(Items name) {
         this.name = name;
     }
 }

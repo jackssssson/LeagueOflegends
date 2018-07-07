@@ -221,26 +221,33 @@ public class Application {
 
         Item newItem = new Item();
         newItem.listItem();
-        System.out.print("Choose items to buy (when you are ready press enter): ");
+        System.out.println("-------------------------------------");
+        System.out.println("You have "+ hero.getGold()+" gold.");
+        System.out.println(hero.getName() + " stats before buy items is: damage "+ hero.getAttackDamage()+", armor "+hero.getArmor()+", magic "+hero.getApDamage());
+        System.out.println("You can't equip more than 4 items, but you can buy more. Choose items to buy (when you are ready press enter): ");
+        System.out.println("HUNTERS_MACHETE BILGWATER_CUTLASS AEGIS_OF_THE_LEGION DORANS_SHIELD ARCANE_SWEEPER");
         String[] chosenItems = in.nextLine().toUpperCase().split(" ");
-        String oldItem = "";
+        System.out.println("-------------------------------------");
 
         //buy and equip new items
-        System.out.println(hero.toString());
+
+        String oldItem = "";
         for (String item : chosenItems) {
-            for(Items items: Items.values()){
-                if(item.equals(items.toString())) {          //verification of the selected item are exists in enum
-                    newItem.buyItem(hero, items, oldItem);
+            for (Items items : Items.values()) {
+                if (item.equals(items.toString())) {
+                    newItem.buyItem(hero, items);
                 }
             }
         }
 
-      System.out.println(hero.toString());
-      newItem.buyItem(hero, Items.BILGWATER_CUTLASS, "" );
-      System.out.println(hero.getListHeroItems());
-      System.out.println(hero.getEquippedItems());
-      System.out.println(hero.toString());
-      Item item = new Item(Items.HUNTERS_MACHETE);
-      System.out.println(item);
+        System.out.println("-------------------------------------");
+        System.out.println("You left "+ hero.getGold()+" gold, after shopping.");
+        System.out.println(hero.getName() + " stats after buy items is: damage "+ hero.getAttackDamage()+", armor "+hero.getArmor()+", magic "+hero.getApDamage());
+        System.out.println("The items that you have are: ");
+        System.out.println(hero.getListHeroItems());
+        System.out.println("The items that you are equipped are: ");
+        System.out.println(hero.getEquippedItems());
+        System.out.println("-------------------------------------");
+
     }
 }
