@@ -24,20 +24,6 @@ public class Hero extends Unit implements Movable {
 
     private Consts constants = new Consts();
 
-    @Override
-    public String toString() {
-        return  "name = '" + getName() + '\'' +
-                ", health=" + getHealth() +
-                ", mana=" + mana +
-                ", armor=" + getArmor() +
-                ", attackDamage=" + getAttackDamage() +
-                ", apDamage=" + apDamage +
-                ", gold=" + gold +
-                ", heroSpeed=" + heroSpeed +
-                ", isDead=" + isDead;
-
-    }
-
     public Hero(String name) throws NoSuchFieldException,
             IllegalAccessException, InvalidStatsException {
         setHeroStats(name.toUpperCase());
@@ -97,6 +83,7 @@ public class Hero extends Unit implements Movable {
     }
 
     public boolean getIsDead() {
+
         return isDead;
     }
 
@@ -128,10 +115,6 @@ public class Hero extends Unit implements Movable {
     }
 
 
-
-
-
-
     private void setHeroStats(String name) throws NoSuchFieldException,
             IllegalAccessException, InvalidStatsException {
         setName(name.toUpperCase());
@@ -161,6 +144,7 @@ public class Hero extends Unit implements Movable {
             defender.setHealth(STATS_DEAD);
             defender.setIsDead(true);
             attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
+            System.out.println(defender.getName()+" has been slain!");
             System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
             return;
         }
@@ -193,6 +177,7 @@ public class Hero extends Unit implements Movable {
                 defender.setHealth(STATS_DEAD);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
+                System.out.println(defender.getName()+" has been slain!");
                 System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
@@ -228,6 +213,7 @@ public class Hero extends Unit implements Movable {
                 defender.setHealth(STATS_DEAD);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
+                System.out.println(defender.getName()+" has been slain!");
                 System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
@@ -365,6 +351,46 @@ public class Hero extends Unit implements Movable {
         } else {
             System.out.println("Hero is alive!");
         }
+    }
+
+
+    public void listHeroes() throws NoSuchFieldException, IllegalAccessException {
+        String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
+        String[] HeroesList = Heroes.split(" ");
+        System.out.println("Available Heroes: ");
+        for (int i = 0; i < HeroesList.length; i++) {
+            String name = HeroesList[i].toUpperCase();
+            int SpacesNeeded = 20 - name.length();
+            String Space = " ";
+            System.out.print((i+1)+"\t"+HeroesList[i]);
+            for (int j = 0; j < SpacesNeeded; j++) {
+                System.out.print(Space);
+            }
+            System.out.print("\tHEALTH:" + (Consts.class.getDeclaredField(name + "_HEALTH").getInt(constants)));
+            System.out.print("\t\tMANA:" + (Consts.class.getDeclaredField(name + "_MANA").getInt(constants)));
+            System.out.print("\t\tARMOR:" + (Consts.class.getDeclaredField(name + "_ARMOR").getInt(constants)));
+            System.out.print("\t\tATTACK DAMAGE:" + (Consts.class.getDeclaredField(name + "_ATTACK_DAMAGE").getInt(constants)));
+            System.out.print("\t\tABILITY POWER:" + (Consts.class.getDeclaredField(name + "_ABILITY_POWER").getInt(constants)));
+            System.out.println();
+        }
+        System.out.println();
+    }
+    public void  printHeroStats() {
+        String name = getName();
+        System.out.print(name.toUpperCase());
+        int SpacesNeeded = 15 - name.length();
+        String Space = " ";
+        for (int j = 0; j < SpacesNeeded; j++) {
+            System.out.print(Space);
+        }
+        System.out.println("HEALTH:" + getHealth() +
+                "\t MANA: " + mana +
+                "\t ARMOR:" + getArmor() +
+                "\t ATTACK DAMAGE:" + getAttackDamage() +
+                "\t ABILITY POWER;" + apDamage +
+                "\t GOLD:" + gold +
+                "\t RANGE:" + heroSpeed );
+
     }
 
 }

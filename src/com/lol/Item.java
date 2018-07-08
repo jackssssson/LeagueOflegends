@@ -39,7 +39,7 @@ public class Item {
             hero.getListHeroItems().add(item);
             equipItem(hero, item);
             if (hero.getEquippedItems().size() > ItemConsts.MAX_EQUIPPED_ITEMS) {
-                System.out.println("You have equipped too much item, which one you want to unequipp from next list:");
+                System.out.println("You have equipped too much items, which one you want to unequip from next list:");
                 System.out.println(hero.getEquippedItems());
                 oldItem = in.nextLine().toUpperCase();
                 System.out.println();
@@ -79,16 +79,18 @@ public class Item {
     public void listItem() throws NoSuchFieldException, IllegalAccessException {
         System.out.println("Available Items: ");
         System.out.println("-------------------------------------");
+        int itemNumber=1;
         for (Items item : Items.values()) {
-            System.out.print(item.toString() + "\t");
+            System.out.print(itemNumber+"\t"+item.toString() + "\t");
             if (item.toString().length() < 17) {
                 System.out.print("\t");
             }
-            System.out.print("\tAdd damage:" + (ItemConsts.class.getDeclaredField(item + "_ADD_DAMAGE").getInt(constants)));
-            System.out.print("\tAdd magic:" + (ItemConsts.class.getDeclaredField(item + "_ADD_MAGIC").getInt(constants)));
-            System.out.print("\t\tAdd armor:" + (ItemConsts.class.getDeclaredField(item + "_ADD_ARMOR").getInt(constants)));
-            System.out.print("\t\tPrice:" + (ItemConsts.class.getDeclaredField(item + "_PRICE").getInt(constants)));
+            System.out.print("\tATTACK DAMAGE:+" + (ItemConsts.class.getDeclaredField(item + "_ADD_DAMAGE").getInt(constants)));
+            System.out.print("\tABILITY POWER:+" + (ItemConsts.class.getDeclaredField(item + "_ADD_MAGIC").getInt(constants)));
+            System.out.print("\t\tARMOR:+" + (ItemConsts.class.getDeclaredField(item + "_ADD_ARMOR").getInt(constants)));
+            System.out.print("\t\tPRICE:" + (ItemConsts.class.getDeclaredField(item + "_PRICE").getInt(constants)));
             System.out.println();
+            itemNumber++;
         }
     }
 
