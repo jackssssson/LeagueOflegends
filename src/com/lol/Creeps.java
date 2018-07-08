@@ -5,7 +5,7 @@ public class Creeps extends Creatures implements Movable {
     private static final int CREEPS_DAMAGE = 20;
     private static final int CREEPS_HEALTH = 200;
     private static final int CREEPS_ARMOR = 150;
-    private static final int CREEPS_SPEED = 200;
+    private static final int CREEPS_SPEED = 50;
     private static final int MAX_CREEPS_SPEED = 300;
     private static final int MIN_CREEPS_SPEED = 0;
     private static final int BUFFED_CREEP_SPEED = 20;
@@ -20,7 +20,7 @@ public class Creeps extends Creatures implements Movable {
 
     @Override
     public void attackHeroes(Hero hero) throws InvalidStatsException {
-        if (getIsDead()){
+        if (hero.getIsDead()){
             System.out.println(hero.getName() + " is already dead!");
             System.out.println("You can revive him!");
             return;

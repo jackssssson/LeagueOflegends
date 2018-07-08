@@ -320,7 +320,7 @@ public class Hero extends Unit implements Movable {
             creep.setHealth(STATS_DEAD);
             creep.setIsDead(true);
             setGold(getGold() + creep.getCreepBuff());
-            System.out.println("Creep is dead!");
+            System.out.println("Creep is has been slain");
             return;
         }
 
