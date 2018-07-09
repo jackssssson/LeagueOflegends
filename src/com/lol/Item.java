@@ -6,7 +6,6 @@ public class Item {
 
     private ItemConsts constants = new ItemConsts();
 
-    //@Override
     public String toString() {
         return getName()+
                 ", \taddDamage=" + getAddDamage() +
@@ -101,6 +100,15 @@ public class Item {
         setPrice(ItemConsts.class.getDeclaredField(item + "_PRICE").getInt(constants));
     }
 
+    public Items stringToItems(String name){
+        for (Items items : Items.values()) {
+            if (name.equals(items.toString())) {
+                return items;
+            }
+        }
+        return null;
+    }
+
     private int getAddDamage() {
         return addDamage;
     }
@@ -140,4 +148,10 @@ public class Item {
     private void setName(Items name) {
         this.name = name;
     }
+
+//    System.out.println("If you want to view the characteristics of the item, type it's name: ");
+//    String name = in.nextLine();
+//    item = new Item(newItem.stringToItems(name));
+//    System.out.println(item);
+
 }
