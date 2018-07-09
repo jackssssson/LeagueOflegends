@@ -1,6 +1,7 @@
 package com.lol;
 
-public class Drake extends Creatures implements Movable {
+public class
+Drake extends Creatures implements Movable {
     private static final int DRAKE_MIN_SPEED = 0;
     private static final int DRAKE_MAX_SPEED = 500;
     private static final int DRAKE_MIN_BUFFED = 0;
