@@ -32,4 +32,8 @@ public abstract class Creatures extends Unit {
             return creature;
         }
     }
+
+    public int getDrakeBuff() {
+        return 0;
+    }
 }

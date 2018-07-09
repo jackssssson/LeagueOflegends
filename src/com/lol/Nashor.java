@@ -3,7 +3,7 @@ package com.lol;
 public class Nashor extends Creatures {
     private static final String NAME = "Nashor";
     private static final int NASHOR_ARMOR = 300;
-    private static final int NASHOR_DAMAGE = 150;
+    private static final int NASHOR_DAMAGE = 500;
     private static final int NASHOR_HEALTH_AT_START = 1200;
     private static final int NASHOR_BUFF = 300;
     private static final int ABSORB_DAMAGE = 8;
@@ -14,7 +14,7 @@ public class Nashor extends Creatures {
 
     @Override
     public void attackHeroes(Hero hero) throws InvalidStatsException {
-        if (getIsDead()){
+        if (getIsDead()) {
             System.out.println(hero.getName() + " is already dead!");
             return;
         }
