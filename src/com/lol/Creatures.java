@@ -17,21 +17,21 @@ public abstract class Creatures extends Unit {
         setAbsorbDamage(absorbDamage);
     }
 
-    public Creatures creatureRespawn(Creatures creature) throws NoSuchFieldException,
-            IllegalAccessException, InvalidStatsException {
-        if (creature.getIsDead()) {
-            if (creature instanceof Creeps) {
-                return new Creeps();
-            } else if (creature instanceof Nashor) {
-                return new Nashor();
-            } else {
-                return new Drake(creature.getName());
-            }
-        } else {
-            System.out.println("Creature is alive!");
-            return creature;
-        }
-    }
+   // public Creatures creatureRespawn(Creatures creature) throws NoSuchFieldException,
+   //         IllegalAccessException, InvalidStatsException {
+   //     if (creature.getIsDead()) {
+   //         if (creature instanceof Creeps) {
+   //             return new Creeps();
+   //         } else if (creature instanceof Nashor) {
+   //             return new Nashor();
+   //         } else {
+   //             return new Drake(creature.getName());
+   //         }
+   //     } else {
+   //         System.out.println("Creature is alive!");
+   //         return creature;
+   //     }
+   // }
 
     public int getDrakeBuff() {
         return 0;

@@ -45,7 +45,7 @@ public class Unit {
         this.health = health;
     }
 
-    public int getArmor() {
+    int getArmor() {
         return armor;
     }
 
@@ -69,7 +69,7 @@ public class Unit {
         this.attackDamage = attackDamage;
     }
 
-    boolean getIsDead() {
+    public boolean getIsDead() {
         return isDead;
     }
 

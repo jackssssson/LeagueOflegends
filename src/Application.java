@@ -19,7 +19,7 @@ public class Application {
         int max = HeroesList.length;
         int randomNum = rand.nextInt((max - min) + 1) + min;
         Hero hero = new Hero(HeroesList[randomNum - 1]);
-        Scanner in = new Scanner(System.in);
+        //Scanner in = new Scanner(System.in);
 
         //checks if the player is ready
         boolean readyChecker = readyCheck();
@@ -56,7 +56,7 @@ public class Application {
 
     private static boolean readyCheck() {
         Scanner in = new Scanner(System.in);
-        boolean readycheck = false;
+        boolean isReady = false;
         System.out.println("Welcome to League of legends!!");
         System.out.println("To start a game write \"ready\" ");
         int readyCount = 0;
@@ -78,10 +78,10 @@ public class Application {
 
         }
         if (readyCheck.equals("ready")) {
-            readycheck = true;
+            isReady = true;
         }
 
-        return readycheck;
+        return isReady;
     }
 
     private static int chooseHero() {
@@ -261,8 +261,6 @@ public class Application {
                     System.out.print("It seems like you did not enter a number buddy! ");
 
                 }
-
-
             }
             if (chosenAttack == 1) {
                 player.heroAttackCreep((Creeps) creep);
@@ -375,5 +373,7 @@ public class Application {
             }
         }
     }
+
+
 
 }
