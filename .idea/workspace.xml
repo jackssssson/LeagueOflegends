@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae5137b8-f72a-4f4f-9593-95b8d17e688d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -14,10 +15,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="493">
               <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -36,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Item.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lol/Item.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+              <caret line="75" column="1" lean-forward="false" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
               <folding>
                 <element signature="method#Item#0;class#Item#0" expanded="false" />
                 <element signature="method#buyItem#0;class#Item#0" expanded="false" />
@@ -121,7 +122,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -293,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531128641363</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Project finalized , formatted and cleared of typo's">
+      <created>1531128872854</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1531128872854</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -385,8 +393,8 @@
             <element signature="method#setGold#0;class#Hero#0" expanded="false" />
             <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
             <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#2954#2955#0" expanded="false" />
             <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
             <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
@@ -407,8 +415,8 @@
         <state relative-caret-position="1190">
           <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
-            <element signature="e#1996#1997#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="false" />
+            <element signature="e#2025#2026#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -434,8 +442,8 @@
             <element signature="method#setGold#0;class#Hero#0" expanded="false" />
             <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
             <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#2954#2955#0" expanded="false" />
             <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
             <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
@@ -456,8 +464,8 @@
         <state relative-caret-position="1190">
           <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
-            <element signature="e#1996#1997#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="false" />
+            <element signature="e#2025#2026#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -514,8 +522,8 @@
             <element signature="method#setGold#0;class#Hero#0" expanded="false" />
             <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
             <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#2954#2955#0" expanded="false" />
             <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
             <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
@@ -536,8 +544,8 @@
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="e#1996#1997#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="false" />
+            <element signature="e#2025#2026#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -577,8 +585,8 @@
             <element signature="method#setGold#0;class#Hero#0" expanded="false" />
             <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
             <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#2954#2955#0" expanded="false" />
             <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
             <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
@@ -612,8 +620,8 @@
             <element signature="method#setGold#0;class#Hero#0" expanded="false" />
             <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
             <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#2954#2955#0" expanded="false" />
             <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
             <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
@@ -807,8 +815,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1996#1997#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="false" />
+            <element signature="e#2025#2026#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -824,8 +832,8 @@
             <element signature="method#setGold#0;class#Hero#0" expanded="false" />
             <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
             <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#2954#2955#0" expanded="false" />
             <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
             <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
@@ -867,16 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lol/Items.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -888,13 +886,23 @@
     <entry file="file://$PROJECT_DIR$/src/com/lol/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+          <caret line="75" column="1" lean-forward="false" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
           <folding>
             <element signature="method#Item#0;class#Item#0" expanded="false" />
             <element signature="method#buyItem#0;class#Item#0" expanded="false" />
             <element signature="method#equipItem#0;class#Item#0" expanded="false" />
             <element signature="method#unEquipItem#0;class#Item#0" expanded="false" />
             <element signature="method#listItem#0;class#Item#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
