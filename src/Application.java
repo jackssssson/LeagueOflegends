@@ -308,7 +308,7 @@ public class Application {
                 player.heroAttackDrake((Drake) drake);
                 drake.attackHeroes(player);
                 if (player.getHealth() > 0 && drake.getHealth() > 0) {
-                    System.out.println(player.getName() + "Attacked drake for " + player.getAttackDamage() + ",but Drake absorbed some damage!");
+                    System.out.println(player.getName() + " attacked drake for " + player.getAttackDamage() + ",but Drake absorbed some damage!");
                     System.out.println("Drake attacked " + player.getName() + " for " + drake.getAttackDamage() + ",but " + player.getName() + " absorbed some damage!");
                     System.out.println();
                     System.out.println("Player and Drake stats after round: " + round + ":");
@@ -321,7 +321,7 @@ public class Application {
 
         }
         System.out.println();
-        System.out.println("Good JOB! Now you must face the final boss - BARON NASHOR");
+        System.out.println("Good JOB! Now you must face the final boss - BARON NASHOR.");
         round = 1;
         while (nashor.getHealth() > 0) {
             System.out.println();
@@ -359,8 +359,8 @@ public class Application {
 
 
         }
-        System.out.println("Excellent!! You have defeated all the Creatures");
-        System.out.println("VICTORY");
+        System.out.println("Excellent, you have defeated all the Creatures!!");
+        System.out.println("VICTORY, you might actually become a Legend one day!!");
 
     }
 
