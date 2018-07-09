@@ -37,7 +37,7 @@ public class Hero extends Unit implements Movable {
     private List<Items> listHeroItems = new ArrayList<>();
     private List<Items> equippedItems = new LinkedList<>();
 
-    public List<Items> getListHeroItems() {
+    List<Items> getListHeroItems() {
         return listHeroItems;
     }
 
@@ -58,7 +58,7 @@ public class Hero extends Unit implements Movable {
         this.mana = mana;
     }
 
-    public int getApDamage() {
+    int getApDamage() {
         return apDamage;
     }
 
@@ -102,7 +102,7 @@ public class Hero extends Unit implements Movable {
         isDead = dead;
     }
 
-    public int getHeroSpeed() {
+    int getHeroSpeed() {
         return heroSpeed;
     }
 

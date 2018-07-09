@@ -45,7 +45,7 @@ public class Unit {
         this.health = health;
     }
 
-    public int getArmor() {
+    int getArmor() {
         return armor;
     }
 
