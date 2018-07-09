@@ -14,12 +14,13 @@ public class Application {
         Item Store = new Item();
         String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
         String[] HeroesList = Heroes.split(" ");
+
+        //Creates random hero for Doncho
         Random rand = new Random();
         int min = 1;
         int max = HeroesList.length;
         int randomNum = rand.nextInt((max - min) + 1) + min;
         Hero hero = new Hero(HeroesList[randomNum - 1]);
-        Scanner in = new Scanner(System.in);
 
         //checks if the player is ready
         boolean readyChecker = readyCheck();
@@ -33,7 +34,7 @@ public class Application {
             Hero player = new Hero(playerSelection);
             System.out.println("You have selected " + player.getName());
 
-            //User buys and equips 3 items
+            //User selects,buys and equips 3 items from the ItemList
             selectItems(Store, player);
 
             //Select an Enemy
@@ -56,7 +57,7 @@ public class Application {
 
     private static boolean readyCheck() {
         Scanner in = new Scanner(System.in);
-        boolean readycheck = false;
+        boolean isReady = false;
         System.out.println("Welcome to League of legends!!");
         System.out.println("To start a game write \"ready\" ");
         int readyCount = 0;
@@ -78,10 +79,10 @@ public class Application {
 
         }
         if (readyCheck.equals("ready")) {
-            readycheck = true;
+            isReady = true;
         }
 
-        return readycheck;
+        return isReady;
     }
 
     private static int chooseHero() {

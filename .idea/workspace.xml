@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ae5137b8-f72a-4f4f-9593-95b8d17e688d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" afterPath="$PROJECT_DIR$/src/Application.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/lol/Consts.java" afterPath="$PROJECT_DIR$/src/com/lol/Consts.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/lol/Creatures.java" afterPath="$PROJECT_DIR$/src/com/lol/Creatures.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/lol/DrakeStats.java" afterPath="$PROJECT_DIR$/src/com/lol/DrakeStats.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/lol/Hero.java" afterPath="$PROJECT_DIR$/src/com/lol/Hero.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/lol/Item.java" afterPath="$PROJECT_DIR$/src/com/lol/Item.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/lol/Unit.java" afterPath="$PROJECT_DIR$/src/com/lol/Unit.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,62 +21,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lol/Hero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="319" column="37" lean-forward="false" selection-start-line="319" selection-start-column="37" selection-end-line="319" selection-end-column="37" />
-              <folding>
-                <element signature="method#Hero#0;class#Hero#0" expanded="false" />
-                <element signature="method#setMana#0;class#Hero#0" expanded="false" />
-                <element signature="method#setApDamage#0;class#Hero#0" expanded="false" />
-                <element signature="method#setGold#0;class#Hero#0" expanded="false" />
-                <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
-                <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
-                <element signature="e#2943#2944#0" expanded="true" />
-                <element signature="e#2975#2976#0" expanded="true" />
-                <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
-                <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
-                <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
-                <element signature="method#magicAttack#0;class#Hero#0" expanded="false" />
-                <element signature="method#ultimateAttack#0;class#Hero#0" expanded="false" />
-                <element signature="method#heroAttackDrake#0;class#Hero#0" expanded="false" />
-                <element signature="method#heroAttackNashor#0;class#Hero#0" expanded="false" />
-                <element signature="method#move#0;class#Hero#0" expanded="false" />
-                <element signature="method#heroRevive#0;class#Hero#0" expanded="false" />
-                <element signature="method#listHeroes#0;class#Hero#0" expanded="false" />
-                <element signature="method#printHeroStats#0;class#Hero#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Unit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lol/Unit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-              <folding>
-                <element signature="e#1996#1997#0" expanded="true" />
-                <element signature="e#2025#2026#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="230" column="52" lean-forward="false" selection-start-line="230" selection-start-column="52" selection-end-line="230" selection-end-column="52" />
+            <state relative-caret-position="358">
+              <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#readyCheck#0;class#Application#0" expanded="false" />
                 <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
                 <element signature="method#selectItems#0;class#Application#0" expanded="false" />
-                <element signature="method#fightCreatures#0;class#Application#0" expanded="false" />
-                <element signature="method#getAnInteger#0;class#Application#0" expanded="false" />
+                <element signature="method#chooseEnemy#0;class#Application#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Items.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lol/Items.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,27 +49,14 @@
       <file leaf-file-name="Item.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lol/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="68">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding>
-                <element signature="method#toString#0;class#Item#0" expanded="false" />
                 <element signature="method#Item#0;class#Item#0" expanded="false" />
                 <element signature="method#buyItem#0;class#Item#0" expanded="false" />
                 <element signature="method#equipItem#0;class#Item#0" expanded="false" />
                 <element signature="method#unEquipItem#0;class#Item#0" expanded="false" />
-                <element signature="method#setStats#0;class#Item#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Nashor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lol/Nashor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="48" lean-forward="false" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-              <folding>
-                <element signature="method#attackHeroes#0;class#Nashor#0" expanded="false" />
+                <element signature="method#listItem#0;class#Item#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -106,62 +65,9 @@
       <file leaf-file-name="Creeps.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lol/Creeps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding>
-                <element signature="method#Creeps#0;class#Creeps#0" expanded="false" />
-                <element signature="method#attackHeroes#0;class#Creeps#0" expanded="false" />
-                <element signature="method#setSpeed#0;class#Creeps#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvalidStatsException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lol/InvalidStatsException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding>
-                <element signature="e#122#123#0" expanded="true" />
-                <element signature="e#152#153#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Creatures.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lol/Creatures.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-              <folding>
-                <element signature="method#Creatures#0;class#Creatures#0" expanded="false" />
-                <element signature="method#Creatures#1;class#Creatures#0" expanded="false" />
-                <element signature="method#creatureRespawn#0;class#Creatures#0" expanded="false" />
-                <element signature="e#1156#1157#0" expanded="true" />
-                <element signature="e#1180#1181#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Drake.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lol/Drake.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-              <folding>
-                <element signature="method#Drake#0;class#Drake#0" expanded="false" />
-                <element signature="method#setDrakeStats#0;class#Drake#0" expanded="false" />
-                <element signature="method#attackHeroes#0;class#Drake#0" expanded="false" />
-                <element signature="method#move#0;class#Drake#0" expanded="false" />
-                <element signature="method#setSpeed#0;class#Drake#0" expanded="false" />
-                <element signature="method#setBuffedDrakeSpeed#0;class#Drake#0" expanded="false" />
-                <element signature="e#3437#3438#0" expanded="true" />
-                <element signature="e#3469#3470#0" expanded="true" />
-                <element signature="method#setDrakeBuff#0;class#Drake#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,18 +93,18 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
         <option value="$PROJECT_DIR$/src/com/lol/Items.java" />
-        <option value="$PROJECT_DIR$/src/com/lol/Consts.java" />
-        <option value="$PROJECT_DIR$/src/com/lol/Item.java" />
         <option value="$PROJECT_DIR$/src/com/lol/ItemConsts.java" />
-        <option value="$PROJECT_DIR$/src/com/lol/DrakeStats.java" />
         <option value="$PROJECT_DIR$/src/com/lol/InvalidStatsException.java" />
-        <option value="$PROJECT_DIR$/src/Application.java" />
-        <option value="$PROJECT_DIR$/src/com/lol/Hero.java" />
-        <option value="$PROJECT_DIR$/src/com/lol/Unit.java" />
         <option value="$PROJECT_DIR$/src/com/lol/Nashor.java" />
         <option value="$PROJECT_DIR$/src/com/lol/Creeps.java" />
-        <option value="$PROJECT_DIR$/src/com/lol/Creatures.java" />
+        <option value="$PROJECT_DIR$/src/com/lol/Unit.java" />
         <option value="$PROJECT_DIR$/src/com/lol/Drake.java" />
+        <option value="$PROJECT_DIR$/src/com/lol/Hero.java" />
+        <option value="$PROJECT_DIR$/src/com/lol/Item.java" />
+        <option value="$PROJECT_DIR$/src/com/lol/Consts.java" />
+        <option value="$PROJECT_DIR$/src/com/lol/Creatures.java" />
+        <option value="$PROJECT_DIR$/src/com/lol/DrakeStats.java" />
+        <option value="$PROJECT_DIR$/src/Application.java" />
       </list>
     </option>
   </component>
@@ -228,117 +134,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ClassDiagram</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/lol/Item.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -493,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531097663288</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Application exception handling added , methods fully tested , ReviveDoncho added :D , too many changes &#10;to write at 4 am, love">
+      <created>1531097748454</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1531097748454</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -508,13 +311,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5293186" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6481775" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -527,6 +329,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -573,17 +376,119 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="319" column="37" lean-forward="false" selection-start-line="319" selection-start-column="37" selection-end-line="319" selection-end-column="37" />
+          <folding>
+            <element signature="method#Hero#0;class#Hero#0" expanded="false" />
+            <element signature="method#setMana#0;class#Hero#0" expanded="false" />
+            <element signature="method#setApDamage#0;class#Hero#0" expanded="false" />
+            <element signature="method#setGold#0;class#Hero#0" expanded="false" />
+            <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
+            <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
+            <element signature="e#2943#2944#0" expanded="true" />
+            <element signature="e#2975#2976#0" expanded="true" />
+            <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
+            <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
+            <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
+            <element signature="method#magicAttack#0;class#Hero#0" expanded="false" />
+            <element signature="method#ultimateAttack#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackNashor#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackCreep#0;class#Hero#0" expanded="false" />
+            <element signature="method#move#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroRevive#0;class#Hero#0" expanded="false" />
+            <element signature="method#listHeroes#0;class#Hero#0" expanded="false" />
+            <element signature="method#printHeroStats#0;class#Hero#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="30" column="46" lean-forward="false" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
+            <element signature="method#selectItems#0;class#Application#0" expanded="false" />
+            <element signature="method#chooseEnemy#0;class#Application#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="319" column="37" lean-forward="false" selection-start-line="319" selection-start-column="37" selection-end-line="319" selection-end-column="37" />
+          <folding>
+            <element signature="method#Hero#0;class#Hero#0" expanded="false" />
+            <element signature="method#setMana#0;class#Hero#0" expanded="false" />
+            <element signature="method#setApDamage#0;class#Hero#0" expanded="false" />
+            <element signature="method#setGold#0;class#Hero#0" expanded="false" />
+            <element signature="method#getIsDead#0;class#Hero#0" expanded="false" />
+            <element signature="method#setIsDead#0;class#Hero#0" expanded="false" />
+            <element signature="e#2943#2944#0" expanded="true" />
+            <element signature="e#2975#2976#0" expanded="true" />
+            <element signature="method#setHeroSpeed#0;class#Hero#0" expanded="false" />
+            <element signature="method#setHeroStats#0;class#Hero#0" expanded="false" />
+            <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
+            <element signature="method#magicAttack#0;class#Hero#0" expanded="false" />
+            <element signature="method#ultimateAttack#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackNashor#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackCreep#0;class#Hero#0" expanded="false" />
+            <element signature="method#move#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroRevive#0;class#Hero#0" expanded="false" />
+            <element signature="method#listHeroes#0;class#Hero#0" expanded="false" />
+            <element signature="method#printHeroStats#0;class#Hero#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="30" column="46" lean-forward="false" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
+            <element signature="method#selectItems#0;class#Application#0" expanded="false" />
+            <element signature="method#chooseEnemy#0;class#Application#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readyCheck#0;class#Application#0" expanded="false" />
             <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
             <element signature="method#selectItems#0;class#Application#0" expanded="false" />
-            <element signature="method#fightCreatures#0;class#Application#0" expanded="false" />
-            <element signature="method#getAnInteger#0;class#Application#0" expanded="false" />
+            <element signature="method#chooseEnemy#0;class#Application#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -592,7 +497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -600,7 +504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -608,7 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -630,8 +532,8 @@
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#magicAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#ultimateAttack#0;class#Hero#0" expanded="false" />
-            <element signature="method#heroAttackDrake#0;class#Hero#0" expanded="false" />
             <element signature="method#heroAttackNashor#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackCreep#0;class#Hero#0" expanded="false" />
             <element signature="method#move#0;class#Hero#0" expanded="false" />
             <element signature="method#heroRevive#0;class#Hero#0" expanded="false" />
             <element signature="method#listHeroes#0;class#Hero#0" expanded="false" />
@@ -644,7 +546,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -654,11 +559,9 @@
           <caret line="121" column="35" lean-forward="true" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readyCheck#0;class#Application#0" expanded="false" />
             <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
             <element signature="method#selectItems#0;class#Application#0" expanded="false" />
-            <element signature="method#fightCreatures#0;class#Application#0" expanded="false" />
-            <element signature="method#getAnInteger#0;class#Application#0" expanded="false" />
+            <element signature="method#chooseEnemy#0;class#Application#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -667,7 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,7 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -697,8 +598,8 @@
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#magicAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#ultimateAttack#0;class#Hero#0" expanded="false" />
-            <element signature="method#heroAttackDrake#0;class#Hero#0" expanded="false" />
             <element signature="method#heroAttackNashor#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackCreep#0;class#Hero#0" expanded="false" />
             <element signature="method#move#0;class#Hero#0" expanded="false" />
             <element signature="method#heroRevive#0;class#Hero#0" expanded="false" />
             <element signature="method#listHeroes#0;class#Hero#0" expanded="false" />
@@ -711,7 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -733,8 +633,8 @@
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#magicAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#ultimateAttack#0;class#Hero#0" expanded="false" />
-            <element signature="method#heroAttackDrake#0;class#Hero#0" expanded="false" />
             <element signature="method#heroAttackNashor#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackCreep#0;class#Hero#0" expanded="false" />
             <element signature="method#move#0;class#Hero#0" expanded="false" />
             <element signature="method#heroRevive#0;class#Hero#0" expanded="false" />
             <element signature="method#listHeroes#0;class#Hero#0" expanded="false" />
@@ -747,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,7 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -779,11 +677,9 @@
           <caret line="121" column="35" lean-forward="false" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readyCheck#0;class#Application#0" expanded="false" />
             <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
             <element signature="method#selectItems#0;class#Application#0" expanded="false" />
-            <element signature="method#fightCreatures#0;class#Application#0" expanded="false" />
-            <element signature="method#getAnInteger#0;class#Application#0" expanded="false" />
+            <element signature="method#chooseEnemy#0;class#Application#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -792,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,6 +769,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Drake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="method#attackHeroes#0;class#Drake#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/DrakeStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/InvalidStatsException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/ItemConsts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lol/Movable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -882,23 +811,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/Items.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/ItemConsts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="50" lean-forward="false" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/Consts.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Nashor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -906,18 +819,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/DrakeStats.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Unit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-178">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lol/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="319" column="37" lean-forward="false" selection-start-line="319" selection-start-column="37" selection-end-line="319" selection-end-column="37" />
+        <state relative-caret-position="85">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
             <element signature="method#Hero#0;class#Hero#0" expanded="false" />
             <element signature="method#setMana#0;class#Hero#0" expanded="false" />
@@ -932,8 +848,8 @@
             <element signature="method#normalAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#magicAttack#0;class#Hero#0" expanded="false" />
             <element signature="method#ultimateAttack#0;class#Hero#0" expanded="false" />
-            <element signature="method#heroAttackDrake#0;class#Hero#0" expanded="false" />
             <element signature="method#heroAttackNashor#0;class#Hero#0" expanded="false" />
+            <element signature="method#heroAttackCreep#0;class#Hero#0" expanded="false" />
             <element signature="method#move#0;class#Hero#0" expanded="false" />
             <element signature="method#heroRevive#0;class#Hero#0" expanded="false" />
             <element signature="method#listHeroes#0;class#Hero#0" expanded="false" />
@@ -942,108 +858,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="e#1996#1997#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="230" column="52" lean-forward="false" selection-start-line="230" selection-start-column="52" selection-end-line="230" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#readyCheck#0;class#Application#0" expanded="false" />
-            <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
-            <element signature="method#selectItems#0;class#Application#0" expanded="false" />
-            <element signature="method#fightCreatures#0;class#Application#0" expanded="false" />
-            <element signature="method#getAnInteger#0;class#Application#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/Nashor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="48" lean-forward="false" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-          <folding>
-            <element signature="method#attackHeroes#0;class#Nashor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lol/Creeps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="method#Creeps#0;class#Creeps#0" expanded="false" />
-            <element signature="method#attackHeroes#0;class#Creeps#0" expanded="false" />
-            <element signature="method#setSpeed#0;class#Creeps#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/InvalidStatsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#122#123#0" expanded="true" />
-            <element signature="e#152#153#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lol/Creatures.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+        <state relative-caret-position="34">
+          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="27" />
           <folding>
-            <element signature="method#Creatures#0;class#Creatures#0" expanded="false" />
-            <element signature="method#Creatures#1;class#Creatures#0" expanded="false" />
-            <element signature="method#creatureRespawn#0;class#Creatures#0" expanded="false" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
+            <element signature="e#565#652#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lol/Drake.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Consts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
           <folding>
-            <element signature="method#Drake#0;class#Drake#0" expanded="false" />
-            <element signature="method#setDrakeStats#0;class#Drake#0" expanded="false" />
-            <element signature="method#attackHeroes#0;class#Drake#0" expanded="false" />
-            <element signature="method#move#0;class#Drake#0" expanded="false" />
-            <element signature="method#setSpeed#0;class#Drake#0" expanded="false" />
-            <element signature="method#setBuffedDrakeSpeed#0;class#Drake#0" expanded="false" />
-            <element signature="e#3437#3438#0" expanded="true" />
-            <element signature="e#3469#3470#0" expanded="true" />
-            <element signature="method#setDrakeBuff#0;class#Drake#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#chooseHero#0;class#Application#0" expanded="false" />
+            <element signature="method#selectItems#0;class#Application#0" expanded="false" />
+            <element signature="method#chooseEnemy#0;class#Application#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lol/Items.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lol/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
-            <element signature="method#toString#0;class#Item#0" expanded="false" />
             <element signature="method#Item#0;class#Item#0" expanded="false" />
             <element signature="method#buyItem#0;class#Item#0" expanded="false" />
             <element signature="method#equipItem#0;class#Item#0" expanded="false" />
             <element signature="method#unEquipItem#0;class#Item#0" expanded="false" />
-            <element signature="method#setStats#0;class#Item#0" expanded="false" />
+            <element signature="method#listItem#0;class#Item#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,6 +1,6 @@
 package com.lol;
 
-public class DrakeStats {
+class DrakeStats {
     static final String CLOUD_NAME = "Cloud";
     static final int CLOUD_DAMAGE = 100;
     static final int CLOUD_ARMOR = 50;

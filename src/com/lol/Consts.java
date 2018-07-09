@@ -1,6 +1,6 @@
 package com.lol;
 
-public class Consts {
+class Consts {
 
 
     static String AHRI_NAME = "Ahri";
