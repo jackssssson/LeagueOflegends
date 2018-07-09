@@ -26,7 +26,7 @@ public class Unit {
     }
 
     void setName(String name) throws InvalidStatsException {
-        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH){
+        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
             throw new InvalidStatsException("Invalid name");
         }
 
@@ -38,7 +38,7 @@ public class Unit {
     }
 
     void setHealth(int health) throws InvalidStatsException {
-        if (health < MIN_HEALTH || health > MAX_HEALTH){
+        if (health < MIN_HEALTH || health > MAX_HEALTH) {
             throw new InvalidStatsException("Invalid health");
         }
 
@@ -50,7 +50,7 @@ public class Unit {
     }
 
     void setArmor(int armor) throws InvalidStatsException {
-        if (armor < MIN_ARMOR || armor > MAX_ARMOR){
+        if (armor < MIN_ARMOR || armor > MAX_ARMOR) {
             throw new InvalidStatsException("Invalid armor");
         }
 
@@ -62,7 +62,7 @@ public class Unit {
     }
 
     void setAttackDamage(int attackDamage) throws InvalidStatsException {
-        if (attackDamage < MIN_AD_DAMAGE || attackDamage > MAX_AD_DAMAGE){
+        if (attackDamage < MIN_AD_DAMAGE || attackDamage > MAX_AD_DAMAGE) {
             throw new InvalidStatsException("Invalid attackDamage");
         }
 

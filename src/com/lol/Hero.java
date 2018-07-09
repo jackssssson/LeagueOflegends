@@ -15,11 +15,11 @@ public class Hero extends Unit implements Movable {
     private static final int MAX_SPEED = 1000;
     private static final int GOLD_ON_KILL = 300;
     private static final int BUFFED_SPEED = 12;
-    private static final int STATS_DEAD = 0;
+    private static final int STATS_NULL = 0;
     private static final int MAGIC_ATTACK_MANA_COST = 75;
-    private static final int ADDITION_AP_DAMAGE = 45;
+    private static final int ADDITIONAL_AP_DAMAGE = 45;
     private static final int ULTIMATE_MANA_COST = 120;
-    private static final int ADDITION_ULTIMATE_DAMAGE = 45;
+    private static final int ADDITIONAL_ULTIMATE_DAMAGE = 45;
     private static final int BUFF_MANA = 20;
 
     private Consts constants = new Consts();
@@ -89,13 +89,13 @@ public class Hero extends Unit implements Movable {
 
     public void setIsDead(boolean dead) throws InvalidStatsException {
         if (dead) {
-            setHealth(STATS_DEAD);
-            setMana(STATS_DEAD);
-            setArmor(STATS_DEAD);
-            setGold(STATS_DEAD);
-            setHeroSpeed(STATS_DEAD);
-            setAttackDamage(STATS_DEAD);
-            setApDamage(STATS_DEAD);
+            setHealth(STATS_NULL);
+            setMana(STATS_NULL);
+            setArmor(STATS_NULL);
+            setGold(STATS_NULL);
+            setHeroSpeed(STATS_NULL);
+            setAttackDamage(STATS_NULL);
+            setApDamage(STATS_NULL);
             listHeroItems.clear();
             equippedItems.clear();
         }
@@ -141,16 +141,15 @@ public class Hero extends Unit implements Movable {
         }
 
         if (defenderHealth <= normalAttackDmg) {
-            defender.setHealth(STATS_DEAD);
             defender.setIsDead(true);
             attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
-            System.out.println(defender.getName()+" has been slain!");
+            System.out.println(defender.getName() + " has been slain!");
             System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
             return;
         }
 
         defender.setHealth((defenderHealth + defenderArmor) - normalAttackDmg);
-        defender.setArmor(STATS_DEAD);
+        defender.setArmor(STATS_NULL);
     }
 
     public void magicAttack(Hero attacker, Hero defender) throws InvalidStatsException {
@@ -166,7 +165,7 @@ public class Hero extends Unit implements Movable {
 
         } else {
 
-            int magicAttackDmg = attackerAP + ADDITION_AP_DAMAGE;
+            int magicAttackDmg = attackerAP + ADDITIONAL_AP_DAMAGE;
             if (defenderArmor >= magicAttackDmg) {
                 defender.setArmor(defenderArmor - magicAttackDmg);
                 attacker.setMana(attackerMana - magicAttackManaCost);
@@ -174,16 +173,16 @@ public class Hero extends Unit implements Movable {
             }
             if (defenderHealth <= magicAttackDmg) {
                 attacker.setMana(attackerMana - magicAttackManaCost);
-                defender.setHealth(STATS_DEAD);
+                defender.setHealth(STATS_NULL);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
-                System.out.println(defender.getName()+" has been slain!");
+                System.out.println(defender.getName() + " has been slain!");
                 System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
             attacker.setMana(attackerMana - magicAttackManaCost);
             defender.setHealth((defenderHealth + defenderArmor) - magicAttackDmg);
-            defender.setArmor(STATS_DEAD);
+            defender.setArmor(STATS_NULL);
 
         }
     }
@@ -202,7 +201,7 @@ public class Hero extends Unit implements Movable {
             attacker.setMana(getMana() + BUFF_MANA);
         } else {
 
-            int ultimateDmg = attackerAP + attackerAD + ADDITION_ULTIMATE_DAMAGE;
+            int ultimateDmg = attackerAP + attackerAD + ADDITIONAL_ULTIMATE_DAMAGE;
             if (defenderArmor >= ultimateDmg) {
                 defender.setArmor(defenderArmor - ultimateDmg);
                 attacker.setMana(attackerMana - ultimateManaCost);
@@ -210,17 +209,17 @@ public class Hero extends Unit implements Movable {
             }
             if (defenderHealth <= ultimateDmg) {
                 attacker.setMana(attackerMana - ultimateManaCost);
-                defender.setHealth(STATS_DEAD);
+                defender.setHealth(STATS_NULL);
                 defender.setIsDead(true);
                 attacker.setGold(attacker.getGold() + GOLD_ON_KILL);
-                System.out.println(defender.getName()+" has been slain!");
+                System.out.println(defender.getName() + " has been slain!");
                 System.out.println(attacker.getName() + " receives " + GOLD_ON_KILL + " gold for killing " + defender.getName());
                 return;
             }
 
             attacker.setMana(attackerMana - ultimateManaCost);
             defender.setHealth((defenderHealth + defenderArmor) - ultimateDmg);
-            defender.setArmor(STATS_DEAD);
+            defender.setArmor(STATS_NULL);
 
         }
 
@@ -244,35 +243,33 @@ public class Hero extends Unit implements Movable {
         int absorbDamage = drakeArmor / drake.getAbsorbDamage();
         drakeHealth -= getAttackDamage() - absorbDamage;
 
-        if (drakeHealth <= STATS_DEAD) {
-            drake.setHealth(STATS_DEAD);
+        if (drakeHealth <= STATS_NULL) {
+            drake.setHealth(STATS_NULL);
             drake.setIsDead(true);
             System.out.println("Drake is dead!");
-            switch (drake.getName()) {
-                case "CLOUD":
-                    setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
-                    break;
-                case "INFERNAL":
-                    setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
-                    break;
-                case "MOUNTAIN":
-                    setArmor(getArmor() + drake.getDrakeBuff());
-                    break;
-                case "OCEAN":
-                    setHealth(getHealth() + drake.getDrakeBuff());
-                    break;
-                case "ELDER":
-                    setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
-                    setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
-                    setArmor(getArmor() + drake.getDrakeBuff());
-                    setHealth(getHealth() + drake.getDrakeBuff());
-                    break;
-
-            }
-
             return;
         }
+        switch (drake.getName()) {
+            case "CLOUD":
+                setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
+                break;
+            case "INFERNAL":
+                setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
+                break;
+            case "MOUNTAIN":
+                setArmor(getArmor() + drake.getDrakeBuff());
+                break;
+            case "OCEAN":
+                setHealth(getHealth() + drake.getDrakeBuff());
+                break;
+            case "ELDER":
+                setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
+                setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
+                setArmor(getArmor() + drake.getDrakeBuff());
+                setHealth(getHealth() + drake.getDrakeBuff());
+                break;
 
+        }
         drake.setHealth(drakeHealth);
     }
 
@@ -287,8 +284,8 @@ public class Hero extends Unit implements Movable {
         int absorbDamage = nashorArmor / nashor.getAbsorbDamage();
         nashorHealth -= getAttackDamage() - absorbDamage;
 
-        if (nashorHealth <= STATS_DEAD) {
-            nashor.setHealth(STATS_DEAD);
+        if (nashorHealth <= STATS_NULL) {
+            nashor.setHealth(STATS_NULL);
             nashor.setIsDead(true);
             System.out.println("Nashor is dead!");
             setGold(getGold() + nashor.getNashorBuff());
@@ -316,11 +313,11 @@ public class Hero extends Unit implements Movable {
         int absorbDamage = creepArmor / creep.getAbsorbDamage();
         creepHealth -= getAttackDamage() - absorbDamage;
 
-        if (creepHealth <= STATS_DEAD) {
-            creep.setHealth(STATS_DEAD);
+        if (creepHealth <= STATS_NULL) {
+            creep.setHealth(STATS_NULL);
             creep.setIsDead(true);
             setGold(getGold() + creep.getCreepBuff());
-            System.out.println("Creep is dead!");
+            System.out.println("Creep has been slain");
             return;
         }
 
@@ -362,7 +359,7 @@ public class Hero extends Unit implements Movable {
             String name = HeroesList[i].toUpperCase();
             int SpacesNeeded = 20 - name.length();
             String Space = " ";
-            System.out.print((i+1)+"\t"+HeroesList[i]);
+            System.out.print((i + 1) + "\t" + HeroesList[i]);
             for (int j = 0; j < SpacesNeeded; j++) {
                 System.out.print(Space);
             }
@@ -375,7 +372,8 @@ public class Hero extends Unit implements Movable {
         }
         System.out.println();
     }
-    public void  printHeroStats() {
+
+    public void printHeroStats() {
         String name = getName();
         System.out.print(name.toUpperCase());
         int SpacesNeeded = 15 - name.length();
@@ -389,7 +387,7 @@ public class Hero extends Unit implements Movable {
                 "\t ATTACK DAMAGE:" + getAttackDamage() +
                 "\t ABILITY POWER;" + apDamage +
                 "\t GOLD:" + gold +
-                "\t RANGE:" + heroSpeed );
+                "\t RANGE:" + heroSpeed);
 
     }
 

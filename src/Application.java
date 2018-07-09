@@ -1,305 +1,137 @@
 import com.lol.*;
+
+import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) throws NoSuchFieldException,
             IllegalAccessException, InvalidStatsException {
 
-        Hero hero = new Hero("Pantheon");
         Creatures creep = new Creeps();
         Creatures drake = new Drake("Mountain");
         Creatures nashor = new Nashor();
         Item Store = new Item();
         String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
         String[] HeroesList = Heroes.split(" ");
-
-
+        Random rand = new Random();
+        int min = 1;
+        int max = HeroesList.length;
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        Hero hero = new Hero(HeroesList[randomNum - 1]);
         Scanner in = new Scanner(System.in);
-        System.out.println("Welcome to League of legends!!");
-        System.out.println("To start a game write ready");
-        String readyCheck = in.nextLine();
-        if (readyCheck.equals("ready")) {
-            //user chooses a Hero from a list of heroes
+
+        //checks if the player is ready
+        boolean readyChecker = readyCheck();
+
+
+        if (readyChecker) {
+            //User selects a Hero from the HeroesList
             System.out.println("Your first step is to select a Hero");
+            hero.listHeroes();
             String playerSelection = HeroesList[chooseHero()];
             Hero player = new Hero(playerSelection);
             System.out.println("You have selected " + player.getName());
 
-            //user buys 3 items for his hero
+            //User buys and equips 3 items
             selectItems(Store, player);
 
-
-            System.out.println("Now you must choose your enemy");
-            System.out.println("To fight player Doncho - press 1");
-            System.out.println("To fight against Creatures - press 2");
-            int enemy = in.nextInt();
+            //Select an Enemy
+            int enemy = chooseEnemy();
 
             if (enemy == 1) {
+                System.out.println("Doncho chooses " + hero.getName() + " to fight for him!");
                 fightDoncho(player, hero);
-
-             }if(enemy==2){
-                fightCreatures(player,creep,drake,nashor);
-
-            } else {
-                System.out.println("Invalid enemy selection");
+                return;
             }
+            if (enemy == 2) {
+                fightCreatures(player, creep, drake, nashor);
+            }
+
         }
 
 
     }
 
-    public void commennt() {
-//
-//        //heroAttackDrake
-//
-//        System.out.println(hero.getName() + " speed before attack drake " + hero.getHeroSpeed());
-//        System.out.println(hero.getName() + " attackDamage before attack drake " + hero.getAttackDamage());
-//        System.out.println(hero.getName() + " armor before attack drake " + hero.getArmor());
-//        System.out.println(hero.getName() + " health before attack drake " + hero.getHealth());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 250; i++){
-//            hero.heroAttackDrake((Drake) drake);
-//            if (drake.getHealth() <= 0){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.println(drake.getName() + " health is " + drake.getHealth());
-//        }
-//
-//        System.out.println(hero.getName() + " speed after attack drake " + hero.getHeroSpeed());
-//        System.out.println(hero.getName() + " attackDamage after attack drake " + hero.getAttackDamage());
-//        System.out.println(hero.getName() + " armor after attack drake " + hero.getArmor());
-//        System.out.println(hero.getName() + " health after attack drake " + hero.getHealth());
-//        System.out.println("-------------------------------------");
-//
-//        //respawn drake
-//        drake = drake.creatureRespawn(drake);
-//        System.out.println(drake.getName() + " is respawn");
-//        System.out.println("-------------------------------------");
-//
-//
-//        //heroAttackNashor
-//
-//        System.out.println(hero.getName() + " gold before attack Nashor is " + hero.getGold());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 1000; i++){
-//            hero.heroAttackNashor((Nashor) nashor);
-//            if (nashor.getHealth() <= 0){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.println(nashor.getName() + " health is " + nashor.getHealth());
-//        }
-//
-//        System.out.println(hero.getName() + " gold after attack Nashor is " + hero.getGold());
-//        System.out.println("-------------------------------------");
-//
-//        //respawn nashor
-//        nashor = nashor.creatureRespawn(nashor);
-//        System.out.println(nashor.getName() + " is respawn");
-//        System.out.println("-------------------------------------");
-//
-//
-//        //heroAttackCreep
-//
-//        System.out.println(hero.getName() + " gold before attack creep is " + hero.getGold());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 1000; i++){
-//            hero.heroAttackCreep((Creeps) creep);
-//            if (creep.getHealth() <= 0){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.println(creep.getName() + " health is " + creep.getHealth());
-//        }
-//
-//        System.out.println(hero.getName() + " gold after attack creep is " + hero.getGold());
-//        System.out.println("-------------------------------------");
-//
-//        //respawn creep
-//
-//        creep = creep.creatureRespawn(creep);
-//        System.out.println(creep.getName() + " is respawn");
-//        System.out.println("-------------------------------------");
-//
-//
-//        //creepAttackHero
-//
-//        System.out.println(hero.getName() + " health before creep attack him " + hero.getHealth());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 250; i++){
-//            creep.attackHeroes(hero);
-//            if (hero.getHealth() <= 0){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.println(hero.getName() + " health after creep attack him " + hero.getHealth());
-//        }
-//
-//
-//        //heroRevive
-//
-//        hero.heroRevive(hero);
-//        System.out.println(hero.getName() + " is revive");
-//        System.out.println("-------------------------------------");
-//
-//
-//        //nashorAttackHero
-//
-//        System.out.println(hero.getName() + " health before nashor attack him " + hero.getHealth());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 250; i++){
-//            nashor.attackHeroes(hero);
-//            if (hero.getHealth() <= 0){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.println(hero.getName() + " health after nashor attack him " + hero.getHealth());
-//        }
-//
-//        //heroRevive
-//
-//        hero.heroRevive(hero);
-//        System.out.println(hero.getName() + " is revive");
-//        System.out.println("-------------------------------------");
-//
-//
-//        //drakeAttackHero
-//
-//        System.out.println(hero.getName() + " health before drake attack him " + hero.getHealth());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 250; i++){
-//            drake.attackHeroes(hero);
-//            if (hero.getHealth() <= 0){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.println(hero.getName() + " health after drake attack him " + hero.getHealth());
-//        }
-//
-//
-//        //heroRevive
-//
-//        hero.heroRevive(hero);
-//        System.out.println(hero.getName() + " is revive");
-//        System.out.println("-------------------------------------");
-//
-//
-//
-//        //normalAttack
-//
-//        System.out.println("Available Heroes: " + Arrays.toString(HeroesList));
-//        System.out.print("Choose your hero: ");
-//        Hero enemyHeroNormalAttack = new Hero(in.nextLine().toUpperCase());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 250; i++){
-//            hero.normalAttack(hero, enemyHeroNormalAttack);
-//            if (enemyHeroNormalAttack.getIsDead()){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.printf("%s health after %s attack him with normal attack is %s\n",
-//                    enemyHeroNormalAttack.getName(),  hero.getName(), enemyHeroNormalAttack.getHealth());
-//        }
-//
-//
-//        //magicAttack
-//
-//        System.out.println("Available Heroes: " + Arrays.toString(HeroesList));
-//        System.out.print("Choose your hero: ");
-//        Hero enemyHeroMagicAttack = new Hero(in.nextLine().toUpperCase());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 250; i++){
-//            hero.magicAttack(hero, enemyHeroMagicAttack);
-//            if (enemyHeroMagicAttack.getIsDead()){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.printf("%s health after %s attack him with magic attack is %s\n",
-//                    enemyHeroMagicAttack.getName(),  hero.getName(), enemyHeroMagicAttack.getHealth());
-//        }
-//
-//
-//        //ultimateAttack
-//        System.out.println("Available Heroes: " + Arrays.toString(HeroesList));
-//        System.out.print("Choose your hero: ");
-//        Hero enemyHeroUltimateAttack = new Hero(in.nextLine().toUpperCase());
-//        System.out.println("-------------------------------------");
-//
-//        for (int i = 0; i < 250; i++){
-//            hero.ultimateAttack(hero, enemyHeroUltimateAttack);
-//            if (enemyHeroUltimateAttack.getIsDead()){
-//                System.out.println("-------------------------------------");
-//                break;
-//            }
-//            System.out.printf("%s health after %s attack him with ultimate attack is %s\n",
-//                    enemyHeroUltimateAttack.getName(),  hero.getName(), enemyHeroUltimateAttack.getHealth());
-//        }
-//
-//
-//        //items
-//
-//        Item newItem = new Item();
-//        newItem.listItem();
-//        System.out.println("-------------------------------------");
-//        System.out.println("You have "+ hero.getGold()+" gold.");
-//        System.out.println(hero.getName() + " stats before buy items is: damage "+ hero.getAttackDamage()+", armor "+hero.getArmor()+", magic "+hero.getApDamage());
-//        System.out.println("You can't equip more than 4 items, but you can buy more. Choose items to buy (when you are ready press enter): ");
-//        System.out.println("HUNTERS_MACHETE BILGWATER_CUTLASS AEGIS_OF_THE_LEGION DORANS_SHIELD ARCANE_SWEEPER");
-//        String[] chosenItems = in.nextLine().toUpperCase().split(" ");
-//        System.out.println("-------------------------------------");
-//
-//        //buy and equip new items
-//
-//        for (String item : chosenItems) {
-//            for (Items items : Items.values()) {
-//                if (item.equals(items.toString())) {
-//                    newItem.buyItem(hero, items);
-//                }
-//            }
-//        }
-//
-//        System.out.println("-------------------------------------");
-//        System.out.println("You left "+ hero.getGold()+" gold, after shopping.");
-//        System.out.println(hero.getName() + " stats after buy items is: damage "+ hero.getAttackDamage()+", armor "+hero.getArmor()+", magic "+hero.getApDamage());
-//        System.out.println("The items that you have are: ");
-//        System.out.println(hero.getListHeroItems());
-//        System.out.println("The items that you are equipped are: ");
-//        System.out.println(hero.getEquippedItems());
-//        System.out.println("-------------------------------------");
-//
+
+    private static boolean readyCheck() {
+        Scanner in = new Scanner(System.in);
+        boolean readycheck = false;
+        System.out.println("Welcome to League of legends!!");
+        System.out.println("To start a game write \"ready\" ");
+        int readyCount = 0;
+        String readyCheck = in.nextLine();
+        while (!readyCheck.equals("ready")) {
+            try {
+                System.out.println("To start a game write \"ready\". ");
+                System.out.println("Check if you are spelling \"ready\" correct. ");
+                readyCheck = in.nextLine();
+
+            } catch (InputMismatchException e) {
+                in.next();
+            }
+            readyCount++;
+            if (readyCount >= 3) {
+                System.out.println("I guess you were never ready for this game :/");
+                return false;
+            }
+
+        }
+        if (readyCheck.equals("ready")) {
+            readycheck = true;
+        }
+
+        return readycheck;
     }
 
-    private static int chooseHero() throws NoSuchFieldException,
-            IllegalAccessException, InvalidStatsException {
-
+    private static int chooseHero() {
         Scanner in = new Scanner(System.in);
-        Hero hero = new Hero("Pantheon");
-        hero.listHeroes();
-        System.out.print("To choose your hero , enter it's number and press Enter! ");
-        return in.nextInt() - 1;
+        System.out.println("To choose your hero , enter it's number and press Enter! ");
+        int selectedHero = getAnInteger();
+        while (selectedHero > 5) {
+            try {
+                System.out.println("There is no such Hero.");
+                System.out.println("Please choose a number from the list to continue. ");
+                selectedHero = in.nextInt();
+
+            } catch (InputMismatchException e) {
+                in.next();
+                System.out.print("It seems like you did not enter a number buddy! ");
+
+            }
+
+
+        }
+
+        return selectedHero - 1;
 
 
     }
 
     private static void selectItems(Item Store, Hero player) throws NoSuchFieldException,
             IllegalAccessException, InvalidStatsException {
-        System.out.println();
         Scanner in = new Scanner(System.in);
+        System.out.println();
         System.out.println("Your second step is to buy your hero some equipment, select your items from the store: ");
         Store.listItem();
         System.out.println("To buy an item - enter it's number and press Enter , you are allowed to buy up to 3 items");
         for (int i = 0; i < 3; i++) {
             System.out.println("Select an item from the list:");
-            int selectedItem = in.nextInt();
+            int selectedItem = getAnInteger();
+            while (selectedItem > 5) {
+                try {
+                    System.out.println("There is no such Item.");
+                    System.out.println("Please choose a number from the list to continue. ");
+                    selectedItem = in.nextInt();
+
+                } catch (InputMismatchException e) {
+                    in.next();
+                    System.out.print("It seems like you did not enter a number buddy! ");
+
+                }
+
+
+            }
             switch (selectedItem) {
                 case 1:
                     Store.buyItem(player, Items.HUNTERS_MACHETE);
@@ -330,46 +162,218 @@ public class Application {
         System.out.println();
     }
 
-    private static void fightDoncho(Hero player, Hero doncho) throws InvalidStatsException {
+    private static int chooseEnemy() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Now you must choose your enemy");
+        System.out.println("To fight player Doncho - press 1");
+        System.out.println("To fight against Creatures - press 2");
+        int enemy = getAnInteger();
+        while (enemy > 2) {
+            try {
+                System.out.println("Please Press 1 or 2 to continue");
+                enemy = in.nextInt();
+
+            } catch (InputMismatchException e) {
+                in.next();
+                System.out.print("It seems like you did not enter a correct number buddy! ");
+                System.out.println("Please press 1 or 2 to continue ");
+            }
+
+        }
+        return enemy;
+    }
+
+    private static void fightDoncho(Hero player, Hero doncho) throws InvalidStatsException, NoSuchFieldException, IllegalAccessException {
         System.out.println("Your hero has 3 attacks: Normal , Magic and Ultimate Attack");
         System.out.println("To attack with each spell in the following order , press 1,2 or 3 and hit Enter!");
         int round = 1;
         while (doncho.getHealth() > 0 && player.getHealth() > 0) {
             System.out.println("Round " + round + " - FIGHT!");
-            Scanner in = new Scanner(System.in);
             System.out.println("Choose your attack");
             System.out.println();
-            int chosenAttack = in.nextInt();
+            int chosenAttack = getAnInteger();
+
             switch (chosenAttack) {
                 case 1:
                     player.normalAttack(player, doncho);
+                    System.out.println("You attacked Doncho with Normal attack!");
                     break;
                 case 2:
                     player.magicAttack(player, doncho);
+                    System.out.println("You attacked Doncho with Magic attack! ");
                     break;
                 case 3:
                     player.ultimateAttack(player, doncho);
+                    System.out.println("You attacked Doncho with your Ultimate attack! ");
                     break;
 
             }
+            doncho.normalAttack(doncho, player);
+
             if (player.getHealth() > 0 && doncho.getHealth() > 0) {
+                System.out.println(doncho.getName() + " attacked with Normal attack for " + doncho.getAttackDamage() + " damage!");
                 System.out.println();
                 System.out.println("Player stats after round " + round + ":");
                 player.printHeroStats();
                 doncho.printHeroStats();
                 round++;
-            }
+            } else {
+                if (doncho.getIsDead()) {
+                    Scanner donchoScans = new Scanner(System.in);
+                    System.out.println("VICTORY , you defeated Doncho!!!");
+                    System.out.println("If you wish to revive Doncho press write \"love for Doncho\", otherwise press Enter");
+                    String loveDoncho = donchoScans.nextLine();
+                    if (loveDoncho.equals("love for Doncho")) {
+                        doncho.heroRevive(doncho);
+                        System.out.println("To all Legends DONCHO is ALIVE ");
+                    } else {
+                        System.out.println("No love for Doncho :/ ");
+                        System.out.println("You WIN!");
+                    }
+                } else {
+                    System.out.println("DEFEAT , Doncho has defeated you :/ ");
+                }
 
+            }
         }
     }
 
-    private static void fightCreatures(Hero player , Creatures creep, Creatures drake , Creatures nashor){
+    private static void fightCreatures(Hero player, Creatures creep, Creatures drake, Creatures nashor) throws InvalidStatsException {
         System.out.println("Hello player , you are about to face some dangerous creatures !!");
-        System.out.println("You have chosen "+player.getName()+" to fight for you.");
+        System.out.println("You have chosen " + player.getName() + " to fight for you.");
         System.out.println("In this mode , in order to win you have to defeat all Creatures in the game");
-        System.out.println("Beware!! CREEPS ARE APPROACHING! To attack them press 1 and hit Enter");
-        System.out.println("Creep Health "+creep.getHealth());
-        System.out.println("Drake Health "+drake.getHealth());
-        System.out.println("Nashor Health "+nashor.getHealth());
+        System.out.println("BEWARE, A CREEP IS APPROACHING!!");
+        int round = 1;
+        while (creep.getHealth() > 0) {
+            System.out.println();
+            System.out.println("Round " + round + " - FIGHT!");
+            Scanner in = new Scanner(System.in);
+            System.out.println("Press 1 and hit Enter to attack ");
+            System.out.println();
+            int chosenAttack = getAnInteger();
+            while (chosenAttack > 1) {
+                try {
+                    System.out.println("If you want to attack press 1 and hit Enter. ");
+                    chosenAttack = in.nextInt();
+
+                } catch (InputMismatchException e) {
+                    in.next();
+                    System.out.print("It seems like you did not enter a number buddy! ");
+
+                }
+
+
+            }
+            if (chosenAttack == 1) {
+                player.heroAttackCreep((Creeps) creep);
+                creep.attackHeroes(player);
+                if (player.getHealth() > 0 && creep.getHealth() > 0) {
+                    System.out.println("Creep attacked " + player.getName() + " for " + creep.getAttackDamage());
+                    System.out.println();
+                    System.out.println("Player and creep stats after round " + round + ":");
+                    player.printHeroStats();
+                    System.out.println("CREEP HEALTH: " + creep.getHealth());
+                    round++;
+                }
+            }
+
+
+        }
+        System.out.println("Congratulations, you have defeated the first creature!!");
+        System.out.println();
+        System.out.println("Now you must face the mighty Mountain Drake");
+        round = 1;
+        while (drake.getHealth() > 0) {
+            System.out.println();
+            System.out.println("Round " + round + " - FIGHT!");
+            Scanner in = new Scanner(System.in);
+            System.out.println("Press 1 and Enter to attack. ");
+            System.out.println();
+            int chosenAttack = getAnInteger();
+            while (chosenAttack > 1) {
+                try {
+                    System.out.println("If you want to attack the drake press 1 and hit Enter. ");
+                    chosenAttack = in.nextInt();
+
+                } catch (InputMismatchException e) {
+                    in.next();
+                    System.out.print("It seems like you did not enter a number buddy! ");
+
+                }
+
+
+            }
+            if (chosenAttack == 1) {
+                player.heroAttackDrake((Drake) drake);
+                drake.attackHeroes(player);
+                if (player.getHealth() > 0 && drake.getHealth() > 0) {
+                    System.out.println(player.getName() + "Attacked drake for " + player.getAttackDamage() + ",but Drake absorbed some damage!");
+                    System.out.println("Drake attacked " + player.getName() + " for " + drake.getAttackDamage() + ",but " + player.getName() + " absorbed some damage!");
+                    System.out.println();
+                    System.out.println("Player and Drake stats after round: " + round + ":");
+                    player.printHeroStats();
+                    System.out.println("DRAKE HEALTH:\t " + drake.getHealth());
+                    round++;
+                }
+            }
+
+
+        }
+        System.out.println();
+        System.out.println("Good JOB! Now you must face the final boss - BARON NASHOR");
+        round = 1;
+        while (nashor.getHealth() > 0) {
+            System.out.println();
+            System.out.println("Round " + round + " - FIGHT!");
+            Scanner in = new Scanner(System.in);
+            System.out.println("Press 1 and Enter to attack. ");
+            System.out.println();
+            int chosenAttack = getAnInteger();
+            while (chosenAttack > 1) {
+                try {
+                    System.out.println("If you want to attack Nashor press 1 and hit Enter. ");
+                    chosenAttack = in.nextInt();
+
+                } catch (InputMismatchException e) {
+                    in.next();
+                    System.out.print("It seems like you did not enter a number buddy! ");
+
+                }
+
+
+            }
+            if (chosenAttack == 1) {
+                player.heroAttackNashor((Nashor) nashor);
+                drake.attackHeroes(player);
+                if (player.getHealth() > 0 && nashor.getHealth() > 0) {
+                    System.out.println(player.getName() + "Attacked Nashor for " + player.getAttackDamage() + ",but Nashor absorbed some damage!");
+                    System.out.println("Nashor attacked " + player.getName() + " for " + nashor.getAttackDamage() + ",but " + player.getName() + " absorbed some damage!");
+                    System.out.println();
+                    System.out.println("Player and Nashor stats after round: " + round + ":");
+                    player.printHeroStats();
+                    System.out.println("Nashor HEALTH:\t " + nashor.getHealth());
+                    round++;
+                }
+            }
+
+
+        }
+        System.out.println("Excellent!! You have defeated all the Creatures");
+        System.out.println("VICTORY");
+
     }
+
+    private static int getAnInteger() {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            try {
+                return sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.next();
+                System.out.print("It seems like you did not enter a number buddy! ");
+                System.out.println("Try again: ");
+            }
+        }
+    }
+
 }
