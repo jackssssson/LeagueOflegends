@@ -18,7 +18,7 @@ public class Item {
             hero.getListHeroItems().add(item);
             equipItem(hero, item);
             if (hero.getEquippedItems().size() > ItemConsts.MAX_EQUIPPED_ITEMS) {
-                System.out.println("You have equipped too much items, which one you want to unequip from next list:");
+                System.out.println("You have equipped too much items, which one you want to unequipped from next list:");
                 System.out.println(hero.getEquippedItems());
                 oldItem = in.nextLine().toUpperCase();
                 System.out.println();
