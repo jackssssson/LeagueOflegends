@@ -2,7 +2,7 @@ package com.lol;
 
 class DrakeStats {
     static final String CLOUD_NAME = "Cloud";
-    static final int CLOUD_DAMAGE = 100;
+    static final int CLOUD_DAMAGE = 35;
     static final int CLOUD_ARMOR = 50;
     static final int CLOUD_HEALTH = 750;
     static final int CLOUD_SPEED = 250;
@@ -12,7 +12,7 @@ class DrakeStats {
 
 
     static final String INFERNAL_NAME = "Infernal";
-    static final int INFERNAL_DAMAGE = 450;
+    static final int INFERNAL_DAMAGE = 30;
     static final int INFERNAL_ARMOR = 60;
     static final int INFERNAL_HEALTH = 800;
     static final int INFERNAL_SPEED = 270;
@@ -39,9 +39,9 @@ class DrakeStats {
     static final int OCEAN_BUFF = 200;
 
     static final String ELDER_NAME = "Elder";
-    static final int ELDER_DAMAGE = 200;
+    static final int ELDER_DAMAGE = 50;
     static final int ELDER_ARMOR = 120;
-    static final int ELDER_HEALTH = 10000;
+    static final int ELDER_HEALTH = 900;
     static final int ELDER_SPEED = 60;
     static final int ELDER_BUFFED_SPEED = 15;
     static final int ELDER_ABSORB_DAMAGE = 6;

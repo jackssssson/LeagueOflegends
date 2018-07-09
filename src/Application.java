@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) throws NoSuchFieldException,
             IllegalAccessException, InvalidStatsException {
-
+        String drakes = "Mountain Infernal Ocean Elder Cloud";
+        String[]drakeList = drakes.split(" ");
         Creatures creep = new Creeps();
-        Creatures drake = new Drake("Mountain");
         Creatures nashor = new Nashor();
         Item Store = new Item();
         String Heroes = "Ahri Jarvan Zed Lucian Pantheon";
@@ -20,6 +20,7 @@ public class Application {
         int min = 1;
         int max = HeroesList.length;
         int randomNum = rand.nextInt((max - min) + 1) + min;
+        Creatures drake = new Drake(drakeList[randomNum-1]);
         Hero hero = new Hero(HeroesList[randomNum - 1]);
 
         //checks if the player is ready
@@ -282,7 +283,7 @@ public class Application {
         }
         System.out.println("Congratulations, you have defeated the first creature!!");
         System.out.println();
-        System.out.println("Now you must face the mighty Mountain Drake");
+        System.out.println("Now you must face the mighty "+drake.getName()+ " Drake");
         round = 1;
         while (drake.getHealth() > 0) {
             System.out.println();
