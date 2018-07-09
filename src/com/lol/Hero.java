@@ -247,29 +247,30 @@ public class Hero extends Unit implements Movable {
             drake.setHealth(STATS_NULL);
             drake.setIsDead(true);
             System.out.println("Drake is dead!");
+            switch (drake.getName()) {
+                case "CLOUD":
+                    setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
+                    break;
+                case "INFERNAL":
+                    setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
+                    break;
+                case "MOUNTAIN":
+                    setArmor(getArmor() + drake.getDrakeBuff());
+                    break;
+                case "OCEAN":
+                    setHealth(getHealth() + drake.getDrakeBuff());
+                    break;
+                case "ELDER":
+                    setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
+                    setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
+                    setArmor(getArmor() + drake.getDrakeBuff());
+                    setHealth(getHealth() + drake.getDrakeBuff());
+                    break;
+            }
             return;
         }
-        switch (drake.getName()) {
-            case "CLOUD":
-                setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
-                break;
-            case "INFERNAL":
-                setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
-                break;
-            case "MOUNTAIN":
-                setArmor(getArmor() + drake.getDrakeBuff());
-                break;
-            case "OCEAN":
-                setHealth(getHealth() + drake.getDrakeBuff());
-                break;
-            case "ELDER":
-                setHeroSpeed(getHeroSpeed() + drake.getDrakeBuff());
-                setAttackDamage(getAttackDamage() + drake.getDrakeBuff());
-                setArmor(getArmor() + drake.getDrakeBuff());
-                setHealth(getHealth() + drake.getDrakeBuff());
-                break;
 
-        }
+
         drake.setHealth(drakeHealth);
     }
 
